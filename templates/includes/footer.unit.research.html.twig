@@ -1,0 +1,159 @@
+<hr class="my-0 border-2 border-ubc-blue-cornflower" />
+<section id="vpri_footer" class="bg-ubc-blue-polar">
+  <div class="container px-4 py-8 mx-auto unit-content">
+    <ul class="grid grid-cols-12 gap-8 pl-0 my-0 list-none">
+      <li class="col-span-12 sm--col-span-6 md--col-span-4">
+        <h4 class="mt-0 font-sans uppercase text-grey-800 h5">Research Excellence</h4>
+        <a href="/research-excellence" class="block pt-2 text-sm no-underline">Learn why UBC ranks in the world's top 40 <svg role="img"
+            class="inline-block w-6 h-6">
+            <use xlink:href="#icon-caret"></use>
+          </svg></a>
+      </li>
+      <li class="col-span-12 sm--col-span-6 md--col-span-4">
+        <h4 class="mt-0 font-sans uppercase text-grey-800 h5">Innovation + Partnerships</h4>
+        <a href="/innovation-partnerships" class="block pt-2 text-sm no-underline">See how UBC researchers are shaping our world <svg role="img"
+            class="inline-block w-6 h-6">
+            <use xlink:href="#icon-caret"></use>
+          </svg></a>
+      </li>
+      <li class="col-span-12 sm--col-span-6 md--col-span-4">
+        <h4 class="mt-0 font-sans uppercase text-grey-800 h5">Support for Researchers</h4>
+        <a href="/find-support" class="block pt-2 text-sm no-underline">Get the help you need for your research activities <svg role="img"
+            class="inline-block w-6 h-6">
+            <use xlink:href="#icon-caret"></use>
+          </svg></a>
+      </li>
+      <li class="col-span-12 sm--col-span-6 md--col-span-4">
+        <h4 class="mt-0 font-sans uppercase text-grey-800 h5">VPRI Competitions + Initiatives</h4>
+        <a href="/vpri-competitions-initiatives" class="block pt-2 text-sm no-underline">Learn about VPRI strategic campus-wide competitions and
+          initiatives <svg role="img" class="inline-block w-6 h-6">
+            <use xlink:href="#icon-caret"></use>
+          </svg></a>
+      </li>
+      <li class="col-span-12 sm--col-span-6 md--col-span-4">
+        <h4 class="mt-0 font-sans uppercase text-grey-800 h5">About VPRI</h4>
+        <a href="/about-vpri" class="block pt-2 text-sm no-underline">Who's who in the VP Research + Innovation Office <svg role="img"
+            class="inline-block w-6 h-6">
+            <use xlink:href="#icon-caret"></use>
+          </svg></a>
+      </li>
+      <li class="col-span-12 sm--col-span-6 md--col-span-4">
+        <h4 class="mt-0 font-sans uppercase text-grey-800 h5">News + Announcements</h4>
+        <a href="/news-announcements" class="block pt-2 text-sm no-underline">Discover the latest news from across the VP Research &amp; Innovation
+          portfolio <svg role="img" class="inline-block w-6 h-6">
+            <use xlink:href="#icon-caret"></use>
+          </svg></a>
+      </li>
+    </ul>
+  </div>
+</section>
+<hr class="mt-0" />
+<div class="container px-4 py-8 mx-auto unit-content" id="unit-footer">
+  {% if vpr_sig_url %}
+  <a class="inline-block" href="/">
+    <image src="{{ vpr_sig_url }}" class="h-6 max-w-full sm--max-w-lg" alt="{{ unit_name }} signature" />
+    <span class="sr-only">UBC Support Programs to Advance Research Capacity</span>
+  </a>
+  {% endif %}
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-span-12 sm--col-span-5">
+      <h2 class="mt-0 font-sans font-semibold normal-case h6 text-ubc-blue">{{ unitname_footer }}</h2>
+      {% if campus_option %}
+      <div id="ubc7-address-campus">{% if campus_option == 'vancouver' %}Vancouver
+        Campus{% endif %}{% if campus_option == 'okanagan' %}Okanagan Campus{% endif %}</div>
+      {% endif %}
+      <p class="mt-0 text-xs md--text-sm xl--text-base">
+        {% if address_option %}{{ address_option }}<br />{% endif %}
+        {% if locality_option or region_option or country_option or postal_option %}
+        <span>
+          {% if locality_option %}{{ locality_option }},
+          {% endif %}
+          {% if region_option %} {{ region_option }}
+          {% endif %}
+          {% if country_option %} {{ country_option }}
+          {% endif %}
+          {% if postal_option %} {{ postal_option }}{% endif %}
+        </span>
+        {% endif %}
+        {% if phone_option %}<br />Tel <a
+          href="tel:{{ phone_option|replace({' ':'-'}) }}">{{ phone_option }}</a>{% endif %}
+        {% if fax_option %}<br />Fax {{ fax_option }}{% endif %}
+        {% if email_option %}<br />E-mail <a href="mailto:{{ email_option }}"
+          title="Email {{ unit_name }}">{{ email_option }}</a> {% endif %}
+        {% if website_option %}<br />Website {{ website_option }}{% endif %}
+      </p>
+    </div>
+    <div class="col-span-12 sm--col-span-7">
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 sm--col-span-6">
+          {% if subunit_name %}
+          <h2 class="mt-0 font-sans font-semibold normal-case h6 text-ubc-blue">{{ subunit_name }}</h2>
+          {% if campus_option %}
+          <div id="ubc7-address-campus">{% if campus_option == 'vancouver' %}Vancouver
+            Campus{% endif %}{% if campus_option == 'okanagan' %}Okanagan Campus{% endif %}</div>
+          {% endif %}
+          <p class="mt-0 text-xs md--text-sm xl--text-base">
+            {% if address2_option %}{{ address2_option }}<br />{% endif %}
+            {% if locality2_option or region2_option or country2_option or postal2_option %}
+            <span>
+              {% if locality2_option %}{{ locality2_option }},
+              {% endif %}
+              {% if region2_option %} {{ region2_option }}
+              {% endif %}
+              {% if country2_option %} {{ country2_option }}
+              {% endif %}
+              {% if postal2_option %} {{ postal2_option }}{% endif %}
+            </span>
+            {% endif %}
+            {% if phone2_option %}<br />Tel <a
+              href="tel:{{ phone2_option|replace({' ':'-'}) }}">{{ phone2_option }}</a>{% endif %}
+            {% if fax2_option %}<br />Fax {{ fax2_option }}{% endif %}
+            {% if email2_option %}<br />E-mail <a href="mailto:{{ email2_option }}"
+              title="Email {{ subunit_name }}">{{ email2_option }}</a> {% endif %}
+            {% if website2_option %}<br />Website {{ website2_option }}{% endif %}
+          </p>
+          {% endif %}
+        </div>
+        <div class="col-span-12 sm--col-span-6">
+          {% if facebook_option or twitter_option or youtube_option or linkedin_option or googleplus_option %}
+          <ul id="unit-social-icons" class="col-span-12 pt-0 my-0 sm--pt-0 sm--col-span-6 list-inline list-unstyled">
+            {% if facebook_option %}
+            <li class="pb-2 pr-2"><a href="{{ facebook_option }}" title="Find us on Facebook"><span
+                  class="visually-hidden">Find us on Facebook</span><svg role="img"
+                  class="inline-block w-6 h-6 md--h-6 md--w-6">
+                  <use xlink:href="#icon-facebook" /></svg></a></li>
+            {% endif %}
+            {% if twitter_option %}
+            <li class="pb-2 pr-2"><a href="{{ twitter_option }}" title="Follow us on Twitter"><span
+                  class="visually-hidden">Follow us on Twitter</span><svg role="img"
+                  class="inline-block w-6 h-6 md--h-6 md--w-6">
+                  <use xlink:href="#icon-twitter" /></svg></a></li>
+            {% endif %}
+            {% if youtube_option %}
+            <li class="pb-2 pr-2"><a href="{{ youtube_option }}" title="Watch us on Youtube"><span
+                  class="visually-hidden">Watch us on Youtube</span><svg role="img"
+                  class="inline-block w-6 h-6 md--h-6 md--w-6">
+                  <use xlink:href="#icon-youtube" /></svg></a></li>{% endif %}
+            {% if linkedin_option %}
+            <li class="pb-2 pr-2"><a href="{{ linkedin_option }}" title="Connect with us on Linkedin"><span
+                  class="visually-hidden">Connect with us on Linkedin</span><svg role="img"
+                  class="inline-block w-6 h-6 md--h-6 md--w-6">
+                  <use xlink:href="#icon-linkedin" /></svg></a></li>
+            {% endif %}
+            {% if instagram_option %}
+            <li class="pb-2 pr-2"><a href="{{ instagram_option }}" title="See us on Instagram"><span
+                  class="visually-hidden">See us on Instagram</span><svg role="img"
+                  class="inline-block w-6 h-6 md--h-6 md--w-6">
+                  <use xlink:href="#icon-instagram" /></svg></a></li>
+            {% endif %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-xs italic md--text-sm xl--text-base">UBC receives support for managing its research enterprise from the
+    federal <a
+      href="https://research.ubc.ca/support-resources/indirect-costs-budgeting-finance/federal-research-support-fund"
+      target="_blank" title="Federal Research Support Fund">Research Support Fund</a>.</p>
+</div>

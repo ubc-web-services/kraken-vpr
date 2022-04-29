@@ -1,0 +1,255 @@
+/** @define button */
+
+/*
+* This file contains all styles related to the button component.
+*/
+
+/* flex button */
+.unit-button,
+.btn-primary,
+.btn-unit-reverse {
+  @apply inline-flex text-center no-underline uppercase border;
+
+  padding: 0.5em 1em .3em;
+  cursor: pointer;
+  transition: all 0.125s ease-out;
+  color: $button-text;
+  border-color: $button-border;
+  background-color: $button-bg;
+  line-height: 1.3;
+}
+
+.unit-button::after,
+.btn-primary::after,
+.btn-unit-reverse::after {
+  @apply w-[1.25em] h-[1.25em] bg-transparent z-0;
+  content: '';
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+  background-position: center  center;
+  background-size: 1.25em;
+  background-repeat: no-repeat;
+  transition: transform .125s ease;
+  transform: translateY(-.05em);
+}
+
+.unit-button:hover,
+.btn-primary:hover,
+.btn-unit-reverse:hover
+.group:hover .unit-button,
+.group:hover .btn-primary,
+.group:hover .btn-unit-reverse {
+  @apply no-underline shadow-md;
+
+  color: $button-text--hover;
+  border-color: $button-border--hover;
+  background-color: $button-bg--hover;
+  transition: background-color .125s ease, color .125s ease;
+}
+
+.unit-button:hover::after,
+.btn-primary:hover::after,
+.btn-unit-reverse:hover::after,
+.group:hover .unit-button::after,
+.group:hover .btn-primary::after,
+.group:hover .btn-unit-reverse::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+  transform: translate(.5em, -.05em);
+  transition: transform .125s ease;
+}
+
+.unit-button:active,
+.btn-primary:active,
+.btn-unit-reverse:active {
+  @apply no-underline shadow-md;
+
+  color: $button-text--active;
+  border-color: $button-border--active;
+  background-color: $button-bg--active;
+}
+
+.unit-button--block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* button colour variations */
+/* light button */
+.unit-button--light,
+.btn-primary {
+  color: $button-light-text;
+  border-color: $button-light-border;
+  background-color: $button-light-bg;
+}
+
+.unit-button--light::after,
+.btn-primary::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23000000' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button--light:hover,
+.btn-primary:hover {
+  color: $button-light-text--hover;
+  border-color: $button-light-border--hover;
+  background-color: $button-light-bg--hover;
+}
+
+.unit-button--light:hover::after,
+.btn-primary:hover::after,
+.group:hover .unit-button--light::after,
+.group:hover .btn-primary::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23000000' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button--light:active,
+.btn-primary:active {
+  color: $button-light-text--active;
+  border-color: $button-light-border--active;
+  background-color: $button-light-bg--active;
+}
+
+/* dark button */
+.unit-button--dark,
+.btn-unit-reverse {
+  color: $button-dark-text;
+  border-color: $button-dark-border;
+  background-color: $button-dark-bg;
+}
+
+.unit-button--dark::after,
+.btn-unit-reverse::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button--dark:hover,
+.btn-unit-reverse:hover,
+.group:hover .unit-button--dark,
+.group:hover .btn-unit-reverse
+  {
+  color: $button-dark-text--hover;
+  border-color: $button-dark-border--hover;
+  background-color: $button-dark-bg--hover;
+}
+
+.unit-button--dark:hover::after,
+.btn-unit-reverse:hover::after,
+.group:hover .unit-button--dark::after,
+.group:hover .btn-unit-reverse::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button--dark:active,
+.btn-unit-reverse:active {
+  color: $button-dark-text--active;
+  border-color: $button-dark-border--active;
+  background-color: $button-dark-bg--active;
+}
+
+/* transparent button */
+.unit-button--transparent {
+  color: $button-transparent-text;
+  border-color: $button-transparent-border;
+  background-color: $button-transparent-bg;
+}
+
+.unit-button--transparent:hover,
+.group:hover .unit-button--transparent {
+  color: $button-transparent-text--hover;
+  border-color: $button-transparent-border--hover;
+  background-color: $button-transparent-bg--hover;
+}
+
+.unit-button--transparent:active {
+  color: $button-transparent-text--active;
+  border-color: $button-transparent-border--active;
+  background-color: $button-transparent-bg--active;
+}
+
+/* outline button */
+.unit-button--outline {
+  color: var(--color-link);
+  border-color: var(--color-link);
+  background-color: #fff;
+}
+
+.unit-button--outline::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%230055b7' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button--outline:hover{
+  color: #fff;
+  border-color: var(--color-link);
+  background-color: var(--color-link);
+}
+
+.unit-button--outline:hover::after {
+  /* change svg stroke to same colour as text */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button--outline:active {
+  color: #fff;
+  border-color: var(--color-link);
+  background-color: var(--color-link);
+}
+
+/* simple button */
+.unit-button--simple {
+  @apply relative inline-flex py-0 pl-0 tracking-wider border-0;
+  color: var(--color-link);
+  background: transparent;
+}
+
+.unit-button--simple:hover,
+.group:hover .unit-button--simple {
+  text-decoration: none;
+  color: var(--color-link-hover);
+  background: transparent;
+  box-shadow: none;
+}
+
+.unit-button--simple::after,
+.unit-button--simple:hover::after,
+.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%230055b7' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.unit-button-no-icon::after {
+  display: none;
+}
+
+.unit-button-icon {
+  top: 0.5em;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  transform: translateY(0.2em);
+}
+
+/*
+@media (min-width: $breakpoint--xl) {
+
+  .unit-button::after,
+  .btn-primary::after,
+  .btn-unit-reverse::after {
+    transform: translateY(0);
+  }
+
+  .unit-button:hover::after,
+  .btn-primary:hover::after,
+  .btn-unit-reverse:hover::after,
+  .group:hover .unit-button::after,
+  .group:hover .btn-primary::after,
+  .group:hover .btn-unit-reverse::after {
+    transform: translate(.5em, 0);
+  }
+
+}
+*/

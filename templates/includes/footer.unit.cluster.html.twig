@@ -1,0 +1,71 @@
+
+<hr class="mt-0 border-2 border-ubc-blue-cobalt" />
+<div class="container px-4 py-6 mx-auto unit-content" id="unit-footer">
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-span-12 sm--col-span-5">
+      <h2 class="mt-0 font-sans font-semibold normal-case h6 text-ubc-blue">{{ unitname_footer }}</h2>
+      {% if campus_option %}
+      <div id="ubc7-address-campus">{% if campus_option == 'vancouver' %}Vancouver Campus{% endif %}{% if campus_option == 'okanagan' %}Okanagan Campus{% endif %}</div>
+      {% endif %}
+      <p class="mt-0 text-xs md--text-sm xl--text-base">
+        {% if address_option %}{{ address_option }}<br />{% endif %}
+        {% if locality_option or region_option or country_option or postal_option %}
+        <span>
+          {% if locality_option %}{{ locality_option }},
+          {% endif %}
+          {% if region_option %} {{ region_option }}
+          {% endif %}
+          {% if country_option %} {{ country_option }}
+          {% endif %}
+          {% if postal_option %} {{ postal_option }}{% endif %}
+        </span>
+        {% endif %}
+        {% if phone_option %}<br />Tel <a href="tel:{{ phone_option|replace({' ':'-'}) }}">{{ phone_option }}</a>{% endif %}
+        {% if fax_option %}<br />Fax {{ fax_option }}{% endif %}
+        {% if email_option %}<br />E-mail <a href="mailto:{{ email_option }}" title="Email {{ unit_name }}">{{ email_option }}</a> {% endif %}
+        {% if website_option %}<br />Website {{ website_option }}{% endif %}
+      </p>
+    </div>
+    <div class="col-span-12 sm--col-span-7">
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 sm--col-span-6">
+          {% if subunit_name %}
+          <h2 class="mt-0 font-sans font-semibold normal-case h6 text-ubc-blue">{{ subunit_name }}</h2>
+          {% if campus_option %}
+            <div id="ubc7-address-campus">{% if campus_option == 'vancouver' %}Vancouver Campus{% endif %}{% if campus_option == 'okanagan' %}Okanagan Campus{% endif %}</div>
+          {% endif %}
+          <p class="mt-0 text-xs md--text-sm xl--text-base">
+            {% if address2_option %}{{ address2_option }}<br />{% endif %}
+            {% if locality2_option or region2_option or country2_option or postal2_option %}
+              <span>
+              {% if locality2_option %}{{ locality2_option }},
+              {% endif %}
+              {% if region2_option %} {{ region2_option }}
+              {% endif %}
+              {% if country2_option %} {{ country2_option }}
+              {% endif %}
+              {% if postal2_option %} {{ postal2_option }}{% endif %}
+              </span>
+            {% endif %}
+            {% if phone2_option %}<br />Tel <a href="tel:{{ phone2_option|replace({' ':'-'}) }}">{{ phone2_option }}</a>{% endif %}
+            {% if fax2_option %}<br />Fax {{ fax2_option }}{% endif %}
+            {% if email2_option %}<br />E-mail <a href="mailto:{{ email2_option }}" title="Email {{ subunit_name }}">{{ email2_option }}</a> {% endif %}
+            {% if website2_option %}<br />Website {{ website2_option }}{% endif %}
+          </p>
+          {% endif %}
+        </div>
+        {% if facebook_option or twitter_option or youtube_option or linkedin_option or googleplus_option %}
+        <ul id="unit-social-icons" class="col-span-12 pt-0 my-0 sm--pt-0 sm--col-span-6 list-inline list-unstyled">
+          {% if facebook_option %}
+          <li class="pb-2 pr-2"><a href="{{ facebook_option }}" title="Find us on Facebook"><span class="visually-hidden">Find us on Facebook</span><svg role="img" class="inline-block w-4 h-4 md--h-6 md--w-6"><use xlink:href="#icon-facebook" /></svg></a></li>{% endif %}
+          {% if twitter_option %}<li class="pb-2 pr-2"><a href="{{ twitter_option }}" title="Follow us on Twitter"><span class="visually-hidden">Follow us on Twitter</span><svg role="img" class="inline-block w-4 h-4 md--h-6 md--w-6"><use xlink:href="#icon-twitter" /></svg></a></li>{% endif %}
+          {% if youtube_option %}<li class="pb-2 pr-2"><a href="{{ youtube_option }}" title="Watch us on Youtube"><span class="visually-hidden">Watch us on Youtube</span><svg role="img" class="inline-block w-4 h-4 md--h-6 md--w-6"><use xlink:href="#icon-youtube" /></svg></a></li>{% endif %}
+          {% if linkedin_option %}<li class="pb-2 pr-2"><a href="{{ linkedin_option }}" title="Connect with us on Linkedin"><span class="visually-hidden">Connect with us on Linkedin</span><svg role="img" class="inline-block w-4 h-4 md--h-6 md--w-6"><use xlink:href="#icon-linkedin" /></svg></a></li>{% endif %}
+          {% if instagram_option %}<li class="pb-2 pr-2"><a href="{{ instagram_option }}" title="See us on Instagram"><span class="visually-hidden">See us on Instagram</span><svg role="img" class="inline-block w-4 h-4 md--h-6 md--w-6"><use xlink:href="#icon-instagram" /></svg></a></li>{% endif %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <p class="text-xs italic md--text-sm xl--text-base"><a href="https://research.ubc.ca/about-vpr/initiatives/research-excellence-clusters" target="_blank" alt="UBC Research Excellence Clusters">UBC Research Excellence Clusters</a> is a joint initiative of the Provost and Vice-President, Academic and the Vice-President, Research and Innovation.<br>Clusters receive financial support from UBC’s <a href="https://academic.ubc.ca/vpa-initiatives/supporting-world-changing-research" target="_blank" alt="UBC Excellence Funds">Excellence Funds</a>.</p>
+</div>

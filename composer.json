@@ -1,0 +1,10 @@
+{
+  "name": "ubc-web-services/kraken",
+  "description": "A Drupal 8 UBC CLF 8.0 theme",
+  "type": "drupal-theme",
+  "authors": [{
+    "name": "O'Toole, James",
+    "email": "james.otoole@ubc.ca"
+  }],
+  "require": {}
+}

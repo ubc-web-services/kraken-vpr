@@ -1,0 +1,28 @@
+@import "config/variables.config.css";
+
+@media screen and (min-width: $breakpoint--xxl) {
+
+  .container {
+      max-width: $breakpoint--xxl !important;
+  }
+
+  #ubc7-global-menu .clf-container,
+  #ubc7-header .clf-container,
+  #ubc7-unit .clf-container,
+  #ubc7-footer .clf-container,
+  #ubc7-unit-menu .clf-container {
+    width: calc($breakpoint--xxl - 32px);
+  }
+
+  #ubc7-header .span9 {
+    width: 2259px;
+  }
+
+  #ubc7-wordmark {
+    width: 40% !important;
+  }
+
+  .layout--centered #main-content {
+    width: $breakpoint--xxl;
+  }
+}
