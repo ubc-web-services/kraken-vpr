@@ -1,6 +1,6 @@
 {
-  "name": "kraken",
-  "version": "1.0.0-beta4",
+  "name": "kraken-vpr",
+  "version": "1.0.0",
   "description": "UBC CLF8 DRUPAL THEME (aka kraken)",
   "private": true,
   "repository": {
@@ -15,9 +15,9 @@
   "author": "UBC Web Services",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ubc-web-services/kraken/issues"
+    "url": "https://github.com/ubc-web-services/kraken-vpr/issues"
   },
-  "homepage": "https://github.com/ubc-web-services/kraken#readme",
+  "homepage": "https://github.com/ubc-web-services/kraken-vpr#readme",
   "engines": {
     "node": ">= 8.11"
   },
