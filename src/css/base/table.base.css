@@ -32,6 +32,13 @@ th {
   @apply font-semibold text-ubc-blue;
 }
 
+table caption {
+  @apply text-ubc-blue;
+  font-size: 120%;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
 /* table element variants */
 .table--responsive {
   overflow-x: auto;

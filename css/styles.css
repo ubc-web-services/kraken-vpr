@@ -1683,6 +1683,14 @@ th {
   color: rgb(0 33 69 / var(--tw-text-opacity));
 }
 
+table caption {
+  --tw-text-opacity: 1;
+  color: rgb(0 33 69 / var(--tw-text-opacity));
+  font-size: 120%;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
 /* table element variants */
 
 .table--responsive {
