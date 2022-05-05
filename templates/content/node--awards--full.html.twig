@@ -159,6 +159,9 @@
     {% if not (node.field_award_internal_deadline.isEmpty == true) and content.field_award_internal_deadline is defined %}
       <p class="mt-0"><strong>Internal deadline:</strong> {{ content.field_award_internal_deadline.0 }}</p>
     {% endif %}
+    {% if node.field_date_projected_tbc.value and content.field_date_projected_tbc is defined %}
+      <p class="mt-0">Deadline projected/TBC</p>
+    {% endif %}
     <h2 class="h4 text-ubc-blue-sea">Award Details</h2>
     {{ content.body.0 }}
     {{ content|without('body', 'field_award_application_form', 'field_award_category', 'field_award_discipline', 'field_award_guidlines_link', 'field_award_internal_deadline', 'field_award_sponsor', 'field_award_sponsor_deadline', 'field_award_sponsor_url', 'field_career_stage', 'field_internal_processes_require', 'field_nomination_type', 'field_orpa_support', 'field_subdiscipline', 'links') }}
