@@ -44,15 +44,15 @@
 %}
 
 {% if multiple %}
+  <ul class="mt-0">
   {%- for item in items -%}
-    {% if loop.first %}
-      {{- item.content -}}
-    {% else %}
-    {{- ', ' -}}{{- item.content -}}
-    {% endif %}
+    <li>{{- item.content -}}</li>
   {%- endfor -%}
+  </ul>
 {% else %}
+  <ul class="mt-0">
   {%- for item in items -%}
-    {{- item.content -}}
+    <li>{{- item.content -}}</li>
   {%- endfor -%}
+  </ul>
 {% endif %}
