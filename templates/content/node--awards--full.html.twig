@@ -164,7 +164,7 @@
     {% endif %}
     <h2 class="h4 text-ubc-blue-sea">Award Details</h2>
     {{ content.body.0 }}
-    {{ content|without('body', 'field_award_application_form', 'field_award_category', 'field_award_discipline', 'field_award_guidlines_link', 'field_award_internal_deadline', 'field_award_sponsor', 'field_award_sponsor_deadline', 'field_award_sponsor_url', 'field_career_stage', 'field_internal_processes_require', 'field_nomination_type', 'field_orpa_support', 'field_subdiscipline', 'links') }}
+    {{ content|without('body', 'field_award_application_form', 'field_award_category', 'field_award_discipline', 'field_award_guidlines_link', 'field_award_internal_deadline', 'field_award_sponsor', 'field_award_sponsor_deadline', 'field_award_sponsor_url', 'field_career_stage', 'field_internal_processes_require', 'field_nomination_type', 'field_orpa_support', 'field_date_projected_tbc', 'field_subdiscipline', 'links') }}
   </div>
 </article>
 <aside class="md--col-start-9 md--col-span-4">
@@ -175,10 +175,10 @@
     <p><strong>Award category:</strong> {{ content.field_award_category.0 }}</p>
   {% endif %}
   {% if not (node.field_award_discipline.isEmpty == true) and content.field_award_discipline is defined %}
-    <p><strong>Discipline:</strong> {{ content.field_award_discipline }}</p>
+    <p><strong>Domain:</strong> {{ content.field_award_discipline }}</p>
   {% endif %}
   {% if not (node.field_subdiscipline.isEmpty == true) and content.field_subdiscipline is defined %}
-    <p><strong>Subdiscipline:</strong> {{ content.field_subdiscipline }}</p>
+    <p><strong>Discipline:</strong> {{ content.field_subdiscipline }}</p>
   {% endif %}
   {% if not (node.field_career_stage.isEmpty == true) and content.field_career_stage is defined %}
     <p><strong>Career stage:</strong> {{ content.field_career_stage }}</p>
