@@ -35,6 +35,22 @@ body:focus {
   box-shadow: none;
 }
 
+/* add default variables (will not match user-supplied values from theme unless these are updated with equivalent values) */
+:root {
+  --color-primary: #002145 !important;
+  --color-secondary: #e0e0e0 !important;
+  --color-tertiary: #def1f8 !important;
+  --color-accent: #003a79 !important;
+  --color-link: #0055b7;
+  --color-link-hover: #002145;
+  --color-link-active: #002145;
+  --leading: 1.625;
+  --base-font-size: 1rem;
+  --text-font-stack: "Whitney SSm A", "Whitney SSm B", Arial, sans-serif;
+  --alternate-font-stack: var(--text-font-stack);
+  --code-font-stack:  menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 /* Styles dropdown */
 div.cke_combopanel {
   height: 300px !important;

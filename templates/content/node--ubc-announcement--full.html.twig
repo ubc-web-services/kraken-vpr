@@ -100,7 +100,7 @@
 %}
 {%
   set img_classes = [
-    'my-0',
+    'my-4',
     'clip-feature',
   ]
 %}
@@ -115,6 +115,9 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
+  {% if not (node.field_announcement_feature_image.isEmpty == true) and content.field_announcement_feature_image is defined %}
+    <figure{{ figure_attributes.addClass(img_classes) }}>{{ content.field_announcement_feature_image.0 }}</figure>
+  {% endif %}
   {% if display_submitted %}
   <div{{ meta_attributes.addClass(meta_classes) }}>
     {{ node.createdtime|format_date('date_readable') }}
@@ -127,10 +130,6 @@
     </h2>
   {% endif %}
   {{ title_suffix }}
-
-  {% if not (node.field_announcement_feature_image.isEmpty == true) and content.field_announcement_feature_image is defined %}
-    <figure{{ figure_attributes.addClass(img_classes) }}>{{ content.field_announcement_feature_image.0 }}</figure>
-  {% endif %}
   <div{{ content_attributes.addClass(content_classes) }}>
     {% if not (node.field_announcement_supporting.isEmpty == true) and content.field_announcement_supporting is defined %}
       <div{{ supporting_attributes.addClass(supporting_classes) }}>
