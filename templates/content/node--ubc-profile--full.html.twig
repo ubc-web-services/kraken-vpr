@@ -110,15 +110,6 @@
 <article{{ attributes.addClass(classes) }}>
   <div class="col-span-12 md--col-span-8">
     {{ title_prefix }}
-      <h1{{ title_attributes.addClass(title_classes) }}>
-        {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
-          <span class="text-base">{{ content.field_profile_name_prefix.0 }}</span>
-        {% endif %}
-        {{ label }}
-        {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}
-          <span class="text-base text-grey-700">{{ content.field_profile_name_suffix.0 }}</span>
-        {% endif %}
-      </h1>
       {% if not (node.field_profile_preferred_pronouns.isEmpty == true) and content.field_profile_preferred_pronouns is defined %}
         <p class="mt-0 text-base text-grey-700">({{ content.field_profile_preferred_pronouns.0 }})</>
       {% endif %}
