@@ -209,3 +209,4 @@ sm--w-[200px]
 md--w-half
 md--w-one-third
 lg--w-one-quarter
+leading-normal

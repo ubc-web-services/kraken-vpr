@@ -4531,6 +4531,10 @@ summary:focus::-webkit-details-marker {
   font-style: italic;
 }
 
+.leading-normal {
+  line-height: 1.5;
+}
+
 .tracking-wider {
   letter-spacing: 0.05em;
 }
