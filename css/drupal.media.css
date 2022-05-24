@@ -121,33 +121,18 @@ figure.caption-drupal-media figcaption {
 
   figure.align-left, .align-left.media {
     float: none;
-  }
-
-  figure.align-left, .align-left.media {
     margin-right: 0px;
   }
 
   figure.align-right, .align-right.media {
     float: none;
-  }
-
-  figure.align-right, .align-right.media {
     margin-left: 0px;
   }
 
   [class^="widget-"].align-left, [class^="widget-"].align-right {
     float: none;
-  }
-
-  [class^="widget-"].align-left, [class^="widget-"].align-right {
     margin-left: 0px;
-  }
-
-  [class^="widget-"].align-left, [class^="widget-"].align-right {
     margin-right: 0px;
-  }
-
-  [class^="widget-"].align-left, [class^="widget-"].align-right {
     max-width: none;
   }
 

@@ -92,7 +92,7 @@
 
 /* Add normalize and general base styles */
 
-/*! tailwindcss v3.0.17 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1252,17 +1252,8 @@ input[type="search"] {
 
   .sm--auto-grid {
     display: flex;
-  }
-
-  .sm--auto-grid {
     flex-direction: row;
-  }
-
-  .sm--auto-grid {
     flex-wrap: wrap;
-  }
-
-  .sm--auto-grid {
     gap: 1rem;
   }
 
@@ -1296,17 +1287,8 @@ input[type="search"] {
 
   .md--auto-grid {
     display: flex;
-  }
-
-  .md--auto-grid {
     flex-direction: row;
-  }
-
-  .md--auto-grid {
     flex-wrap: wrap;
-  }
-
-  .md--auto-grid {
     gap: 1rem;
   }
 
@@ -1339,17 +1321,8 @@ input[type="search"] {
 
   .lg--auto-grid {
     display: flex;
-  }
-
-  .lg--auto-grid {
     flex-direction: row;
-  }
-
-  .lg--auto-grid {
     flex-wrap: wrap;
-  }
-
-  .lg--auto-grid {
     gap: 1rem;
   }
 
@@ -2507,20 +2480,12 @@ summary:focus::-webkit-details-marker {
 @media (min-width: 768px) {
   .message {
     flex-direction: row;
-  }
-  .message {
     align-items: center;
   }
 
   .message__icon {
     margin-bottom: 0px;
-  }
-
-  .message__icon {
     margin-left: 0px;
-  }
-
-  .message__icon {
     margin-right: 1rem;
   }
 }
@@ -2530,21 +2495,12 @@ summary:focus::-webkit-details-marker {
   .message {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .message {
     padding-left: 2rem;
   }
 
   .message__icon {
     margin-right: 2rem;
-  }
-
-  .message__icon {
     height: 4rem;
-  }
-
-  .message__icon {
     width: 4rem;
   }
 }
@@ -2904,13 +2860,7 @@ summary:focus::-webkit-details-marker {
 
   .tabcordion__links {
     display: flex;
-  }
-
-  .tabcordion__links {
     list-style-type: none;
-  }
-
-  .tabcordion__links {
     justify-content: space-between;
   }
 
@@ -4016,6 +3966,10 @@ summary:focus::-webkit-details-marker {
 
 .place-content-center {
   place-content: center;
+}
+
+.place-content-end {
+  place-content: end;
 }
 
 .place-items-center {
