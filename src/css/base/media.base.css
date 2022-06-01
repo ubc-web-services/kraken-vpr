@@ -31,7 +31,8 @@ svg {
 }
 
 /* embedded media (iframes) */
-.media-wrapper {
+.media-wrapper,
+.media_embed {
   position: relative;
   overflow: hidden;
   height: 0 !important;
@@ -40,7 +41,8 @@ svg {
 
 .media-wrapper embed,
 .media-wrapper iframe,
-.media-wrapper object {
+.media-wrapper object,
+.media_embed iframe {
   position: absolute;
   top: 0;
   left: 0;
