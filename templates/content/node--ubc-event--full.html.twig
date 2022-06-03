@@ -99,21 +99,6 @@
   ]
 %}
 
-{# set the start and end date values as unix timstamps with the vancouver offset of 8 hours, so we can use the correct dates and times #}
-{% set start = node.field_event_date.0.value|date_modify('-8 hours')|date('U', 'America/Vancouver') %}
-{% set end = node.field_event_date.0.end_value|default('') %}
-{% set enddate = end|date_modify('-8 hours')|date('U', 'America/Vancouver') %}
-{% set startvalue = start|date('Ynd') %}
-{% set endvalue = enddate|date('Ynd') %}
-{% set startyearvalue = start|date('Y') %}
-{% set endyearvalue = enddate|date('Y') %}
-{% set startday = start|format_date('custom', 'F j') %}
-{% set endday = enddate|format_date('custom', 'F j') %}
-{% set startyear = start|format_date('custom', 'Y') %}
-{% set endyear = enddate|format_date('custom', 'Y') %}
-{% set starttime = start|format_date('custom', 'g:i a') %}
-{% set endtime = enddate|format_date('custom', 'g:i a') %}
-
 {% if endvalue > startvalue %}
   {% set eventdate = startday ~ ' - ' ~ endday ~ ', ' ~ endyear %}
   {% set time = '' %}
@@ -122,7 +107,7 @@
   {% set eventdate = startday ~ ', ' ~ endyear %}
   {% set time = ', ' ~ starttime ~ ' to ' ~ endtime %}
 {% endif %}
-{% if end is null %}
+{% if endvalue is not defined or endvalue is null  %}
   {% set eventdate = startday ~ ', ' ~ startyear %}
   {% set time = ', ' ~ starttime %}
 {% endif %}

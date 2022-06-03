@@ -442,6 +442,39 @@ function kraken_preprocess_node(&$variables)
 
   // Add node--view_mode.html.twig suggestions.
   $variables['theme_hook_suggestions'][] = 'node__' . $variables['view_mode'];
+
+  // Set event date variables in node event templates
+  $node = $variables['node'];
+  $node_type = $node->getType();
+
+  if ( ($node_type == 'ubc_event') ) {
+    $timezone = date_default_timezone_get();
+    $formatter = \Drupal::service('date.formatter');
+    $date = $node->get('field_event_date')->getValue();
+
+    $start_date_value = $date[0]['value'];
+    $end_date_value = $date[0]['end_value'];
+    $stime = strtotime($start_date_value.' UTC');
+    $etime = strtotime($end_date_value.' UTC');
+
+    $startvalue = $formatter->format($stime, 'custom', 'Ymd', $timezone);
+    $endvalue = $formatter->format($etime, 'custom', 'Ymd', $timezone);
+    $startyear = $formatter->format($stime, 'custom', 'Y', $timezone);
+    $endyear = $formatter->format($etime, 'custom', 'Y', $timezone);
+    $startday = $formatter->format($stime, 'custom', 'F j', $timezone);
+    $endday = $formatter->format($etime, 'custom', 'F j', $timezone);
+    $starttime = $formatter->format($stime, 'custom', 'g:i a', $timezone);
+    $endtime = $formatter->format($etime, 'custom', 'g:i a', $timezone);
+
+    $variables['startvalue'] = $startvalue;
+    $variables['endvalue'] = $endvalue;
+    $variables['startyear'] = $startyear;
+    $variables['endyear'] = $endyear;
+    $variables['startday'] = $startday;
+    $variables['endday'] = $endday;
+    $variables['starttime'] = $starttime;
+    $variables['endtime'] = $endtime;
+  }
 }
 
 /**
