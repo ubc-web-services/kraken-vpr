@@ -523,12 +523,6 @@ function kraken_preprocess_field(&$variables)
 function kraken_form_alter(&$form, FormStateInterface $form_state, $form_id)
 {
   $form['actions']['submit']['#attributes']['class'][] = 'unit-button mt-auto';
-  //dpm($form);
-  /*
-  if ($form['#entity_type'] == 'webform_submission') {
-    $form['#attached']['library'][] = 'kraken/webform';
-  }
-  */
 }
 
 /**
