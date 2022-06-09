@@ -116,14 +116,14 @@
     {% if not node.isPublished() %}
       <div class="unpublished">Unpublished</div>
     {% endif %}
-    {{ content|without('links', 'field_project_funders_partners', 'field_project_research_theme', 'field_project_researchers') }}
+    {{ content|without('links', 'field_project_funders', 'field_project_theme', 'field_project_researchers') }}
     <h3 class="h5">Researchers</h3>
     {{ content.field_project_researchers }}
     <h3 class="h5">Funders / Partners</h3>
-    {{ content.field_project_funders_partners }}
+    {{ content.field_project_funders }}
   </div>
   <hr class="styled-hr">
   <div class="flex flex-wrap mt-4 tags">
-    {{ content.field_project_research_theme }}
+    {{ content.field_project_theme }}
   </div>
 </article>
