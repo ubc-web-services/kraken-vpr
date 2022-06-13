@@ -1408,3 +1408,50 @@ a#ubc7-global-utility-no-script {
     width: $breakpoint--clf7-lg;
   }
 }
+
+/* custom style override to do away with need for javascript unit name resizing */
+@media screen and (max-width: $breakpoint--clf7-md--max) {
+
+  #ubc7-unit,
+  #ubc7-unit .clf-container,
+  #ubc7-unit .span12 {
+      min-height: 50px;
+  }
+
+  #ubc7-unit .span12 {
+      display: flex;
+      flex-direction: row-reverse;
+      place-items: center;
+  }
+
+  #ubc7-unit,
+  #ubc7-unit .clf-container,
+  #ubc7-unit .navbar,
+  #ubc7-unit-name {
+      height: auto;
+  }
+
+  #ubc7-unit .navbar {
+      float: none;
+  }
+
+  #ubc7-unit .btn-navbar {
+      margin-top: 0;
+      display: block;
+  }
+  #ubc7-unit-name {
+    flex: 1;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  #ubc7-unit-name,
+  #ubc7-unit-name a {
+      margin-top: 0 !important;
+  }
+
+  #ubc7-unit-identifier {
+      white-space: normal;
+      font-size: 14px;
+  }
+}

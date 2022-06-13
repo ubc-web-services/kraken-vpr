@@ -3490,16 +3490,16 @@ summary:focus::-webkit-details-marker {
   isolation: isolate;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .z-40 {
   z-index: 40;
 }
 
 .z-20 {
   z-index: 20;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .col-span-12 {
@@ -3864,6 +3864,10 @@ summary:focus::-webkit-details-marker {
   width: 91.66666%;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .w-full {
   width: 100%;
 }
@@ -3882,10 +3886,6 @@ summary:focus::-webkit-details-marker {
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-auto {
-  width: auto;
 }
 
 .w-8 {
