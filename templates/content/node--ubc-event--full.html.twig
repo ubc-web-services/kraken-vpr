@@ -135,6 +135,9 @@
      {% if not (node.field_event_location.isEmpty == true) and content.field_event_location is defined %}
       <div class="mt-2 text-sm text-grey-700">
         {{ content.field_event_location.0.address_line1 }}
+        {% if not (node.field_event_location.0.address_line2.isEmpty == true) %}
+        {{ content.field_event_location.0.address_line2 }}
+        {% endif %}
       </div>
       {% endif %}
       {% if not (node.field_event_supporting.isEmpty == true) and content.field_event_supporting is defined %}
