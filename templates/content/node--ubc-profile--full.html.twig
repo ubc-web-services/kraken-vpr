@@ -112,7 +112,7 @@
     {{ title_prefix }}
       <h1{{ title_attributes.addClass(title_classes) }}>
         {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
-          <span class="text-base">{{ content.field_profile_name_prefix.0 }}</span>
+          {{ content.field_profile_name_prefix.0 }}
         {% endif %}
         {{ label }}
         {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}
