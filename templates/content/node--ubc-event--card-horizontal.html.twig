@@ -163,6 +163,15 @@
   {% set time = '' %}
 {% endif %}
 
+{# addresses certain special characters being stripped out or replaced in external URLs #}
+{% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
+  {% set link_url = content.field_event_link.0['#url'].uri %}
+  {% set link_title = content.field_event_link.0['#title'] %}
+{% else %}
+  {% set link_url = url %}
+  {% set link_title = 'Learn more' %}
+{% endif %}
+
 <article{{ attributes.addClass(classes, layout_classes) }}>
   {% if not (node.field_event_image.isEmpty == true) and content.field_event_image is defined %}
     <figure{{ figure_attributes.addClass(figure_classes) }}>{{ content.field_event_image.0 }}</figure>
@@ -182,6 +191,6 @@
     <div class="unpublished">Unpublished</div>
     {% endif %}
     <p{{text_attributes.addClass(text_classes)}}>{{ tagless_body|striptags }}</p>
-    <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="Event details">Learn more</a></p>
+    <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ link_url }}" aria-label="Event details">{{ link_title }}</a></p>
   </div>
 </article>
