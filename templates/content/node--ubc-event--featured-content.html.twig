@@ -74,7 +74,6 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
     'relative',
     'img-cover',
-    'has-gradient--after',
   ]
 %}
 {%
@@ -106,8 +105,11 @@
     'heading-responsive',
   ]
 %}
+{% if node.field_show_gradient_on_image.value %}
+  {% set gradient = 'has-gradient--after' %}
+{% endif %}
 
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes, gradient) }}>
   {% block content %}
     {% if not (node.field_event_image.isEmpty == true) and content.field_event_image is defined %}
       {{ content.field_event_image['0'] }}
