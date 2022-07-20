@@ -81,9 +81,7 @@
     'relative',
     'h-full',
     'hover--cursor-pointer',
-    'flex',
-    'flex-col',
-    'h-full',
+    'xs--flex',
     'shadow',
     'hover--shadow-lg',
     'group',
@@ -93,17 +91,18 @@
 {%
   set figure_classes = [
     'ubc-card__media',
-    'mt-8',
-    'flex-none',
+    'm-4',
     'flex',
+    'img-cover',
     'justify-center',
+    'xs--w-[200px]',
+    'xs--shrink-0',
     'img-rounded',
   ]
 %}
 {%
   set content_classes = [
-    'p-8',
-    'text-center',
+    'p-4',
     'ubc-card__content',
     'first-child--mt-0',
   ]
@@ -117,7 +116,7 @@
 {%
   set title_classes = [
     'text-xl',
-    'mt-0',
+    'mt-2',
   ]
 %}
 {%
@@ -130,30 +129,28 @@
 %}
 {%
   set text_classes = [
-    '',
+    'mt-3',
   ]
 %}
 {%
   set second_link_wrapper_classes = [
-    'mt-auto',
-    'px-8',
-    'pb-8',
-    'text-center',
-    'w-full',
+    '',
   ]
 %}
 {%
   set second_link_classes = [
+    'unit-button--simple',
+    'link-expand--break',
     'unit-button',
   ]
 %}
 
-<article{{ attributes.addClass(classes) }} >
+<article{{ attributes.addClass(classes) }}>
   {% if not (node.field_profile_image.isEmpty == true) and content.field_profile_image is defined %}
-  <figure{{ figure_attributes.addClass(figure_classes) }}>{{ content.field_profile_image.0 }}
-  </figure>
+    <figure{{ figure_attributes.addClass(figure_classes) }}>{{ content.field_profile_image.0 }}</figure>
   {% endif %}
   <div{{ content_attributes.addClass(content_classes) }}>
+    {{ title_prefix }}
     <h3{{ title_attributes.addClass(title_classes) }}>
       <a{{ link_attributes.addClass(link_classes) }} href="{{ url }}" rel="bookmark">
         {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
@@ -165,8 +162,12 @@
         {% endif %}
       </a>
     </h3>
+    {{ title_suffix }}
     {% if not (node.field_profile_pronouns.isEmpty == true) and content.field_profile_pronouns is defined %}
-      <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+        <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+    {% endif %}
+    {% if not node.isPublished() %}
+    <div class="unpublished">Unpublished</div>
     {% endif %}
     {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
     <p class="mt-0 text-sm">{{ content.field_profile_role.0 }}</p>
@@ -194,7 +195,6 @@
     {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
     <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}" class="link-expand-break">Website</a></p>
     {% endif %}
+    <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="View profile">View profile</a></p>
   </div>
-
-  <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="View profile">View profile</a></p>
 </article>

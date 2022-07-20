@@ -75,9 +75,6 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'grid',
-    'grid-cols-12',
-    'gap-8',
   ]
 %}
 
@@ -108,107 +105,63 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="col-span-12 md--col-span-8">
-    {{ title_prefix }}
-      <h1{{ title_attributes.addClass(title_classes) }}>
-        {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
-          {{ content.field_profile_name_prefix.0 }}
-        {% endif %}
-        {{ label }}
-        {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}
-          <span class="text-base text-grey-700">{{ content.field_profile_name_suffix.0 }}</span>
-        {% endif %}
-      </h1>
-      {% if not (node.field_profile_preferred_pronouns.isEmpty == true) and content.field_profile_preferred_pronouns is defined %}
-        <p class="mt-0 text-base text-grey-700">({{ content.field_profile_preferred_pronouns.0 }})</>
+  {{ title_prefix }}
+    <h1{{ title_attributes.addClass(title_classes) }}>
+      {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
+        {{ content.field_profile_name_prefix.0 }}
       {% endif %}
-      <hr />
-    {{ title_suffix }}
-    {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
-      <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
-        {{ content.field_profile_job_title.0 }}
-      </p>
+      {{ label }}
+      {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}
+        <span class="text-base text-grey-700">{{ content.field_profile_name_suffix.0 }}</span>
+      {% endif %}
+    </h1>
+    {% if not (node.field_profile_pronouns.isEmpty == true) and content.field_profile_pronouns is defined %}
+      <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
     {% endif %}
-    {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
-      <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
-        {{ content.field_profile_role.0 }}
-      </p>
-    {% endif %}
-    {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
-      <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
-        {%- for tag in content.field_profile_department_unit['#items'] -%}
-          {{- tag.entity.name.value -}}
-          {% if loop.last == false %}, {% endif %}
-        {%- endfor -%}
-      </p>
-    {% endif %}
-    {% if not (node.field_profile_faculty.isEmpty == true) and content.field_profile_faculty is defined %}
-      <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
-        {{ content.field_profile_faculty.0 }}
-      </p>
-    {% endif %}
-    {% if display_submitted %}
-      <div{{ meta_attributes.addClass(meta_classes) }}>
-        {{ author_picture }}
-        <div{{ author_attributes.addClass('node__submitted') }}>
-          {% trans %}By {{ author_name }} on {{ date }}{% endtrans %}
-        </div>
+    <hr />
+  {{ title_suffix }}
+  {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
+    <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
+      {{ content.field_profile_job_title.0 }}
+    </p>
+  {% endif %}
+  {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
+    <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
+      {{ content.field_profile_role.0 }}
+    </p>
+  {% endif %}
+  {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
+    <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
+      {%- for tag in content.field_profile_department_unit['#items'] -%}
+        {{- tag.entity.name.value -}}
+        {% if loop.last == false %}, {% endif %}
+      {%- endfor -%}
+    </p>
+  {% endif %}
+  {% if not (node.field_profile_faculty.isEmpty == true) and content.field_profile_faculty is defined %}
+    <p class="mt-1 text-lg uppercase text-ubc-blue-sea">
+      {{ content.field_profile_faculty.0 }}
+    </p>
+  {% endif %}
+  {% if display_submitted %}
+    <div{{ meta_attributes.addClass(meta_classes) }}>
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}By {{ author_name }} on {{ date }}{% endtrans %}
       </div>
-    {% endif %}
-
-    <div{{ content_attributes.addClass(content_classes) }}>
-      {% if not node.isPublished() %}
-        <div class="unpublished">Unpublished</div>
-      {% endif %}
-      {{ content|without('field_profile_accreditation', 'field_profile_affiliated', 'field_profile_category', 'field_profile_department_unit', 'field_profile_email', 'field_profile_faculty', 'field_profile_google_scholar', 'field_profile_image', 'field_profile_job_title', 'field_profile_name_prefix', 'field_profile_name_suffix', 'field_profile_office', 'field_profile_phone', 'field_profile_preferred_pronouns', 'field_profile_preferred_website', 'field_profile_research_area', 'field_profile_role', 'field_profile_tags', 'links') }}
     </div>
-    {% if not (node.field_profile_tags.isEmpty == true) and content.field_profile_tags is defined %}
-      <hr class="mt-8 styled-hr">
-      <div class="flex flex-wrap mt-4 tags">
-        {{ content.field_profile_tags }}
-      </div>
-    {% endif %}
-  </div>
+  {% endif %}
 
-  <div class="col-span-12 xs--flex md--col-span-4 md--block">
-    {% if not (node.field_profile_image.isEmpty == true) and content.field_profile_image is defined %}
-      <figure class="xs--flex-1 xs--h-full img-cover md--flex-none md--h-auto">
-        {{ content.field_profile_image.0 }}
-      </figure>
+  <div{{ content_attributes.addClass(content_classes) }}>
+    {% if not node.isPublished() %}
+      <div class="unpublished">Unpublished</div>
     {% endif %}
-    <div class="p-8 my-6 xs--flex-1 xs--h-full bg-grey-100 md--flex-none md--h-auto">
-      <h2 class="mt-0 h5 text-ubc-blue-sea">Contact</h2>
-      <p class="mt-3 text-sm font-bold">
-        {{ label }}
-        {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}, <span class="">{{ content.field_profile_name_suffix.0 }}</span>
-        {% endif %}
-        </p>
-      {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
-        <p class="mt-0 text-sm">{{ content.field_profile_job_title.0 }}</p>
-      {% endif %}
-      {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
-        <p class="mt-0 text-sm">{{ content.field_profile_role.0 }}</p>
-      {% endif %}
-      {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
-        <p class="mt-0 text-sm">
-        {%- for tag in content.field_profile_department_unit['#items'] -%}
-          {{- tag.entity.name.value -}}
-          {% if loop.last == false %}, {% endif %}
-        {%- endfor -%}
-        </p>
-      {% endif %}
-      {% if not (node.field_profile_phone.isEmpty == true) and content.field_profile_phone is defined %}
-        <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
-      {% endif %}
-      {% if not (node.field_profile_email.isEmpty == true) and content.field_profile_email is defined %}
-        <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-mail"></use></svg> <a href="mailto:{{ content.field_profile_email.0 }}">{{ content.field_profile_email.0 }}</a></p>
-      {% endif %}
-      {% if not (node.field_profile_office.isEmpty == true) and content.field_profile_office is defined %}
-        <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-location"></use></svg> {{ content.field_profile_office.0 }}</p>
-      {% endif %}
-      {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
-        <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}">Website</a></p>
-      {% endif %}
-    </div>
+    {{ content|without('field_profile_accreditation', 'field_profile_affiliated', 'field_profile_category', 'field_profile_department_unit', 'field_profile_email', 'field_profile_faculty', 'field_profile_google_scholar', 'field_profile_image', 'field_profile_job_title', 'field_profile_name_prefix', 'field_profile_name_suffix', 'field_profile_office', 'field_profile_phone', 'field_profile_preferred_pronouns', 'field_profile_preferred_website', 'field_profile_research_area', 'field_profile_role', 'field_profile_tags', 'links') }}
   </div>
+  {% if not (node.field_profile_tags.isEmpty == true) and content.field_profile_tags is defined %}
+    <hr class="mt-8 styled-hr">
+    <div class="flex flex-wrap mt-4 tags">
+      {{ content.field_profile_tags }}
+    </div>
+  {% endif %}
 </article>

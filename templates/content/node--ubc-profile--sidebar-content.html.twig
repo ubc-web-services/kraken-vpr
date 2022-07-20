@@ -65,114 +65,42 @@
  *   in different view modes.
  */
 #}
-{% set figure_attributes = create_attribute() %}
-{% set content_attributes = create_attribute() %}
 {% set meta_attributes = create_attribute() %}
-{% set link_attributes = create_attribute() %}
-{% set text_attributes = create_attribute() %}
-{% set secondlinkwrapper_attributes = create_attribute() %}
-{% set secondlink_attributes = create_attribute() %}
+
 {%
   set classes = [
     'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'ubc-card',
-    'relative',
-    'h-full',
-    'hover--cursor-pointer',
-    'flex',
-    'flex-col',
-    'h-full',
-    'shadow',
-    'hover--shadow-lg',
-    'group',
-    'isolate',
-  ]
-%}
-{%
-  set figure_classes = [
-    'ubc-card__media',
-    'mt-8',
-    'flex-none',
-    'flex',
-    'justify-center',
-    'img-rounded',
-  ]
-%}
-{%
-  set content_classes = [
-    'p-8',
-    'text-center',
-    'ubc-card__content',
-    'first-child--mt-0',
-  ]
-%}
-{%
-  set meta_classes = [
-    'text-sm',
-    'text-grey-600',
-  ]
-%}
-{%
-  set title_classes = [
-    'text-xl',
-    'mt-0',
-  ]
-%}
-{%
-  set link_classes = [
-    'no-underline',
-    'hover--no-underline',
-    'text-ubc-blue',
-    'link-expand',
-  ]
-%}
-{%
-  set text_classes = [
-    '',
-  ]
-%}
-{%
-  set second_link_wrapper_classes = [
-    'mt-auto',
-    'px-8',
-    'pb-8',
-    'text-center',
-    'w-full',
-  ]
-%}
-{%
-  set second_link_classes = [
-    'unit-button',
   ]
 %}
 
-<article{{ attributes.addClass(classes) }} >
-  {% if not (node.field_profile_image.isEmpty == true) and content.field_profile_image is defined %}
-  <figure{{ figure_attributes.addClass(figure_classes) }}>{{ content.field_profile_image.0 }}
-  </figure>
-  {% endif %}
-  <div{{ content_attributes.addClass(content_classes) }}>
-    <h3{{ title_attributes.addClass(title_classes) }}>
-      <a{{ link_attributes.addClass(link_classes) }} href="{{ url }}" rel="bookmark">
-        {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
-          <span>{{ content.field_profile_name_prefix.0 }}</span>
-        {% endif %}
-      {{ label }}
-        {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}
-          <span class="text-base text-grey-700">{{ content.field_profile_name_suffix.0 }}</span>
-        {% endif %}
-      </a>
-    </h3>
+<aside{{ attributes.addClass(classes) }}>
+{% if not (node.field_profile_image.isEmpty == true) and content.field_profile_image is defined %}
+<figure class="xs--flex-1 xs--h-full img-cover md--flex-none md--h-auto">
+{{ content.field_profile_image.0 }}
+</figure>
+{% endif %}
+<div class="p-8 my-6 xs--flex-1 xs--h-full bg-grey-100 md--flex-none md--h-auto">
+    <h2 class="mt-0 h5 text-ubc-blue-sea">Contact</h2>
+    <p class="mt-3 text-sm font-bold">
+    {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}, <span class="">{{ content.field_profile_name_prefix.0 }}</span>
+    {% endif %}
+    {{ label }}
+    {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}, <span class="">{{ content.field_profile_name_suffix.0 }}</span>
+    {% endif %}
+    </p>
     {% if not (node.field_profile_pronouns.isEmpty == true) and content.field_profile_pronouns is defined %}
-      <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+        <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+    {% endif %}
+    {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
+    <p class="mt-0 text-sm">{{ content.field_profile_job_title.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
     <p class="mt-0 text-sm">{{ content.field_profile_role.0 }}</p>
-    {% endif %}
-    {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
-    <p class="mt-0">{{ content.field_profile_job_title.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
     <p class="mt-0 text-sm">
@@ -183,18 +111,16 @@
     </p>
     {% endif %}
     {% if not (node.field_profile_phone.isEmpty == true) and content.field_profile_phone is defined %}
-    <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue link-expand-break"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
+    <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_email.isEmpty == true) and content.field_profile_email is defined %}
-    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-mail"></use></svg> <a href="mailto:{{ content.field_profile_email.0 }}" class="link-expand-break">{{ content.field_profile_email.0 }}</a></p>
+    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-mail"></use></svg> <a href="mailto:{{ content.field_profile_email.0 }}">{{ content.field_profile_email.0 }}</a></p>
     {% endif %}
     {% if not (node.field_profile_office.isEmpty == true) and content.field_profile_office is defined %}
     <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-location"></use></svg> {{ content.field_profile_office.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
-    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}" class="link-expand-break">Website</a></p>
+    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}">Website</a></p>
     {% endif %}
-  </div>
-
-  <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="View profile">View profile</a></p>
-</article>
+</div>
+</aside>
