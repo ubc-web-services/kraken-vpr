@@ -2394,6 +2394,64 @@ summary:focus::-webkit-details-marker {
   border-radius: 0 0 0 0;
 }
 
+/** @define icon */
+
+/*
+* This file contains all styles related to the icon components.
+*/
+
+.icon {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-envelope {
+  background-image: url('../img/icons/icon-envelope.svg');
+}
+
+.icon-external-link {
+  background-image: url('../img/icons/icon-external-link.svg');
+}
+
+.icon-facebook {
+  background-image: url('../img/icons/icon-facebook.svg');
+}
+
+.icon-info {
+  background-image: url('../img/icons/icon-info.svg');
+}
+
+.icon-instagram {
+  background-image: url('../img/icons/icon-instagram.svg');
+}
+
+.icon-linkedin {
+  background-image: url('../img/icons/icon-linkedin.svg');
+}
+
+.icon-location {
+  background-image: url('../img/icons/icon-location.svg');
+}
+
+.icon-phone {
+  background-image: url('../img/icons/icon-phone.svg');
+}
+
+.icon-twitter {
+  background-image: url('../img/icons/icon-twitter.svg');
+}
+
+.icon-vimeo {
+  background-image: url('../img/icons/icon-vimeo.svg');
+}
+
+.icon-youtube {
+  background-image: url('../img/icons/icon-youtube.svg');
+}
+
 /** @define message */
 
 /*
