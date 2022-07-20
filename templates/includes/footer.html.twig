@@ -1,3 +1,11 @@
+{% if land_acknowledgement %}
+<section class="text-sm border-t border-ubc-blue/20 text-grey-700 bg-grey-50">
+  <div class="container px-4 py-6 mx-auto unit-content">
+    <h3 class="sr-only">First Nations land acknowledegement</h3>
+    <p class="mt-0">{{ land_acknowledgement_text }}</p>
+  </div>
+</section>
+{% endif %}
 <footer id="ubc-footer">
   <div class="container px-4 pb-4 mx-auto unit-content" id="unit-footer">
     <hr class="mt-0" />

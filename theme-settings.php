@@ -606,6 +606,26 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#maxlength' => 128,
   ];
 
+  // CLF Land Acknowledgement
+  $form['land'] = [
+    '#type' => 'details',
+    '#title' => t('Land Acknowledgement'),
+    '#group' => 'clf',
+  ];
+
+  $form['land']['land_acknowledgement'] = [
+    '#type' => 'checkbox',
+    '#title' => t('<strong>Show the Land Acknowledgement at the bottom of each page?</strong>'),
+    '#default_value' => theme_get_setting('land_acknowledgement'),
+  ];
+
+  $form['land']['land_acknowledgement_text'] = [
+    '#type' => 'textarea',
+    '#title' => t('Land Acknowledgement Text (plain text only)'),
+    '#description' => t('Enter the Land Acknowledgement text to display.'),
+    '#default_value' => theme_get_setting('land_acknowledgement_text'),
+  ];
+
   // social.
   $form['social'] = [
     '#type' => 'details',

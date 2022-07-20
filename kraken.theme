@@ -400,6 +400,10 @@ function kraken_preprocess_page(&$variables)
   $variables['icon_youtube'] = theme_get_setting('svg_icon_youtube') ? true : false;
   $variables['vpr_unit'] = theme_get_setting('vpr_acknowledgement_footer');
 
+  // land acknowledgement options.
+  $variables['land_acknowledgement'] = theme_get_setting('land_acknowledgement') ? true : false;
+  $variables['land_acknowledgement_text'] = theme_get_setting('land_acknowledgement_text');
+
   $vpr_portfolio_signature = theme_get_setting('vpr_portfolio_signature');
   if (!empty($vpr_portfolio_signature)) {
     $vpr_sig = \Drupal\file\Entity\File::load($vpr_portfolio_signature['0']);
