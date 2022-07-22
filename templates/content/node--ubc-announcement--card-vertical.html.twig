@@ -152,11 +152,19 @@
 
 {# addresses certain special characters being stripped out or replaced in external URLs #}
 {% if not (node.field_announcement_external_link.isEmpty == true) and content.field_announcement_external_link is defined %}
-  {% set link_url = content.field_announcement_external_link.0['#url'].uri %}
-  {% set link_title = content.field_announcement_external_link.0['#title'] %}
+  {% set exturl = content.field_announcement_external_link[0]['#url']|raw  %}
+  {% set exttitle = content.field_announcement_external_link[0]['#title']|raw %}
+  {% set link_url = exturl %}
+  {% set link_target = '_blank' %}
+  {% if exttitle == exturl %}
+    {% set link_title = 'Learn more' %}
+  {% else %}
+    {% set link_title = exttitle %}
+  {% endif %}
 {% else %}
   {% set link_url = url %}
   {% set link_title = 'Learn more' %}
+  {% set link_target = '_self' %}
 {% endif %}
 
 <article{{ attributes.addClass(classes) }} >
@@ -167,9 +175,9 @@
   <div{{ content_attributes.addClass(content_classes) }}>
     <div{{ meta_attributes.addClass(meta_classes) }}>
       {{ node.createdtime|format_date('date_readable') }}</div>
-    <h3{{ title_attributes.addClass(title_classes) }}><a{{ link_attributes.addClass(link_classes) }} class="link-expand" href="{{ link_url }}" rel="bookmark">{{ label }}</a></h3>
+    <h3{{ title_attributes.addClass(title_classes) }}><a{{ link_attributes.addClass(link_classes).setAttribute('target', link_target) }} class="link-expand" href="{{ link_url }}" rel="bookmark">{{ label }}</a></h3>
     <p{{text_attributes.addClass(text_classes)}}>{{ tagless_body|striptags }}</p>
   </div>
 
-  <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ link_url }}" aria-label="Article details">{{ link_title }}</a></p>
+  <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes).setAttribute('target', link_target) }} href="{{ link_url }}" aria-label="Article details">{{ link_title }}</a></p>
 </article>
