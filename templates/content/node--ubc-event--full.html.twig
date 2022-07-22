@@ -148,7 +148,7 @@
     {{ content|without('field_event_date', 'field_event_link', 'field_event_location', 'links', 'field_event_tags', 'field_event_category', 'field_event_supporting') }}
     {% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
     <p>
-      <a href="{{ content.field_event_link[0]['#url'] }}" class="unit-button">{{ content.field_event_link[0]['#title'] }}</a>
+      <a href="{{ content.field_event_link[0]['#url'] }}" class="unit-button" target="_blank">{{ content.field_event_link[0]['#title'] }}</a>
     </p>
     {% endif %}
   </div>

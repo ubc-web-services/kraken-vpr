@@ -142,7 +142,7 @@
     {{ content|without('links', 'field_announcement_tags', 'field_announcement_feature_image', 'field_announcement_type', 'field_announcement_external_link', 'field_announcement_supporting') }}
     {% if not (node.field_announcement_external_link.isEmpty == true) and content.field_announcement_external_link is defined %}
     <p>
-      <a href="{{ content.field_announcement_external_link[0]['#url'] }}" class="unit-button">{{ content.field_announcement_external_link[0]['#title'] }}</a>
+      <a href="{{ content.field_announcement_external_link[0]['#url'] }}" class="unit-button" target="_blank">{{ content.field_announcement_external_link[0]['#title'] }}</a>
     </p>
     {% endif %}
   </div>

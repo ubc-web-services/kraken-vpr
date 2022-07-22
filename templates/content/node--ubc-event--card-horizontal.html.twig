@@ -172,7 +172,8 @@
   {% if exttitle == exturl %}
     {% set link_title = 'Learn more' %}
   {% else %}
-    {% set link_title = exttitle %}
+    {# % set link_title = exttitle % #}
+    {% set link_title = 'Learn more' %}
   {% endif %}
 {% else %}
   {% set link_url = url %}
