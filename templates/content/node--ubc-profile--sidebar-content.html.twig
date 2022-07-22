@@ -87,14 +87,13 @@
 <div class="p-8 my-6 xs--flex-1 xs--h-full bg-grey-100 md--flex-none md--h-auto">
     <h2 class="mt-0 h5 text-ubc-blue-sea">Contact</h2>
     <p class="mt-3 text-sm font-bold">
-    {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}<span class="">{{ content.field_profile_name_prefix.0 }}</span>
+    {% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}{{ content.field_profile_name_prefix.0 }}{{ ' ' }}
     {% endif %}
-    {{ label }}
-    {% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}, <span class="">{{ content.field_profile_name_suffix.0 }}</span>
+    {% spaceless %}{{ label }}{% endspaceless %}{% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}{{- ', ' -}}<span class="">{{- content.field_profile_name_suffix.0 -}}</span>
     {% endif %}
     </p>
     {% if not (node.field_profile_pronouns.isEmpty == true) and content.field_profile_pronouns is defined %}
-        <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+        <p class="mt-0 text-sm text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
     <p class="mt-0 text-sm">{{ content.field_profile_job_title.0 }}</p>
