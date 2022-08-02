@@ -121,5 +121,8 @@
     {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
     <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}">Website</a></p>
     {% endif %}
+    {% if not (node.field_profile_publications_link.isEmpty == true) and content.field_profile_publications_link is defined %}
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_publications_link[0]['#url'] }}">Publications</a></p>
+    {% endif %}
 </div>
 </aside>
