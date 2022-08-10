@@ -4,7 +4,7 @@
 /* alterations to form elements provided by the webform module */
 
 .webform-actions {
-  margin-top: 1.5rem;
+  margin-top: calc(var(--leading) * 1rem);
 }
 
 .webform-submission-form .field-prefix,
