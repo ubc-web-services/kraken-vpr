@@ -1627,9 +1627,13 @@ table {
   width: 100%;
   text-align: left;
 
-  margin-top: calc(var(--leading) * 1rem);;
+  margin-top: calc(var(--leading) * 1rem);
   border-spacing: 0;
   border-collapse: collapse;
+}
+
+table table {
+  margin-top: 0 !important;
 }
 
 thead tr {
