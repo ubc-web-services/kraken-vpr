@@ -28,10 +28,6 @@
   padding: 1rem;
 }
 
- {
-  color: #fff;
-}
-
 .widget-card.bg-unit-primary a:not(.unit-button),
 .widget-card.bg-unit-primary a:hover:not(.unit-button),
 .widget-color-box.bg-unit-primary a:not(.unit-button),
@@ -112,47 +108,28 @@
 }
 
 .bg-dark .unit-button--simple,
-.bg-dark .unit-button--light:hover,
-.bg-dark .unit-button--dark:hover,
 .bg-dark .unit-button--simple:hover,
-.bg-dark.group:hover .unit-button--light,
-.bg-dark.group:hover .unit-button--dark,
 .bg-dark.group:hover .unit-button--simple,
 .widget-card.bg-unit-primary .unit-button--simple,
-.widget-card.bg-unit-primary .unit-button--light:hover,
-.widget-card.bg-unit-primary .unit-button--dark:hover,
 .widget-card.bg-unit-primary .unit-button--simple:hover,
-.widget-card.bg-unit-primary.group:hover .unit-button--light,
-.widget-card.bg-unit-primary.group:hover .unit-button--dark,
 .widget-card.bg-unit-primary.group:hover .unit-button--simple,
+.widget-card.bg-ubc-blue .unit-button--simple,
+.widget-card.bg-ubc-blue .unit-button--simple:hover,
+.widget-card.bg-ubc-blue.group:hover .unit-button--simple,
+.widget-card.bg-ubc-blue-sea .unit-button--simple,
+.widget-card.bg-ubc-blue-sea .unit-button--simple:hover,
+.widget-card.bg-ubc-blue-sea.group:hover .unit-button--simple,
+.widget-card.bg-ubc-blue-cobalt .unit-button--simple,
+.widget-card.bg-ubc-blue-cobalt .unit-button--simple:hover,
+.widget-card.bg-ubc-blue-cobalt.group:hover .unit-button--simple,
 .widget-color-box.bg-unit-primary .unit-button--simple,
-.widget-color-box.bg-unit-primary .unit-button--light:hover,
-.widget-color-box.bg-unit-primary .unit-button--dark:hover,
 .widget-color-box.bg-unit-primary .unit-button--simple:hover,
-.widget-color-box.bg-unit-primary.group:hover .unit-button--light,
-.widget-color-box.bg-unit-primary.group:hover .unit-button--dark,
-.widget-color-box.bg-unit-primary.group:hover .unit-button--simple,
 .widget-color-box.bg-ubc-blue .unit-button--simple,
-.widget-color-box.bg-ubc-blue .unit-button--light:hover,
-.widget-color-box.bg-ubc-blue .unit-button--dark:hover,
 .widget-color-box.bg-ubc-blue .unit-button--simple:hover,
-.widget-color-box.bg-ubc-blue.group:hover .unit-button--light,
-.widget-color-box.bg-ubc-blue.group:hover .unit-button--dark,
-.widget-color-box.bg-ubc-blue.group:hover .unit-button--simple,
 .widget-color-box.bg-ubc-blue-sea .unit-button--simple,
-.widget-color-box.bg-ubc-blue-sea .unit-button--light:hover,
-.widget-color-box.bg-ubc-blue-sea .unit-button--dark:hover,
 .widget-color-box.bg-ubc-blue-sea .unit-button--simple:hover,
-.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--light,
-.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--dark,
-.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--simple,
 .widget-color-box.bg-ubc-blue-cobalt .unit-button--simple,
-.widget-color-box.bg-ubc-blue-cobalt .unit-button--light:hover,
-.widget-color-box.bg-ubc-blue-cobalt .unit-button--dark:hover,
-.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover,
-.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--light,
-.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--dark,
-.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--simple {
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover {
   color: #fff;
 }
 
@@ -162,18 +139,23 @@
 .widget-card.bg-unit-primary .unit-button--simple::after,
 .widget-card.bg-unit-primary .unit-button--simple:hover::after,
 .widget-card.bg-unit-primary.group:hover .unit-button--simple::after,
+.widget-card.bg-ubc-blue .unit-button--simple::after,
+.widget-card.bg-ubc-blue .unit-button--simple:hover::after,
+.widget-card.bg-ubc-blue.group:hover .unit-button--simple::after,
+.widget-card.bg-ubc-blue-sea .unit-button--simple::after,
+.widget-card.bg-ubc-blue-sea .unit-button--simple:hover::after,
+.widget-card.bg-ubc-blue-sea.group:hover .unit-button--simple::after,
+.widget-card.bg-ubc-blue-cobalt .unit-button--simple::after,
+.widget-card.bg-ubc-blue-sea-cobalt .unit-button--simple:hover::after,
+.widget-card.bg-ubc-blue-sea-cobalt.group:hover .unit-button--simple::after,
 .widget-color-box.bg-unit-primary .unit-button--simple::after,
 .widget-color-box.bg-unit-primary .unit-button--simple:hover::after,
-.widget-color-box.bg-unit-primary.group:hover .unit-button--simple::after,
-.widget-color-box.bg-ubc-blue.unit-button--simple::after,
+.widget-color-box.bg-ubc-blue .unit-button--simple::after,
 .widget-color-box.bg-ubc-blue .unit-button--simple:hover::after,
-.widget-color-box.bg-ubc-blue.group:hover .unit-button--simple::after,
 .widget-color-box.bg-ubc-blue-sea .unit-button--simple::after,
 .widget-color-box.bg-ubc-blue-sea .unit-button--simple:hover::after,
-.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--simple::after,
 .widget-color-box.bg-ubc-blue-cobalt .unit-button--simple::after,
-.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover::after,
-.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--simple::after {
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
