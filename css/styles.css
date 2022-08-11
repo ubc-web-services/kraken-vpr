@@ -2295,6 +2295,38 @@ summary:focus::-webkit-details-marker {
   background-color: rgb(0 85 183 / var(--tw-bg-opacity));
 }
 
+.widget-color-box.tns-nav .tns-nav-active a:not(.unit-button), .widget-color-box.tns-nav .tns-nav-active a:hover:not(.unit-button) {
+  color: #fff;
+}
+
+.widget-color-box.tns-nav .tns-nav-active {
+  color: #fff;
+}
+
+.widget-color-box.tns-nav .tns-nav-active a:not(.unit-button)  {
+  color: #def1f8;
+}
+
+.widget-color-box.tns-nav .tns-nav-active a:not(.unit-button):hover {
+  color: #97d4e9;
+}
+
+.widget-color-box.tns-nav .tns-nav-active .unit-button--light {
+  color: #0055b7;
+}
+
+.widget-color-box.tns-nav .tns-nav-active .unit-button--dark {
+  border-color: #def1f8;
+}
+
+.widget-color-box.tns-nav .tns-nav-active .unit-button--simple, .widget-color-box.tns-nav .tns-nav-active .unit-button--light:hover, .widget-color-box.tns-nav .tns-nav-active .unit-button--dark:hover, .widget-color-box.tns-nav .tns-nav-active .unit-button--simple:hover, .widget-color-box.tns-nav .tns-nav-active.group:hover .unit-button--light, .widget-color-box.tns-nav .tns-nav-active.group:hover .unit-button--dark, .widget-color-box.tns-nav .tns-nav-active.group:hover .unit-button--simple {
+  color: #fff;
+}
+
+.widget-color-box.tns-nav .tns-nav-active .unit-button--simple::after, .widget-color-box.tns-nav .tns-nav-active .unit-button--simple:hover::after, .widget-color-box.tns-nav .tns-nav-active.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
 @media (min-width: 980px) {
 
   .carousel__cell--fixed-height {
@@ -2636,8 +2668,40 @@ summary:focus::-webkit-details-marker {
           text-decoration-line: none;
 }
 
+.widget-card.navlink--secondary:hover a:not(.unit-button), .widget-card.navlink--secondary:hover a:hover:not(.unit-button), .widget-color-box.navlink--secondary:hover a:not(.unit-button), .widget-color-box.navlink--secondary:hover a:hover:not(.unit-button), .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:not(.unit-button), .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:hover:not(.unit-button), .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:not(.unit-button), .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:hover:not(.unit-button) {
+  color: #fff;
+}
+
 .bg-dark.navlink--secondary:hover a:hover:not(.unit-button), .bg-dark.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:hover:not(.unit-button) {
   color: #fff;
+}
+
+.widget-card.navlink--secondary:hover, .widget-color-box.navlink--secondary:hover, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover {
+  color: #fff;
+}
+
+.widget-card.navlink--secondary:hover a:not(.unit-button), .widget-color-box.navlink--secondary:hover a:not(.unit-button), .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:not(.unit-button), .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:not(.unit-button)  {
+  color: #def1f8;
+}
+
+.widget-card.navlink--secondary:hover a:not(.unit-button):hover, .widget-color-box.navlink--secondary:hover a:not(.unit-button):hover, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:not(.unit-button):hover, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover a:not(.unit-button):hover {
+  color: #97d4e9;
+}
+
+.widget-card.navlink--secondary:hover .unit-button--light, .widget-color-box.navlink--secondary:hover .unit-button--light, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--light, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--light {
+  color: #0055b7;
+}
+
+.widget-card.navlink--secondary:hover .unit-button--dark, .widget-color-box.navlink--secondary:hover .unit-button--dark, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--dark, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--dark {
+  border-color: #def1f8;
+}
+
+.widget-card.navlink--secondary:hover .unit-button--simple, .widget-card.navlink--secondary:hover .unit-button--light:hover, .widget-card.navlink--secondary:hover .unit-button--dark:hover, .widget-card.navlink--secondary:hover .unit-button--simple:hover, .widget-card.navlink--secondary:hover.group:hover .unit-button--light, .widget-card.navlink--secondary:hover.group:hover .unit-button--dark, .widget-card.navlink--secondary:hover.group:hover .unit-button--simple, .widget-color-box.navlink--secondary:hover .unit-button--simple, .widget-color-box.navlink--secondary:hover .unit-button--light:hover, .widget-color-box.navlink--secondary:hover .unit-button--dark:hover, .widget-color-box.navlink--secondary:hover .unit-button--simple:hover, .widget-color-box.navlink--secondary:hover.group:hover .unit-button--light, .widget-color-box.navlink--secondary:hover.group:hover .unit-button--dark, .widget-color-box.navlink--secondary:hover.group:hover .unit-button--simple, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--light:hover, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--dark:hover, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple:hover, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--light, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--dark, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--simple, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--light:hover, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--dark:hover, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple:hover, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--light, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--dark, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--simple {
+  color: #fff;
+}
+
+.widget-card.navlink--secondary:hover .unit-button--simple::after, .widget-card.navlink--secondary:hover .unit-button--simple:hover::after, .widget-card.navlink--secondary:hover.group:hover .unit-button--simple::after, .widget-color-box.navlink--secondary:hover .unit-button--simple::after, .widget-color-box.navlink--secondary:hover .unit-button--simple:hover::after, .widget-color-box.navlink--secondary:hover.group:hover .unit-button--simple::after, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple::after, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple:hover::after, .widget-card.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--simple::after, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple::after, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover .unit-button--simple:hover::after, .widget-color-box.navlink--secondary.menu-item--active-trail:not(.is-active):hover.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .navlink--secondary:hover::after {
@@ -2654,8 +2718,40 @@ summary:focus::-webkit-details-marker {
           text-decoration-line: none;
 }
 
+.widget-card.navlink--secondary.is-active a:not(.unit-button), .widget-card.navlink--secondary.is-active a:hover:not(.unit-button), .widget-color-box.navlink--secondary.is-active a:not(.unit-button), .widget-color-box.navlink--secondary.is-active a:hover:not(.unit-button) {
+  color: #fff;
+}
+
 .bg-dark.navlink--secondary.is-active a:hover:not(.unit-button) {
   color: #fff;
+}
+
+.widget-card.navlink--secondary.is-active, .widget-color-box.navlink--secondary.is-active {
+  color: #fff;
+}
+
+.widget-card.navlink--secondary.is-active a:not(.unit-button), .widget-color-box.navlink--secondary.is-active a:not(.unit-button)  {
+  color: #def1f8;
+}
+
+.widget-card.navlink--secondary.is-active a:not(.unit-button):hover, .widget-color-box.navlink--secondary.is-active a:not(.unit-button):hover {
+  color: #97d4e9;
+}
+
+.widget-card.navlink--secondary.is-active .unit-button--light, .widget-color-box.navlink--secondary.is-active .unit-button--light {
+  color: #0055b7;
+}
+
+.widget-card.navlink--secondary.is-active .unit-button--dark, .widget-color-box.navlink--secondary.is-active .unit-button--dark {
+  border-color: #def1f8;
+}
+
+.widget-card.navlink--secondary.is-active .unit-button--simple, .widget-card.navlink--secondary.is-active .unit-button--light:hover, .widget-card.navlink--secondary.is-active .unit-button--dark:hover, .widget-card.navlink--secondary.is-active .unit-button--simple:hover, .widget-card.navlink--secondary.is-active.group:hover .unit-button--light, .widget-card.navlink--secondary.is-active.group:hover .unit-button--dark, .widget-card.navlink--secondary.is-active.group:hover .unit-button--simple, .widget-color-box.navlink--secondary.is-active .unit-button--simple, .widget-color-box.navlink--secondary.is-active .unit-button--light:hover, .widget-color-box.navlink--secondary.is-active .unit-button--dark:hover, .widget-color-box.navlink--secondary.is-active .unit-button--simple:hover, .widget-color-box.navlink--secondary.is-active.group:hover .unit-button--light, .widget-color-box.navlink--secondary.is-active.group:hover .unit-button--dark, .widget-color-box.navlink--secondary.is-active.group:hover .unit-button--simple {
+  color: #fff;
+}
+
+.widget-card.navlink--secondary.is-active .unit-button--simple::after, .widget-card.navlink--secondary.is-active .unit-button--simple:hover::after, .widget-card.navlink--secondary.is-active.group:hover .unit-button--simple::after, .widget-color-box.navlink--secondary.is-active .unit-button--simple::after, .widget-color-box.navlink--secondary.is-active .unit-button--simple:hover::after, .widget-color-box.navlink--secondary.is-active.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .navlink--secondary.is-active::after {
@@ -2739,8 +2835,40 @@ summary:focus::-webkit-details-marker {
           text-decoration-line: none;
 }
 
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a a:not(.unit-button), .widget-card.menu-item--active-trail > .disclose > .nav--split > a a:hover:not(.unit-button), .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a a:not(.unit-button), .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a a:hover:not(.unit-button) {
+  color: #fff;
+}
+
 .bg-dark.menu-item--active-trail > .disclose > .nav--split > a a:hover:not(.unit-button) {
   color: #fff;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a {
+  color: #fff;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a a:not(.unit-button), .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a a:not(.unit-button)  {
+  color: #def1f8;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a a:not(.unit-button):hover, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a a:not(.unit-button):hover {
+  color: #97d4e9;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--light, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--light {
+  color: #0055b7;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--dark, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--dark {
+  border-color: #def1f8;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple, .widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--light:hover, .widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--dark:hover, .widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple:hover, .widget-card.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--light, .widget-card.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--dark, .widget-card.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--simple, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--light:hover, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--dark:hover, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple:hover, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--light, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--dark, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--simple {
+  color: #fff;
+}
+
+.widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple::after, .widget-card.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple:hover::after, .widget-card.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--simple::after, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple::after, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a .unit-button--simple:hover::after, .widget-color-box.menu-item--active-trail > .disclose > .nav--split > a.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .menu-item--active-trail > .disclose >.nav--split > button {
@@ -3123,6 +3251,46 @@ summary:focus::-webkit-details-marker {
 * This file contains all styles related to the custom theme.
 */
 
+.widget-card .ubc-card {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+
+}
+
+.widget-card .ubc-card:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+}
+
+.widget-card h3 {
+  font-size: 1.5rem;
+}
+
+.widget-card .card__footer,
+.widget-card .ubc-card__actions {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+{
+  color: #fff;
+}
+
+.widget-card.bg-unit-primary a:not(.unit-button),
+.widget-card.bg-unit-primary a:hover:not(.unit-button),
+.widget-color-box.bg-unit-primary a:not(.unit-button),
+.widget-color-box.bg-unit-primary a:hover:not(.unit-button),
+.widget-color-box.bg-ubc-blue a:not(.unit-button),
+.widget-color-box.bg-ubc-blue a:hover:not(.unit-button),
+.widget-color-box.bg-ubc-blue-sea a:not(.unit-button),
+.widget-color-box.bg-ubc-blue-sea a:hover:not(.unit-button),
+.widget-color-box.bg-ubc-blue-cobalt a:not(.unit-button),
+.widget-color-box.bg-ubc-blue-cobalt a:hover:not(.unit-button) {
+  color: #fff;
+}
+
 /* Inline list */
 
 .list-inline {
@@ -3135,55 +3303,124 @@ summary:focus::-webkit-details-marker {
   padding-left: 0;
 }
 
-/* links on coloured backgrounds */
-
-.bg-dark a:not(.unit-button),
-.bg-dark.text-white a:hover:not(.unit-button) {
-  color: #fff;
-}
-
 /* paragraphs */
 
 .paragraph--type--text__inner > :first-child, .paragraph--type--text > div > div > :first-child {
   margin-top: 0px;
 }
 
-.bg-dark {
+/* text and links on coloured backgrounds */
+
+.bg-dark,
+.bg-dark a:not(.unit-button),
+.bg-dark.text-white a:hover:not(.unit-button),
+.widget-card.bg-unit-primary,
+.widget-color-box.bg-unit-primary,
+.widget-color-box.bg-ubc-blue,
+.widget-color-box.bg-ubc-blue-sea,
+.widget-color-box.bg-ubc-blue-cobalt {
   color: #fff;
 }
 
-.bg-dark a {
+.bg-dark a:not(.unit-button),
+.widget-card.bg-unit-primary a:not(.unit-button),
+.widget-color-box.bg-unit-primary a:not(.unit-button),
+.widget-color-box.bg-ubc-blue a:not(.unit-button),
+.widget-color-box.bg-ubc-blue-sea a:not(.unit-button),
+.widget-color-box.bg-ubc-blue-cobalt a:not(.unit-button)  {
   color: #def1f8;
 }
 
-.bg-dark a:hover {
+.bg-dark a:not(.unit-button):hover,
+.widget-card.bg-unit-primary a:not(.unit-button):hover,
+.widget-color-box.bg-unit-primary a:not(.unit-button):hover,
+.widget-color-box.bg-ubc-blue a:not(.unit-button):hover,
+.widget-color-box.bg-ubc-blue-sea a:not(.unit-button):hover,
+.widget-color-box.bg-ubc-blue-cobalt a:not(.unit-button):hover {
   color: #97d4e9;
 }
 
-.bg-dark .unit-button--light {
+.bg-dark .unit-button--light,
+.widget-card.bg-unit-primary .unit-button--light,
+.widget-color-box.bg-unit-primary .unit-button--light,
+.widget-color-box.bg-ubc-blue .unit-button--light,
+.widget-color-box.bg-ubc-blue-sea .unit-button--light,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--light {
   color: #0055b7;
 }
 
-.bg-dark .unit-button--dark {
+.bg-dark .unit-button--dark,
+.widget-card.bg-unit-primary .unit-button--dark,
+.widget-color-box.bg-unit-primary .unit-button--dark,
+.widget-color-box.bg-ubc-blue .unit-button--dark,
+.widget-color-box.bg-ubc-blue-sea .unit-button--dark,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--dark {
   border-color: #def1f8;
 }
 
-.bg-dark .unit-button--simple {
-  color: #fff;
-}
-
+.bg-dark .unit-button--simple,
 .bg-dark .unit-button--light:hover,
 .bg-dark .unit-button--dark:hover,
 .bg-dark .unit-button--simple:hover,
 .bg-dark.group:hover .unit-button--light,
 .bg-dark.group:hover .unit-button--dark,
-.bg-dark.group:hover .unit-button--simple {
+.bg-dark.group:hover .unit-button--simple,
+.widget-card.bg-unit-primary .unit-button--simple,
+.widget-card.bg-unit-primary .unit-button--light:hover,
+.widget-card.bg-unit-primary .unit-button--dark:hover,
+.widget-card.bg-unit-primary .unit-button--simple:hover,
+.widget-card.bg-unit-primary.group:hover .unit-button--light,
+.widget-card.bg-unit-primary.group:hover .unit-button--dark,
+.widget-card.bg-unit-primary.group:hover .unit-button--simple,
+.widget-color-box.bg-unit-primary .unit-button--simple,
+.widget-color-box.bg-unit-primary .unit-button--light:hover,
+.widget-color-box.bg-unit-primary .unit-button--dark:hover,
+.widget-color-box.bg-unit-primary .unit-button--simple:hover,
+.widget-color-box.bg-unit-primary.group:hover .unit-button--light,
+.widget-color-box.bg-unit-primary.group:hover .unit-button--dark,
+.widget-color-box.bg-unit-primary.group:hover .unit-button--simple,
+.widget-color-box.bg-ubc-blue .unit-button--simple,
+.widget-color-box.bg-ubc-blue .unit-button--light:hover,
+.widget-color-box.bg-ubc-blue .unit-button--dark:hover,
+.widget-color-box.bg-ubc-blue .unit-button--simple:hover,
+.widget-color-box.bg-ubc-blue.group:hover .unit-button--light,
+.widget-color-box.bg-ubc-blue.group:hover .unit-button--dark,
+.widget-color-box.bg-ubc-blue.group:hover .unit-button--simple,
+.widget-color-box.bg-ubc-blue-sea .unit-button--simple,
+.widget-color-box.bg-ubc-blue-sea .unit-button--light:hover,
+.widget-color-box.bg-ubc-blue-sea .unit-button--dark:hover,
+.widget-color-box.bg-ubc-blue-sea .unit-button--simple:hover,
+.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--light,
+.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--dark,
+.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--simple,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--light:hover,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--dark:hover,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover,
+.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--light,
+.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--dark,
+.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--simple {
   color: #fff;
 }
 
 .bg-dark .unit-button--simple::after,
 .bg-dark .unit-button--simple:hover::after,
-.bg-dark.group:hover .unit-button--simple::after {
+.bg-dark.group:hover .unit-button--simple::after,
+.widget-card.bg-unit-primary .unit-button--simple::after,
+.widget-card.bg-unit-primary .unit-button--simple:hover::after,
+.widget-card.bg-unit-primary.group:hover .unit-button--simple::after,
+.widget-color-box.bg-unit-primary .unit-button--simple::after,
+.widget-color-box.bg-unit-primary .unit-button--simple:hover::after,
+.widget-color-box.bg-unit-primary.group:hover .unit-button--simple::after,
+.widget-color-box.bg-ubc-blue.unit-button--simple::after,
+.widget-color-box.bg-ubc-blue .unit-button--simple:hover::after,
+.widget-color-box.bg-ubc-blue.group:hover .unit-button--simple::after,
+.widget-color-box.bg-ubc-blue-sea .unit-button--simple::after,
+.widget-color-box.bg-ubc-blue-sea .unit-button--simple:hover::after,
+.widget-color-box.bg-ubc-blue-sea.group:hover .unit-button--simple::after,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple::after,
+.widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover::after,
+.widget-color-box.bg-ubc-blue-cobalt.group:hover .unit-button--simple::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
