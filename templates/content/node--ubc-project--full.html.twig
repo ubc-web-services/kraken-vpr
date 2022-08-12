@@ -117,13 +117,19 @@
       <div class="unpublished">Unpublished</div>
     {% endif %}
     {{ content|without('links', 'field_project_funders', 'field_project_theme', 'field_project_researchers') }}
-    <h3 class="h5">Researchers</h3>
-    {{ content.field_project_researchers }}
-    <h3 class="h5">Funders / Partners</h3>
-    {{ content.field_project_funders }}
+    {% if not (node.field_project_researchers.isEmpty == true) and content.field_project_researchers is defined %}
+      <h3 class="h5">Researchers</h3>
+      {{ content.field_project_researchers }}
+    {% endif %}
+    {% if not (node.field_project_funders.isEmpty == true) and content.field_project_funders is defined %}
+      <h3 class="h5">Funders / Partners</h3>
+      {{ content.field_project_funders }}
+    {% endif %}
   </div>
   <hr class="styled-hr">
-  <div class="flex flex-wrap mt-4 tags">
-    {{ content.field_project_theme }}
-  </div>
+  {% if not (node.field_project_theme.isEmpty == true) and content.field_project_theme is defined %}
+    <div class="flex flex-wrap mt-4 tags">
+      {{ content.field_project_theme }}
+    </div>
+  {% endif %}
 </article>
