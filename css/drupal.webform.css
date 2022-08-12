@@ -84,7 +84,8 @@
 
 /* alterations to form elements provided by the webform module */
 
-.webform-actions {
+.webform-actions,
+.webform-submission-form .form-actions {
   margin-top: calc(var(--leading) * 1rem);
 }
 
@@ -104,6 +105,11 @@
   margin-top: 1em;
 }
 
+.webform-submission-form .form-required {
+  color: inherit;
+  position: relative;
+}
+
 .text-count-message, .description {
   font-size: .875rem;
   --tw-text-opacity: 1;
@@ -114,7 +120,7 @@
   margin-top: 0;
 }
 
-input[type="submit"]:not(.webform-button--submit) {
+.webform-submission-form input[type="submit"]:not(.webform-button--submit) {
   display: inline-flex;
   border-width: 1px;
   text-align: center;
@@ -131,7 +137,7 @@ input[type="submit"]:not(.webform-button--submit) {
   font-size: .75em;
 }
 
-input[type="submit"]:not(.webform-button--submit):hover {
+.webform-submission-form input[type="submit"]:not(.webform-button--submit):hover {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -142,8 +148,8 @@ input[type="submit"]:not(.webform-button--submit):hover {
   background-color: #003a79;
 }
 
-input[name="autocomplete_table_add"],
-input[name="custom_composite_table_add"] {
+.webform-submission-form input[name="autocomplete_table_add"],
+.webform-submission-form input[name="custom_composite_table_add"] {
   margin-top: .5em;
   margin-bottom: .5em;
 }

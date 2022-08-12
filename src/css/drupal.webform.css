@@ -3,7 +3,8 @@
 
 /* alterations to form elements provided by the webform module */
 
-.webform-actions {
+.webform-actions,
+.webform-submission-form .form-actions {
   margin-top: calc(var(--leading) * 1rem);
 }
 
@@ -23,6 +24,11 @@
   margin-top: 1em;
 }
 
+.webform-submission-form .form-required {
+  color: inherit;
+  position: relative;
+}
+
 .text-count-message,
 .description {
   @apply text-sm text-grey-700;
@@ -32,7 +38,7 @@
   margin-top: 0;
 }
 
-input[type="submit"]:not(.webform-button--submit) {
+.webform-submission-form input[type="submit"]:not(.webform-button--submit) {
   @apply inline-flex text-center no-underline uppercase border;
   padding: 0.5em 1em .3em;
   cursor: pointer;
@@ -44,15 +50,15 @@ input[type="submit"]:not(.webform-button--submit) {
   font-size: .75em;
 }
 
-input[type="submit"]:not(.webform-button--submit):hover {
+.webform-submission-form input[type="submit"]:not(.webform-button--submit):hover {
   @apply no-underline shadow-md;
   color: $button-text--hover;
   border-color: $button-border--hover;
   background-color: $button-bg--hover;
 }
 
-input[name="autocomplete_table_add"],
-input[name="custom_composite_table_add"] {
+.webform-submission-form input[name="autocomplete_table_add"],
+.webform-submission-form input[name="custom_composite_table_add"] {
   margin-top: .5em;
   margin-bottom: .5em;
 }
