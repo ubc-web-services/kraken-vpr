@@ -116,20 +116,50 @@
     {% if not node.isPublished() %}
       <div class="unpublished">Unpublished</div>
     {% endif %}
-    {{ content|without('links', 'field_project_funders', 'field_project_theme', 'field_project_researchers') }}
+    {{ content|without(
+      'links',
+      'field_community_partners',
+      'field_project_applicants',
+      'field_project_funders',
+      'field_project_funding_stream',
+      'field_funding_window',
+      'field_project_home_org',
+      'field_other_participants',
+      'field_project_theme',
+      'field_project_researchers') }}
     {% if not (node.field_project_researchers.isEmpty == true) and content.field_project_researchers is defined %}
       <h3 class="h5">Researchers</h3>
       {{ content.field_project_researchers }}
+    {% endif %}
+    {% if not (node.field_project_home_org.isEmpty == true) and content.field_project_home_org is defined %}
+      <h3 class="h5">Home Organization</h3>
+      <p>{{ content.field_project_home_org.0 }}</p>
     {% endif %}
     {% if not (node.field_project_funders.isEmpty == true) and content.field_project_funders is defined %}
       <h3 class="h5">Funders / Partners</h3>
       {{ content.field_project_funders }}
     {% endif %}
+    {% if not (node.field_community_partners.isEmpty == true) and content.field_community_partners is defined %}
+      <h3 class="h5">Community Partner(s)</h3>
+      {{ content.field_community_partners }}
+    {% endif %}
+    {% if not (node.field_project_applicants.isEmpty == true) and content.field_project_applicants is defined %}
+      <h3 class="h5">Principal Applicant(s)</h3>
+      <p>{{ content.field_project_applicants.0 }}</p>
+    {% endif %}
+    {% if not (node.field_other_participants.isEmpty == true) and content.field_other_participants is defined %}
+      <h3 class="h5">Other Participants</h3>
+      {{ content.field_other_participants }}
+    {% endif %}
+    {% if not (node.field_funding_window.isEmpty == true) and content.field_funding_window is defined %}
+      <h3 class="h5">Funding Window</h3>
+      <p>{{ content.field_funding_window.0 }}</p>
+    {% endif %}
   </div>
   <hr class="styled-hr">
-  {% if not (node.field_project_theme.isEmpty == true) and content.field_project_theme is defined %}
+  {% if (not (node.field_project_theme.isEmpty == true) and content.field_project_theme is defined) or (not (node.field_project_funding_stream.isEmpty == true) and content.field_project_funding_stream is defined) %}
     <div class="flex flex-wrap mt-4 tags">
-      {{ content.field_project_theme }}
+      {{ content.field_project_theme }} {{ content.field_project_funding_stream }}
     </div>
   {% endif %}
 </article>
