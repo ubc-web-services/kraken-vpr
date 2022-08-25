@@ -145,7 +145,29 @@
         {{ content.field_event_supporting.0 }}
       </div>
     {% endif %}
-    {{ content|without('field_event_date', 'field_event_link', 'field_event_location', 'links', 'field_event_tags', 'field_event_category', 'field_event_supporting') }}
+    {% if content.google_cal_link is defined %}
+    <div class="pt-6 dropdown">
+      <button class="inline-flex p-2 text-white cursor-pointer bg-ubc-blue hover--bg-ubc-blue-sea" data-bs-toggle="dropdown" aria-expanded="false">Add to calendar
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 ml-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"></path>
+        </svg>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ content.google_cal_link }}" target="_blank" class="block px-1 py-2 no-underline hover--bg-grey-100">Google Calendar</a>
+        </li>
+        <li>
+          <a href="{{ content.ical_link }}" class="block px-1 py-2 no-underline hover--bg-grey-100">iCal</a>
+        </li>
+        <li>
+          <a href="{{ content.outlook_link }}" class="block px-1 py-2 no-underline hover--bg-grey-100">Outlook</a>
+        </li>
+      </ul>
+    </div>
+    {% endif %}
+
+    {{ content|without('field_event_date', 'field_event_link', 'field_event_location', 'links', 'field_event_tags', 'field_event_category', 'field_event_supporting', 'google_cal_link', 'ical_link', 'outlook_link') }}
+
     {% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
     <p>
       <a href="{{ content.field_event_link[0]['#url'] }}" class="unit-button" target="_blank">{{ content.field_event_link[0]['#title'] }}</a>
