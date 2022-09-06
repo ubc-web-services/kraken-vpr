@@ -1950,11 +1950,10 @@ summary:focus::-webkit-details-marker {
   display: inline-flex;
   border-width: 1px;
   text-align: center;
-  text-transform: uppercase;
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
 
-  padding: 0.5em 1em .3em;
+  padding: 0.5em 1em;
   cursor: pointer;
   transition: all 0.125s ease-out;
   color: #fff;

@@ -8,9 +8,9 @@
 .unit-button,
 .btn-primary,
 .btn-unit-reverse {
-  @apply inline-flex text-center no-underline uppercase border;
+  @apply inline-flex text-center no-underline border;
 
-  padding: 0.5em 1em .3em;
+  padding: 0.5em 1em;
   cursor: pointer;
   transition: all 0.125s ease-out;
   color: $button-text;
