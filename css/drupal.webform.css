@@ -177,3 +177,23 @@
   }
 
 }
+
+.webform-submission-form .checkboxes--wrapper legend,
+.webform-submission-form .webform-checkboxes-other--wrapper legend,
+.webform-submission-form .radios--wrapper legend,
+.webform-submission-form .webform-radios-other--wrapper legend {
+  padding-bottom: 0;
+  text-transform: none;
+  border-bottom: none;
+  font-size: .875rem;
+  color: #002145;
+}
+
+.webform-submission-form .checkboxes--wrapper .fieldset-wrapper,
+.webform-submission-form .webform-checkboxes-other--wrapper .fieldset-wrapper,
+.webform-submission-form .radios--wrapper .fieldset-wrapper,
+.webform-submission-form .webform-radios-other--wrapper .fieldset-wrapper,
+.webform-submission-form :not(.checkboxes--wrapper) .form-item.form-checkbox,
+.webform-submission-form :not(.radios--wrapper) .form-item.form-radio {
+  margin-top: .5em;
+}
