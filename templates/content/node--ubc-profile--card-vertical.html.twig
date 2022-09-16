@@ -166,13 +166,13 @@
       </a>
     </h3>
     {% if not (node.field_profile_pronouns.isEmpty == true) and content.field_profile_pronouns is defined %}
-      <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+      <p class="mt-0 text-xs text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
-    <p class="mt-0 text-sm">{{ content.field_profile_role.0 }}</p>
+    <p class="mt-2 text-sm">{{ content.field_profile_role.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
-    <p class="mt-0">{{ content.field_profile_job_title.0 }}</p>
+    <p class="mt-0 text-sm">{{ content.field_profile_job_title.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
     <p class="mt-0 text-sm">

@@ -128,7 +128,8 @@
 %}
 {%
   set text_classes = [
-    'mt-3',
+    'md--mt-2',
+    'text-sm',
   ]
 %}
 {%
@@ -143,12 +144,22 @@
     'unit-button',
   ]
 %}
+{# need to put content into variable for striptags to work #}
+{% set tagless_body %}
+  {{ content.body }}
+{% endset %}
 
 <article{{ attributes.addClass(classes) }}>
   {% if not (node.field_profile_image.isEmpty == true) and content.field_profile_image is defined %}
     <figure{{ figure_attributes.addClass(figure_classes) }}>{{ content.field_profile_image.0 }}</figure>
   {% endif %}
   <div{{ content_attributes.addClass(content_classes) }}>
+    <div class="md--grid md--grid-cols-2 md--gap-6">
+    {% if not (node.body.isEmpty == true) and content.body is defined %}
+      <div class="md--col-span-1">
+      {% else %}
+      <div class="md--col-span-2">
+    {% endif %}
     {{ title_prefix }}
     <h3{{ title_attributes.addClass(title_classes) }}>
       <a{{ link_attributes.addClass(link_classes) }} href="{{ url }}" rel="bookmark">
@@ -163,37 +174,45 @@
     </h3>
     {{ title_suffix }}
     {% if not (node.field_profile_pronouns.isEmpty == true) and content.field_profile_pronouns is defined %}
-      <p class="mt-0 text-base text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
+      <p class="mt-0 text-xs text-grey-700">{{ content.field_profile_pronouns.0 }}</p>
     {% endif %}
     {% if not node.isPublished() %}
-    <div class="unpublished">Unpublished</div>
+      <div class="unpublished">Unpublished</div>
     {% endif %}
     {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
-    <p class="mt-0 text-sm">{{ content.field_profile_role.0 }}</p>
+      <p class="mt-2 text-sm">{{ content.field_profile_role.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
-    <p class="mt-0">{{ content.field_profile_job_title.0 }}</p>
+      <p class="mt-0 text-sm">{{ content.field_profile_job_title.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
-    <p class="mt-0 text-sm">
-    {%- for tag in content.field_profile_department_unit['#items'] -%}
-        {{- tag.entity.name.value -}}
-        {% if loop.last == false %}, {% endif %}
-    {%- endfor -%}
-    </p>
+      <p class="mt-0 text-sm">
+      {%- for tag in content.field_profile_department_unit['#items'] -%}
+          {{- tag.entity.name.value -}}
+          {% if loop.last == false %}, {% endif %}
+      {%- endfor -%}
+      </p>
     {% endif %}
     {% if not (node.field_profile_phone.isEmpty == true) and content.field_profile_phone is defined %}
-    <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue link-expand-break"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
+      <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue link-expand-break"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_email.isEmpty == true) and content.field_profile_email is defined %}
-    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-mail"></use></svg> <a href="mailto:{{ content.field_profile_email.0 }}" class="link-expand-break">{{ content.field_profile_email.0 }}</a></p>
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-mail"></use></svg> <a href="mailto:{{ content.field_profile_email.0 }}" class="link-expand-break">{{ content.field_profile_email.0 }}</a></p>
     {% endif %}
     {% if not (node.field_profile_office.isEmpty == true) and content.field_profile_office is defined %}
-    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-location"></use></svg> {{ content.field_profile_office.0 }}</p>
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-location"></use></svg> {{ content.field_profile_office.0 }}</p>
     {% endif %}
     {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
-    <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}" class="link-expand-break">Website</a></p>
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}" class="link-expand-break">Website</a></p>
     {% endif %}
-    <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="View profile">View profile</a></p>
+  </div>
+  {% if not (node.body.isEmpty == true) and content.body is defined %}
+    <div class="md--col-span-1">
+      <p{{text_attributes.addClass(text_classes)}}>{{ tagless_body|striptags }}</p>
+    </div>
+  {% endif %}
+    <div class="mt-auto md--col-span-2">
+      <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="View profile">View profile</a></p>
+    </div>
   </div>
 </article>
