@@ -155,11 +155,11 @@
     <figure{{ figure_attributes.addClass(figure_classes) }}>{{ content.field_profile_image.0 }}</figure>
   {% endif %}
   <div{{ content_attributes.addClass(content_classes) }}>
-    <div class="md--grid md--grid-cols-2 md--gap-6">
+    <div class="h-full md--grid md--grid-cols-2 lg--grid-cols-3 md--gap-6">
     {% if not (node.body.isEmpty == true) and content.body is defined %}
       <div class="md--col-span-1">
       {% else %}
-      <div class="md--col-span-2">
+      <div class="md--col-span-2 lg--col-span-3">
     {% endif %}
     {{ title_prefix }}
     <h3{{ title_attributes.addClass(title_classes) }}>
@@ -208,11 +208,11 @@
     {% endif %}
   </div>
   {% if not (node.body.isEmpty == true) and content.body is defined %}
-    <div class="md--col-span-1">
+    <div class="md--col-span-1 lg--col-span-2">
       <p{{text_attributes.addClass(text_classes)}}>{{ tagless_body|striptags }}</p>
     </div>
   {% endif %}
-    <div class="mt-auto md--col-span-2">
+    <div class="mt-auto text-right md--col-span-2 lg--col-span-3">
       <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="View profile">View profile</a></p>
     </div>
   </div>

@@ -5268,6 +5268,14 @@ summary:focus::-webkit-details-marker {
 
 @media (min-width: 1200px) {
 
+  .lg--col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg--col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .lg--col-span-8 {
     grid-column: span 8 / span 8;
   }
@@ -5278,6 +5286,10 @@ summary:focus::-webkit-details-marker {
 
   .lg--w-one-quarter {
     width: 25%;
+  }
+
+  .lg--grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg--text-base {
