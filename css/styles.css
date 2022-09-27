@@ -1656,6 +1656,10 @@ td, th {
   line-height: 1.2;
 }
 
+td > :first-child, th > :first-child {
+  margin: 0px;
+}
+
 th {
   font-weight: 600;
   --tw-text-opacity: 1;

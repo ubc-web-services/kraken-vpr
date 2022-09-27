@@ -32,6 +32,11 @@ th {
   line-height: 1.2;
 }
 
+td > :first-child,
+th > :first-child {
+  @apply m-0;
+}
+
 th {
   @apply font-semibold text-ubc-blue;
 }
