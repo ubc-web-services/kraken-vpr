@@ -34,7 +34,7 @@ th {
 
 td > :first-child,
 th > :first-child {
-  @apply m-0;
+  margin-top: 0
 }
 
 th {

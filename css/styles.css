@@ -1656,8 +1656,9 @@ td, th {
   line-height: 1.2;
 }
 
-td > :first-child, th > :first-child {
-  margin: 0px;
+td > :first-child,
+th > :first-child {
+  margin-top: 0
 }
 
 th {
