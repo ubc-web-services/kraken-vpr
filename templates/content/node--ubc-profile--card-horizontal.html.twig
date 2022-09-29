@@ -209,7 +209,7 @@
   </div>
   {% if not (node.body.isEmpty == true) and content.body is defined %}
     <div class="md--col-span-1 lg--col-span-2">
-      <p{{text_attributes.addClass(text_classes)}}>{{ tagless_body|striptags }}</p>
+      <p{{text_attributes.addClass(text_classes)}}>{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
     </div>
   {% endif %}
     <div class="mt-auto text-right md--col-span-2 lg--col-span-3">

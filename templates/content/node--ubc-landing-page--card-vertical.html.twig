@@ -157,7 +157,7 @@
     <div{{ meta_attributes.addClass(meta_classes) }}>
       {{ node.createdtime|format_date('date_readable') }}</div>
     <h3{{ title_attributes.addClass(title_classes) }}><a{{ link_attributes.addClass(link_classes) }} class="link-expand" href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
-    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags }}</p>
+    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
   </div>
   <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="Details">Details</a></p>
 </article>

@@ -155,7 +155,7 @@
     {% if not node.isPublished() %}
       <div class="unpublished">Unpublished</div>
     {% endif %}
-    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags }}</p>
+    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
     <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes) }} href="{{ url }}" aria-label="Details">Learn more</a></p>
   </div>
 </article>

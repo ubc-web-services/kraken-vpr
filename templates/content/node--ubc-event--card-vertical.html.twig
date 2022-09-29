@@ -204,7 +204,7 @@
     {% if not (node.field_event_date.isEmpty == true) and content.field_event_date is defined %}
     <p{{ meta_attributes.addClass(meta_classes)}} >{{ eventdate }}</p>
     {% endif %}
-    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags }}</p>
+    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
   </div>
   <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes).setAttribute('target', link_target) }} href="{{ link_url }}" aria-label="Event details">{{ link_title }}</a></p>
 </article>
