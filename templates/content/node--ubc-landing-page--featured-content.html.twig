@@ -117,7 +117,7 @@
       <div{{ caption_attributes.addClass(caption_classes) }}>
         {% if not (node.field_landing_image_teaser.isEmpty == true) and content.field_landing_image_teaser is defined %}
           <div{{ title_attributes.addClass(title_classes) }}>
-            {{ content.field_event_image_teaser.0 }}
+            {{ content.field_landing_image_teaser.0 }}
           </div>
         {% else %}
           <h1{{ title_attributes.addClass(title_classes) }}>{{ label }}</h1>
