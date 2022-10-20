@@ -4025,6 +4025,10 @@ summary:focus::-webkit-details-marker {
   display: grid;
 }
 
+.contents {
+  display: contents;
+}
+
 .hidden {
   display: none;
 }
