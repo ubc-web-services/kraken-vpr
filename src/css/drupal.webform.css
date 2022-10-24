@@ -89,6 +89,7 @@
 
 }
 
+/* adjust webform checkboxes / radios */
 .webform-submission-form .checkboxes--wrapper legend,
 .webform-submission-form .webform-checkboxes-other--wrapper legend,
 .webform-submission-form .radios--wrapper legend,
@@ -109,6 +110,7 @@
   margin-top: .5em;
 }
 
+/* fix prefix and suffix for fields */
 .webform-has-field-prefix,
 .webform-has-field-suffix {
 	display: flex;
@@ -140,4 +142,10 @@
 .webform-has-field-prefix input,
 .webform-has-field-suffix input {
     flex: 1;
+}
+
+/* fix drag icon */
+.webform-submission-form a.tabledrag-handle .handle {
+  width: auto;
+  height: auto;
 }
