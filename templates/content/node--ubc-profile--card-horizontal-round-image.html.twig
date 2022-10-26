@@ -195,6 +195,14 @@
       {%- endfor -%}
       </p>
     {% endif %}
+    {% if not (node.field_profile_affiliated.isEmpty == true) and content.field_profile_affiliated is defined %}
+      <p class="mt-0 text-sm">
+        {%- for tag in content.field_profile_affiliated['#items'] -%}
+          {{- tag.entity.name.value -}}
+          {% if loop.last == false %}, {% endif %}
+      {%- endfor -%}
+      </p>
+    {% endif %}
     {% if not (node.field_profile_phone.isEmpty == true) and content.field_profile_phone is defined %}
       <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue link-expand-break"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
     {% endif %}
