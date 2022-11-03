@@ -451,7 +451,8 @@ function kraken_preprocess_node(&$variables)
   $node = $variables['node'];
   $node_type = $node->getType();
 
-  if ( ($node_type == 'ubc_event') ) {
+  if ( (($node_type == 'ubc_event') && ($node->hasField('field_event_date') && !$node->get('field_event_date')->isEmpty() ))) {
+
     $timezone = date_default_timezone_get();
     $formatter = \Drupal::service('date.formatter');
     $date = $node->get('field_event_date')->getValue();
