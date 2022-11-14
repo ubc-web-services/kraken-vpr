@@ -196,6 +196,11 @@
       <a{{ link_attributes.addClass(link_classes) }} href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h3>
     {{ title_suffix }}
+    {% if not (node.field_event_location.isEmpty == true) and content.field_event_location is defined %}
+    <div{{ meta_attributes.addClass(meta_classes) }}>
+      {{ content.field_event_location }}
+    </div>
+    {% endif %}
     {% if not node.isPublished() %}
     <div class="unpublished">Unpublished</div>
     {% endif %}
