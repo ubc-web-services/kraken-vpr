@@ -97,6 +97,31 @@
   @apply pl-[2.625rem];
 }
 
+/* account for non-links */
+
+.navlink--secondary:not(a) {
+  @apply relative block py-2 px-[14px] pr-10 overflow-hidden no-underline font-semibold text-grey-800;
+  border-bottom: none !important;
+}
+
+.navlink--secondary:not(a)::after {
+  display: none;
+}
+
+.navlink--secondary:not(a):hover {
+  @apply no-underline bg-white text-grey-700;
+}
+
+/* account for non-links in primary-nav */
+
+#ubc7-unit-menu .navbar-link:not(a) {
+  @apply font-semibold no-underline bg-white text-grey-800;
+  clear: both;
+  display: block;
+  padding: 3px 20px;
+  white-space: nowrap;
+}
+
 /* vue subanv */
 .nav--split {
   @apply flex;

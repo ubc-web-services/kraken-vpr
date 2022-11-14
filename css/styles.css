@@ -2789,6 +2789,54 @@ summary:focus::-webkit-details-marker {
   padding-left: 2.625rem;
 }
 
+/* account for non-links */
+
+.navlink--secondary:not(a) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-right: 2.5rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(66 66 66 / var(--tw-text-opacity));
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  border-bottom: none !important;
+}
+
+.navlink--secondary:not(a)::after {
+  display: none;
+}
+
+.navlink--secondary:not(a):hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(97 97 97 / var(--tw-text-opacity));
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+/* account for non-links in primary-nav */
+
+#ubc7-unit-menu .navbar-link:not(a) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(66 66 66 / var(--tw-text-opacity));
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  clear: both;
+  display: block;
+  padding: 3px 20px;
+  white-space: nowrap;
+}
+
 /* vue subanv */
 
 .nav--split {
@@ -4313,14 +4361,6 @@ summary:focus::-webkit-details-marker {
 
 .border-2 {
   border-width: 2px;
-}
-
-.border-l {
-  border-left-width: 1px;
-}
-
-.border-r {
-  border-right-width: 1px;
 }
 
 .border-b-2 {

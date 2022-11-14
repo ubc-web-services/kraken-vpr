@@ -88,6 +88,8 @@
 
 /* CLF 7 Breakpoints map to control version 7 of the CLF separately */
 
+/* add default variables (will not match user-supplied values from theme unless these are updated with equivalent values) */
+
 :root {
   --color-primary: #002145 !important;
   --color-secondary: #e0e0e0 !important;
@@ -117,23 +119,6 @@ body {
 body:focus {
   outline: none;
   box-shadow: none;
-}
-
-/* add default variables (will not match user-supplied values from theme unless these are updated with equivalent values) */
-
-:root {
-  --color-primary: #002145 !important;
-  --color-secondary: #e0e0e0 !important;
-  --color-tertiary: #def1f8 !important;
-  --color-accent: #003a79 !important;
-  --color-link: #0055b7;
-  --color-link-hover: #002145;
-  --color-link-active: #002145;
-  --leading: 1.625;
-  --base-font-size: 1rem;
-  --text-font-stack: "Whitney SSm A", "Whitney SSm B", Arial, sans-serif;
-  --alternate-font-stack: var(--text-font-stack);
-  --code-font-stack:  menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* Styles dropdown */
@@ -259,7 +244,22 @@ li.cke_panel_listItem a {
   background-color: var(--color-accent);
 }
 
+[data-drupal-button-link-style="unit-button--outline"] {
+  color: var(--color-link);
+  border-color: var(--color-link);
+  background-color: #fff;
+}
+
+[data-drupal-button-link-style="unit-button--outline"]:hover {
+  color: #fff;
+  border-color: var(--color-link);
+  background-color: var(--color-link);
+}
+
 [data-drupal-button-link-style="unit-button--transparent"] {
+  color: var(--color-link);
+  border-color: var(--color-link);
+  background-color: #fff;
   color: #fff;
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.2);
