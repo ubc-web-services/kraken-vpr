@@ -109,7 +109,7 @@
 }
 
 .navlink--secondary:not(a):hover {
-  @apply no-underline bg-white text-grey-700;
+  @apply no-underline bg-white text-grey-800;
 }
 
 /* account for non-links in primary-nav */
