@@ -129,8 +129,11 @@
       'field_project_researchers') }}
     {% if not (node.field_project_researchers.isEmpty == true) and content.field_project_researchers is defined %}
       <h3 class="h5">Researchers</h3>
-      {{ content.field_project_researchers }}
-    {% endif %}
+      <p>{%- for tag in content.field_project_researchers['#items'] -%}
+        <a href="{{- path('entity.node.canonical', {'node':  node.field_project_researchers.entity.id}) -}}">{{- tag.entity.title.value -}}</a>
+        {%- if loop.last == false -%},&nbsp;{%- endif -%}
+      {%- endfor -%}
+    {% endif %}</p>
     {% if not (node.field_project_home_org.isEmpty == true) and content.field_project_home_org is defined %}
       <h3 class="h5">Home Organization</h3>
       <p>{{ content.field_project_home_org.0 }}</p>
