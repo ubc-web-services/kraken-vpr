@@ -64,6 +64,8 @@
 {% set sidebar_secondary_attributes = create_attribute() %}
 {% set secondary_content_attributes = create_attribute() %}
 {% set prefooter_attributes = create_attribute() %}
+{% set sidebar_primary_exists = page.sidebar_primary|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim is not empty %}
+{% set sidebar_secondary_exists = page.sidebar_secondary|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim is not empty %}
 {%
   set grid_classes = [
     'container',
@@ -105,7 +107,7 @@
     'col-span-full',
   ]
 %}
-{% if not page.sidebar_primary and not page.sidebar_secondary %}
+{% if not sidebar_primary_exists and not sidebar_secondary_exists %}
   {%
     set main_content_classes = [
       'col-span-full',
@@ -113,7 +115,7 @@
     ]
   %}
 {% endif %}
-{% if page.sidebar_primary and not page.sidebar_secondary %}
+{% if sidebar_primary_exists and not sidebar_secondary_exists %}
   {%
     set main_content_classes = [
       'col-span-full',
@@ -133,8 +135,8 @@
     ]
   %}
 {% endif %}
-{% if page.sidebar_secondary and not page.sidebar_primary %}
-    {%
+{% if sidebar_secondary_exists and not sidebar_primary_exists %}
+  {%
     set main_content_classes = [
       'col-span-full',
       'md--col-span-8',
@@ -156,6 +158,10 @@
 </noscript>
 
 <div id="main-content">
+
+  {% if page.pre_content %}
+    {{ page.pre_content }}
+  {% endif %}
 
   {% if (clf_version == '8') %}
     {% include '@kraken/includes/header.html.twig' %}
@@ -187,13 +193,13 @@
           </section>
         </div>
 
-        {% if page.sidebar_primary %}
+        {% if sidebar_primary_exists %}
           <section{{ sidebar_primary_attributes.addClass(sidebar_primary_classes).setAttribute('id', 'sidebar-primary') }}>
             {{ page.sidebar_primary }}
           </section>
         {% endif %}
 
-        {% if page.sidebar_secondary %}
+        {% if sidebar_secondary_exists %}
           <section{{ sidebar_secondary_attributes.addClass(sidebar_secondary_classes).setAttribute('id', 'sidebar-secondary') }}>
             {{ page.sidebar_secondary }}
           </section>

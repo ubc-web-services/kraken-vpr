@@ -6,8 +6,11 @@
     <div class="collapse expand" id="ubc7-global-menu">
   {% endif %}
       <div id="ubc7-search" class="expand">
-        <div class="clf-container">
-          <div id="ubc7-search-box">
+         <div class="clf-container">
+          <div id="ubc7-search-box" class="mx-auto max-w-[360px]">
+            {% if page.search %}
+              {{ page.search }}
+            {% else %}
             <form class="form-search" method="get" action="https://www.ubc.ca/search/refine/" role="search">
               <label for="q" class="hidden">Search UBC</label>
               {% if searchlabel_option %}
@@ -23,6 +26,7 @@
               {% endif %}
               <button type="submit" class="btn">Search</button>
             </form>
+            {% endif %}
           </div>
         </div> <!-- /clf-container -->
       </div>
