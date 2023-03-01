@@ -575,8 +575,8 @@ function kraken_form_user_login_form_alter(&$form, FormStateInterface $form_stat
 function kraken_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id)
 {
   $form['actions']['#attributes']['class'][] = 'flex justify-end';
-  $form['actions']['submit']['#attributes']['class'][] = 'unit-button--block';
-  $form['actions']['reset']['#attributes']['class'][] = 'unit-button ml-3 mt-auto';
+  $form['actions']['submit']['#attributes']['class'][] = 'unit-button unit-button--block mt-auto flex-no-grow ';
+  $form['actions']['reset']['#attributes']['class'][] = 'unit-button ml-3 mt-auto flex-no-grow';
 }
 
 /**
