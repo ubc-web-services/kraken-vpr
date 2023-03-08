@@ -42,10 +42,12 @@
 /* Throbber / ajax loading animation */
 /* CLF 8 Breakpoints map */
 /* CLF 7 Breakpoints map to control version 7 of the CLF separately */
-.field--name-field-media-image-1, .media--type-image {
+.field--name-field-media-image-1,
+.media--type-image {
   margin-top: calc(var(--leading) * var(--base-font-size));
 }
-.ubc-card__media .media--type-image, figure .media--type-image {
+.ubc-card__media .media--type-image,
+figure .media--type-image {
   margin-top: 0px;
 }
 .text-formatted figure:not([class*="align-"]) {
@@ -60,10 +62,13 @@ figure[class*="align-"] figcaption {
   display: table-caption;
   caption-side: bottom;
 }
-figure.align-center, figure.align-right, figure.align-left {
+figure.align-center,
+figure.align-right,
+figure.align-left {
   margin-top: 0px;
 }
-figure.align-left, .align-left.media {
+figure.align-left,
+.align-left.media {
   margin-right: calc(var(--leading) * var(--base-font-size));
   margin-bottom: calc(var(--leading) * var(--base-font-size));
 }
@@ -71,7 +76,8 @@ figure.align-left, .align-left.media {
   margin-right: calc(var(--leading) * var(--base-font-size));
   max-width: 28rem;
 }
-figure.align-right, .align-right.media {
+figure.align-right,
+.align-right.media {
   margin-left: calc(var(--leading) * var(--base-font-size));
   margin-bottom: calc(var(--leading) * var(--base-font-size));
 }
@@ -79,7 +85,12 @@ figure.align-right, .align-right.media {
   margin-left: calc(var(--leading) * var(--base-font-size));
   max-width: 28rem;
 }
-.align-center .media--type-image, .align-left .media--type-image, .align-right .media--type-image, .align-center.media--type-remote-video, .align-left.media--type-remote-video, .align-right.media--type-remote-video {
+.align-center .media--type-image,
+.align-left .media--type-image,
+.align-right .media--type-image,
+.align-center.media--type-remote-video,
+.align-left.media--type-remote-video,
+.align-right.media--type-remote-video {
   margin-top: calc(var(--leading) * var(--base-font-size));
 }
 /* captions */
@@ -90,7 +101,8 @@ figure.caption-drupal-media figcaption {
   margin-bottom: calc(var(--leading) * var(--base-font-size));
 }
 /* specific overrides */
-.carousel__cell .media--type-remote-video, .media--type-remote-video.media--view-mode--featured-content {
+.carousel__cell .media--type-remote-video,
+.media--type-remote-video.media--view-mode--featured-content {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -119,17 +131,20 @@ figure.caption-drupal-media figcaption {
 }
 @media (max-width: 767px) {
 
-  figure.align-left, .align-left.media {
+  figure.align-left,
+  .align-left.media {
     float: none;
     margin-right: 0px;
   }
 
-  figure.align-right, .align-right.media {
+  figure.align-right,
+  .align-right.media {
     float: none;
     margin-left: 0px;
   }
 
-  [class^="widget-"].align-left, [class^="widget-"].align-right {
+  [class^="widget-"].align-left,
+  [class^="widget-"].align-right {
     float: none;
     margin-left: 0px;
     margin-right: 0px;
