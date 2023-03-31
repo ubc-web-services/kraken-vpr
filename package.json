@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ubc-web-services/kraken-vpr#readme",
   "engines": {
-    "node": ">= 8.11"
+    "node": ">= 16"
   },
   "scripts": {
     "watch": "NODE_ENV=development postcss ./src/css/*.css -d ./css -w",
