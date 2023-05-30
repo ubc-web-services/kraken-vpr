@@ -17,6 +17,7 @@
         {% endif %}
         <p class="text-xs md--text-sm xl--text-base">
         {% if address_option %}{{ address_option }}<br />{% endif %}
+        {% if clf_streetaddr_line2 %}{{clf_streetaddr_line2 }}<br />{% endif %}
         {% if locality_option or region_option or country_option or postal_option %}
         <span>
           {% if locality_option %}{{ locality_option }},

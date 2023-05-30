@@ -353,6 +353,7 @@ function kraken_preprocess_page(&$variables)
   // Footer options.
   $variables['unitname_footer'] = theme_get_setting('clf_unitname_footer');
   $variables['address_option'] = theme_get_setting('clf_streetaddr');
+  $variables['clf_streetaddr_line2'] = theme_get_setting('clf_streetaddr_line2');
   $variables['locality_option'] = theme_get_setting('clf_locality');
   $variables['region_option'] = theme_get_setting('clf_region');
   $variables['country_option'] = theme_get_setting('clf_country');
@@ -363,6 +364,7 @@ function kraken_preprocess_page(&$variables)
   $variables['website_option'] = theme_get_setting('clf_website');
   $variables['subunit_name'] = theme_get_setting('clf_subunitname');
   $variables['address2_option'] = theme_get_setting('clf_streetaddr2');
+  $variables['clf_streetaddr2_line2'] = theme_get_setting('clf_streetaddr2_line2');
   $variables['locality2_option'] = theme_get_setting('clf_locality2');
   $variables['region2_option'] = theme_get_setting('clf_region2');
   $variables['country2_option'] = theme_get_setting('clf_country2');

@@ -261,6 +261,14 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#maxlength' => 128,
   ];
 
+  $form['vpr']['clf_streetaddr2_line2'] = [
+    '#type' => 'textfield',
+    '#title' => t('Street Address, Line 2'),
+    '#default_value' => theme_get_setting('clf_streetaddr2_line2'),
+    '#size' => 60,
+    '#maxlength' => 128,
+  ];
+
   $form['vpr']['clf_locality2'] = [
     '#type' => 'textfield',
     '#title' => t('City'),
@@ -537,6 +545,14 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Street Address'),
     '#default_value' => theme_get_setting('clf_streetaddr'),
+    '#size' => 60,
+    '#maxlength' => 128,
+  ];
+
+  $form['location']['clf_streetaddr_line2'] = [
+    '#type' => 'textfield',
+    '#title' => t('Street Address, Line 2'),
+    '#default_value' => theme_get_setting('clf_streetaddr_line2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];

@@ -64,6 +64,7 @@
       {% endif %}
       <p class="mt-0 text-xs md--text-sm xl--text-base">
         {% if address_option %}{{ address_option }}<br />{% endif %}
+        {% if clf_streetaddr_line2 %}{{clf_streetaddr_line2 }}<br />{% endif %}
         {% if locality_option or region_option or country_option or postal_option %}
         <span>
           {% if locality_option %}{{ locality_option }},
@@ -94,6 +95,7 @@
           {% endif %}
           <p class="mt-0 text-xs md--text-sm xl--text-base">
             {% if address2_option %}{{ address2_option }}<br />{% endif %}
+            {% if clf_streetaddr2_line2 %}{{clf_streetaddr2_line2 }}<br />{% endif %}
             {% if locality2_option or region2_option or country2_option or postal2_option %}
             <span>
               {% if locality2_option %}{{ locality2_option }},
