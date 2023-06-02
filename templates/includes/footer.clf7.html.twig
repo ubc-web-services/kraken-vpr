@@ -10,6 +10,8 @@
   {% include '@kraken/includes/footer.unit.portfolio.html.twig' %}
 {% elseif vpr_unit is same as('cluster') %}
   {% include '@kraken/includes/footer.unit.cluster.html.twig' %}
+{% elseif vpr_unit is same as('shared') %}
+  {% include '@kraken/includes/footer.unit.shared.html.twig' %}
 {% elseif vpr_unit is same as('research') %}
   {% include '@kraken/includes/footer.unit.research.html.twig' %}
 {% else %}

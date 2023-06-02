@@ -220,6 +220,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#options' => [
       'portfolio' => t('Portfolio'),
       'cluster' => t('Cluster'),
+      'shared' => t('Shared Research Platforms'),
       'research' => t('Main Research Website'),
       '' => t('None'),
     ],
