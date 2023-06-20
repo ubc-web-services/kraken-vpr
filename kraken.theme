@@ -411,7 +411,7 @@ function kraken_preprocess_page(&$variables)
   if (!empty($vpr_portfolio_signature)) {
     $vpr_sig = \Drupal\file\Entity\File::load($vpr_portfolio_signature['0']);
     $uri = $vpr_sig->getFileUri();
-    $vpr_sig_url = \Drupal::service('file_url_generator')->generate($uri)->toString();
+    $vpr_sig_url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
     $variables['vpr_sig_url'] = $vpr_sig_url;
   }
 }
