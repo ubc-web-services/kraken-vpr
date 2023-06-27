@@ -130,7 +130,7 @@
     {% if not (node.field_project_researchers.isEmpty == true) and content.field_project_researchers is defined %}
       <h3 class="h5">Researchers</h3>
       <p>{%- for tag in content.field_project_researchers['#items'] -%}
-        <a href="{{- path('entity.node.canonical', {'node':  node.field_project_researchers.entity.id}) -}}">{{- tag.entity.title.value -}}</a>
+        <a href="{{- path('entity.node.canonical', {'node':  tag.entity.nid.value}) -}}">{{- tag.entity.title.value -}}</a>
         {%- if loop.last == false -%},&nbsp;{%- endif -%}
       {%- endfor -%}
     {% endif %}</p>
