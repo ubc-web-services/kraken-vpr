@@ -30,6 +30,10 @@ ckeditor_stylesheets:
   - css/styles.min.css
   - css/drupal.media.min.css
   - css/drupal.ckeditor.iframe.css
+ckeditor5-stylesheets:
+  - css/styles.min.css
+  - css/drupal.media.min.css
+  - css/drupal.ckeditor.iframe.css
 
 regions:
   pre_content: 'Pre-content'
