@@ -3457,6 +3457,7 @@ summary:focus::-webkit-details-marker {
   text-indent: -9999em;
   opacity: 1;
   border-radius: 0;
+  background-image: none !important;
   background: rgba(255, 255, 255, 0.5);
 }
 
