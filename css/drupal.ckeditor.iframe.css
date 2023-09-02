@@ -177,7 +177,8 @@ li.cke_panel_listItem a {
 
 /* buttons - add styles here as they're added with data attributes instead of classes in the editor */
 
-[data-drupal-button-link="unit-button"] {
+.ck-content .unit-button,
+.ck-content [data-drupal-button-link="unit-button"] {
   display: inline-flex;
   padding: 0.65em 2em 0.42em;
   cursor: pointer;
@@ -190,7 +191,8 @@ li.cke_panel_listItem a {
   background-color: #002145;
 }
 
-[data-drupal-button-link="unit-button"]:hover {
+.ck-content .unit-button:hover,
+.ck-content [data-drupal-button-link="unit-button"]:hover {
   text-decoration: none;
   color: #fff;
   border-color: transparent;
@@ -198,7 +200,8 @@ li.cke_panel_listItem a {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-[data-drupal-button-link="unit-button-block"] {
+.ck-content .unit-button-block,
+.ck-content [data-drupal-button-link="unit-button-block"] {
   display: block;
   width: 100%;
   text-align: center;
@@ -206,80 +209,93 @@ li.cke_panel_listItem a {
 
 /* button sizes */
 
-[data-drupal-button-link-size="text-xs"] {
+.ck-content .text-xs,
+.ck-content [data-drupal-button-link-size="text-xs"] {
   font-size: 0.75rem;
 }
 
-[data-drupal-button-link-size="text-sm"] {
+.ck-content .text-sm,
+.ck-content [data-drupal-button-link-size="text-sm"] {
   font-size: 0.875rem;
 }
 
-[data-drupal-button-link-size="text-lg"] {
+.ck-content .text-lg,
+.ck-content [data-drupal-button-link-size="text-lg"] {
   font-size: 1.125rem;
 }
 
-[data-drupal-button-link-size="text-xl"] {
+.ck-content .text-xl,
+.ck-content [data-drupal-button-link-size="text-xl"] {
   font-size: 1.25rem;
 }
 
-[data-drupal-button-link-size="text-2x"] {
+.ck-content .text-2xl,
+.ck-content [data-drupal-button-link-size="text-2xl"] {
   font-size: 1.5rem;
 }
 
 /* button style variations */
 
-[data-drupal-button-link-style="unit-button--light"] {
+.ck-content .unit-button--light,
+.ck-content [data-drupal-button-link-style="unit-button--light"] {
   color: #000;
   border-color: transparent;
   background-color: #def1f8;
 }
 
-[data-drupal-button-link-style="unit-button--light"]:hover {
+.ck-content .unit-button--light:hover,
+.ck-content [data-drupal-button-link-style="unit-button--light"]:hover {
   color: #000;
   border-color: transparent;
   background-color: #97d4e9;
 }
 
-[data-drupal-button-link-style="unit-button--dark"] {
+.ck-content .unit-button--dark,
+.ck-content [data-drupal-button-link-style="unit-button--dark"] {
   color: #fff;
   border-color: transparent;
   background-color: var(--color-primary);
 }
 
-[data-drupal-button-link-style="unit-button--dark"]:hover {
+.ck-content .unit-button--dark:hover,
+.ck-content [data-drupal-button-link-style="unit-button--dark"]:hover {
   color: #fff;
   border-color: transparent;
   background-color: var(--color-accent);
 }
 
-[data-drupal-button-link-style="unit-button--outline"] {
+.ck-content .unit-button--outline,
+.ck-content [data-drupal-button-link-style="unit-button--outline"] {
   color: var(--color-link);
   border-color: var(--color-link);
   background-color: #fff;
 }
 
-[data-drupal-button-link-style="unit-button--outline"]:hover {
+.ck-content .unit-button--outline:hover,
+.ck-content [data-drupal-button-link-style="unit-button--outline"]:hover {
   color: #fff;
   border-color: var(--color-link);
   background-color: var(--color-link);
 }
 
-[data-drupal-button-link-style="unit-button--transparent"] {
-  color: var(--color-link);
-  border-color: var(--color-link);
-  background-color: #fff;
-  color: #fff;
+.ck-content .unit-button--transparent,
+.ck-content [data-drupal-button-link-style="unit-button--transparent"] {
+  color: rgba(0,0,0,.2);
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
 }
 
-[data-drupal-button-link-style="unit-button--transparent"]:hover {
-  color: #fff;
+.ck-content .unit-button--transparent:hover,
+.ck-content [data-drupal-button-link-style="unit-button--transparent"]:hover {
+  color: rgba(0,0,0,.3);
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.4);
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
 }
 
-[data-drupal-button-link-style="unit-button--simple"] {
+.ck-content .unit-button--simple,
+.ck-content [data-drupal-button-link-style="unit-button--simple"] {
   position: relative;
   overflow: hidden;
   padding-top: 0;
@@ -292,7 +308,8 @@ li.cke_panel_listItem a {
   background: transparent;
 }
 
-[data-drupal-button-link-style="unit-button--simple"]::before {
+.ck-content .unit-button--simple::before,
+.ck-content [data-drupal-button-link-style="unit-button--simple"]::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -309,19 +326,28 @@ li.cke_panel_listItem a {
   background-size: 0.85em 0.85em;
 }
 
-[data-drupal-button-link-style="unit-button--simple"]:hover {
+.ck-content .unit-button--simple:hover,
+.ck-content [data-drupal-button-link-style="unit-button--simple"]:hover {
   text-decoration: underline;
   color: var(--color-link-hover);
   background: transparent;
   box-shadow: none;
 }
 
-[data-drupal-button-link-style="unit-button--simple"]:hover::after {
+.ck-content .unit-button--simple:hover::after,
+.ck-content [data-drupal-button-link-style="unit-button--simple"]:hover::after {
   transform: translate3d(0, 0, 0);
 }
 
-[data-drupal-button-link-style="unit-button--simple"]:hover::before {
+.ck-content .unit-button--simple:hover::before,
+.ck-content [data-drupal-button-link-style="unit-button--simple"]:hover::before {
   transform: translate3d(4px, 0, 0);
+}
+
+/* ensure white text is visible */
+
+.ck-content .text-white {
+  text-shadow: rgba(0, 0, 0, .5) 1px 0 10px;
 }
 
 /* ensure media in the full view mode is made the correct width, and ignore alignment */
@@ -387,6 +413,7 @@ summary {
 
 /* fix custom list styles */
 
+.list-inline,
 .list-checked,
 .list-bordered  {
   margin-left: 0;
