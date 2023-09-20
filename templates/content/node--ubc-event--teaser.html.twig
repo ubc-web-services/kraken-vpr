@@ -66,6 +66,7 @@
  */
 #}
 {% set meta_attributes = create_attribute() %}
+{% set link_attributes = create_attribute() %}
 {%
   set classes = [
     'node',
@@ -120,6 +121,24 @@
   {% set time = '' %}
 {% endif %}
 
+{# addresses certain special characters being stripped out or replaced in external URLs #}
+{% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
+  {% set exturl = content.field_event_link[0]['#url']|raw  %}
+  {% set exttitle = content.field_event_link[0]['#title']|raw %}
+  {% set link_url = exturl %}
+  {% set link_target = '_blank' %}
+  {% if exttitle == exturl %}
+    {% set link_title = 'Learn more' %}
+  {% else %}
+    {# % set link_title = exttitle % #}
+    {% set link_title = 'Learn more' %}
+  {% endif %}
+{% else %}
+  {% set link_url = url %}
+  {% set link_title = 'Learn more' %}
+  {% set link_target = '_self' %}
+{% endif %}
+
 <article{{ attributes.addClass(classes) }}>
   {% if not (node.field_event_date.isEmpty == true) and content.field_event_date is defined %}
   <div{{ meta_attributes.addClass(meta_classes) }}>
@@ -128,7 +147,9 @@
   {% endif %}
   {{ title_prefix }}
   <h3{{ title_attributes.addClass(title_classes) }}>
-    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    <a{{ link_attributes.setAttribute('target', link_target) }} href="{{ link_url }}">
+      {{ label }}
+    </a>
   </h3>
   {{ title_suffix }}
 </article>
