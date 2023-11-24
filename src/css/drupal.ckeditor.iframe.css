@@ -323,7 +323,7 @@ summary {
   list-style-type: none !important;
 }
 
-.ck-content .anchor-invisible {
+.cke_editable .anchor-invisible {
   display: inline-block !important;
   font-size: .875em;
   position: relative !important;
@@ -331,7 +331,7 @@ summary {
   height: auto !important;
 }
 
-.ck-content .anchor-invisible::after {
+.cke_editable .anchor-invisible::after {
   content: " (only visible in edit mode)"
 }
 
