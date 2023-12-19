@@ -80,29 +80,6 @@
 
 .field--name-field-profile-office,
 .field--name-field-event-map,
-.field--name-field-media-oembed-video,
-.media-embed-letterbox,
-.media--wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 0 !important;
-  padding-bottom: 56.25%;
-}
-
-.field--name-field-profile-office iframe,
-.field--name-field-event-map iframe,
-.field--name-field-media-oembed-video iframe,
-.media-embed-letterbox iframe,
-.media--wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.field--name-field-profile-office,
-.field--name-field-event-map,
 .img-and-caption {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;

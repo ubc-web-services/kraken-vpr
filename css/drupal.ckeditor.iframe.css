@@ -352,6 +352,11 @@ li.cke_panel_listItem a {
 
 /* ensure media in the full view mode is made the correct width, and ignore alignment */
 
+.ck-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 drupal-media[data-view-mode="full"],
 drupal-media[data-view-mode="full"] .align-right,
 drupal-media[data-view-mode="full"] .align-left,
@@ -359,6 +364,54 @@ drupal-media[data-view-mode="full"] .align-center {
   display: block !important;
   float: none !important;
   width: 100% !important;
+}
+
+.ck-content figure.drupal-media-style-align-right,
+.ck-content figure.drupal-media-style-align-left {
+  margin-top: 0 !important;
+}
+
+.ck-content .caption-drupal-media.align-left,
+.ck-content .caption-drupal-media.align-right,
+.ck-content .drupal-media.align-left,
+.ck-content .drupal-media.align-right,
+.ck-content div.align-left.media--type-image,
+.ck-content div.align-left.media--type-remote-video,
+.ck-content div.align-right.media--type-image,
+.ck-content div.align-right.media--type-remote-video,
+.ck-content figure.drupal-media figure {
+  max-width: 100% !important;
+  margin-top: 0 !important;
+}
+
+.ck-content .caption-drupal-media.align-left,
+.ck-content .caption-drupal-media.align-right,
+.ck-content .drupal-media.align-left,
+.ck-content .drupal-media.align-right,
+.ck-content div.align-left.media--type-image,
+.ck-content div.align-left.media--type-remote-video,
+.ck-content div.align-right.media--type-image,
+.ck-content div.align-right.media--type-remote-video,
+.ck-content figure.drupal-media figure.align-right,
+.ck-content figure.drupal-media figure.align-left {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.ck-content .image-inline.image-style-align-left,
+.ck-content .image-inline.image-style-align-right {
+  margin-top: .25em !important;
+  max-width: 50%;
+}
+
+.ck-content figcaption {
+  text-align: left;
+}
+
+.ck-content p+.image-style-align-left,
+.ck-content p+.image-style-align-right,
+.ck-content p+.image-style-side {
+  margin-top: 1.75rem !important;
 }
 
 /* ensure media edit buttons remain above emebedded content */
