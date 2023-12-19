@@ -74,6 +74,10 @@ img.align-right,
   margin-top: 0;
   margin-bottom: calc(var(--leading) * 1rem);
 }
+/* fixes for card styles */
+.ubc-card__media .media {
+  margin-top: 0 !important;
+}
 @media (min-width: 768px) {
   .align-left {
     float: left;
