@@ -264,45 +264,44 @@ li.cke_panel_listItem a {
   height: auto;
 }
 
-drupal-media[data-view-mode="full"],
-drupal-media[data-view-mode="full"] .align-right,
-drupal-media[data-view-mode="full"] .align-left,
-drupal-media[data-view-mode="full"] .align-center {
-  display: block !important;
-  float: none !important;
-  width: 100% !important;
+.ck-content .align-left,
+.ck-content .align-right,
+.ck-content .align-center {
+  max-width: 100%;
+}
+
+.ck-content .image-inline.image-style-align-left,
+.ck-content .image-inline.image-style-align-right,
+.ck-content .image-inline.image-style-align-center {
+  max-width: 50%;
+}
+
+.ck-content figure.image-style-align-left,
+.ck-content figure.image-style-align-right,
+.ck-content figure.image-style-align-center {
+  margin-bottom: 2.5rem;
+}
+
+.ck-content figure .align-left,
+.ck-content figure .align-right,
+.ck-content figure .align-center {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ck-content figcaption {
+  text-align: left;
+}
+
+.ck-content figure.image_resized:not(.image-style-align-left, .image-style-align-right, .image-style-align-center) {
+  height: auto !important;
+  width: auto !important;
 }
 
 .ck-content figure.drupal-media-style-align-right,
 .ck-content figure.drupal-media-style-align-left {
   margin-top: 0 !important;
-}
-
-.ck-content .caption-drupal-media.align-left,
-.ck-content .caption-drupal-media.align-right,
-.ck-content .drupal-media.align-left,
-.ck-content .drupal-media.align-right,
-.ck-content div.align-left.media--type-image,
-.ck-content div.align-left.media--type-remote-video,
-.ck-content div.align-right.media--type-image,
-.ck-content div.align-right.media--type-remote-video,
-.ck-content figure.drupal-media figure {
-  max-width: 100% !important;
-  margin-top: 0 !important;
-}
-
-.ck-content .caption-drupal-media.align-left,
-.ck-content .caption-drupal-media.align-right,
-.ck-content .drupal-media.align-left,
-.ck-content .drupal-media.align-right,
-.ck-content div.align-left.media--type-image,
-.ck-content div.align-left.media--type-remote-video,
-.ck-content div.align-right.media--type-image,
-.ck-content div.align-right.media--type-remote-video,
-.ck-content figure.drupal-media figure.align-right,
-.ck-content figure.drupal-media figure.align-left {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
+  margin-bottom: 1rem;
 }
 
 .ck-content .image-inline.image-style-align-left,
@@ -311,15 +310,20 @@ drupal-media[data-view-mode="full"] .align-center {
   max-width: 50%;
 }
 
-.ck-content figcaption {
-  text-align: left;
+.ck-content .image-inline.image-style-align-left {
+  margin-right: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
 }
 
-.ck-content p+.image-style-align-left,
-.ck-content p+.image-style-align-right,
-.ck-content p+.image-style-side {
-  margin-top: 1.75rem !important;
+.ck-content .image-inline.image-style-align-right {
+  margin-bottom: 1.5rem !important;
+  margin-left: 1.5rem !important;
 }
+
+.ck-content .image.image_resized  {
+  height: auto !important;
+}
+
 
 /* ensure media edit buttons remain above emebedded content */
 .media-library-item__edit {

@@ -34,7 +34,7 @@ embed,
 iframe,
 object {
   aspect-ratio: 16/9; /* yay! */
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 

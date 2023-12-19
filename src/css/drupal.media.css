@@ -1,116 +1,100 @@
 /* drupal media */
 @import "config/variables.config.css";
 
-.field--name-field-media-image-1,
-.media--type-image,
-.media--type-remote-video {
-  @apply mt-leading;
+/* test simplified styles */
+embed,
+iframe,
+object {
+  aspect-ratio: 16/9; /* yay! */
+  max-width: 100%;
+  height: auto;
 }
 
-.ubc-card__media .media--type-image,
-figure > .media--type-image,
-figure > .media--type-remote-video {
-  @apply !mt-0;
+figure img {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
-.text-formatted figure:not([class*="align-"]) {
-  width: 100%;
-}
-
-.align-center,
-.align-left,
-.align-right {
-  display: table;
-}
-
-.align-center {
-  @apply mx-auto;
-}
-
-figure[class*="align-"] figcaption {
-  display: table-caption;
-  caption-side: bottom;
-}
-
-img.align-left,
-figure.align-left,
-img.align-right,
-figure.align-right,
-div.align-left.media--type-remote-video,
-div.align-right.media--type-remote-video,
-div.align-left.media--type-image,
-div.align-right.media--type-image {
-  @apply mb-4;
-}
-
-img.align-center,
-.drupal-media.align-left,
-.drupal-media.align-right,
-div.align-left.media--type-remote-video,
-div.align-right.media--type-remote-video,
-div.align-left.media--type-image,
-div.align-right.media--type-image,
 figure.align-left,
 figure.align-right {
-  @apply mt-[1.75em];
+  margin-bottom: calc(var(--leading) * 1rem);
+}
+
+.media,
+img.align-center {
+  margin-top: calc(var(--leading) * 1rem);
+}
+
+figure .media {
+  margin-top: 0;
 }
 
 img.align-left,
-img.align-right {
-  @apply mt-[.5em];
-}
-
-[class^="widget-"].align-left {
-  @apply max-w-md;
-}
-
-
-figure.align-right,
-.align-right.media {
-  @apply ml-leading mb-leading;
+img.align-right,
+.align-left.media img,
+.align-right.media img,
+.align-left.media iframe,
+.align-right.media iframe {
+  margin-top: 0;
+  margin-bottom: calc(var(--leading) * 1rem);
 }
 
 @media (min-width: $breakpoint--sm) {
-
   .align-left {
     float: left;
+    margin-right: 1.5rem;
   }
 
   .align-right {
     float: right;
+    margin-left: 1.5rem;
   }
 
+  .align-center {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-  .drupal-media.align-left,
-  .drupal-media.align-right,
-  .caption-drupal-media.align-left,
-  .caption-drupal-media.align-right,
-  figure.align-left,
-  figure.align-right,
-  img.align-left,
-  img.align-right,
-  div.align-left.media--type-remote-video,
-  div.align-right.media--type-remote-video,
-  div.align-left.media--type-image,
-  div.align-right.media--type-image  {
+  .caption.align-center {
+    display: table;
+  }
+
+  .align-left,
+  .align-right,
+  .align-center {
     clear: both;
     max-width: 50%;
   }
 
-  [class^="widget-"].align-left,
-  img.align-left,
   figure.align-left,
-  div.align-left.media--type-remote-video,
-  div.align-left.media--type-image {
-    @apply mr-6;
+  figure.align-right {
+    margin-bottom: calc(var(--leading) * .5rem);
   }
 
-  [class^="widget-"].align-right,
+  img.align-left,
   img.align-right,
-  figure.align-right,
-  div.align-right.media--type-remote-video,
-  div.align-right.media--type-image, {
-    @apply ml-6;
+  .align-left.media img,
+  .align-right.media img,
+  .align-left.media iframe,
+  .align-right.media iframe {
+    margin-bottom: calc(var(--leading) * .5rem);
+  }
+
+}
+
+
+/* styles for below the small breakpoint */
+@media (max-width: $breakpoint--sm--max) {
+
+  .text-formatted .align-left,
+  .text-formatted .align-right {
+    @apply float-none max-w-full;
+  }
+
+  figure.align-left,
+  figure.align-right {
+    width: 100%;
   }
 
 }
@@ -119,32 +103,6 @@ figure.align-right,
 .carousel__cell .media--type-remote-video,
 .media--type-remote-video.media--view-mode--featured-content {
   @apply my-0;
-}
-
-@media (max-width: $breakpoint--sm--max) {
-
-  figure.align-left,
-  figure.align-right,
-  .drupal-media.align-left,
-  .drupal-media.align-right,
-  .caption-drupal-media.align-left,
-  .caption-drupal-media.align-right,
-  img.align-left,
-  img.align-right,
-  [class^="widget-"].align-left,
-  [class^="widget-"].align-right,
-  div.align-left.media--type-remote-video,
-  div.align-right.media--type-remote-video,
-  div.align-left.media--type-image,
-  div.align-right.media--type-image {
-    @apply float-none max-w-full ml-0 mr-0;
-  }
-
-  figure.align-left,
-  figure.align-right {
-    width: 100%;
-  }
-
 }
 
 /* add play button on top of image thumbnail */
