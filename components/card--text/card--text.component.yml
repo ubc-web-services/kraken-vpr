@@ -1,0 +1,59 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json"
+name: Text Card
+status: stable
+group: UBC Web Services
+description: Component to render as a Text Card
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: Title
+      description: The title of the card
+    link:
+      type: string
+      title: Link
+      description: The destination of the card link
+      examples:
+        - https://ubc.ca
+    linkText:
+      type: string
+      title: Link
+      description: The text of the card link
+      examples:
+        - Read more
+    target:
+      type: boolean
+      title: Target
+      description: Open the link in a new tab
+    color:
+      type: string
+      title: Card color
+      description: The background color of the card
+      enum:
+        - 'bg-transparent bg-light'
+        - 'bg-white bg-light'
+        - 'bg-unit-primary bg-dark'
+        - 'bg-unit-secondary bg-light'
+        - 'bg-unit-tertiary bg-light'
+        - 'bg-unit-accent bg-dark'
+        - 'bg-ubc-blue bg-dark'
+        - 'bg-ubc-blue-sea bg-dark'
+        - 'bg-ubc-blue-cobalt bg-dark'
+        - 'bg-ubc-blue-neptune bg-dark'
+        - 'bg-ubc-blue-cornflower bg-light'
+        - 'bg-ubc-blue-polar bg-light'
+        - 'bg-ubc-blue-frost bg-light'
+        - 'bg-grey-100 bg-light'
+      default: 'bg-ubc-blue bg-dark'
+    customClasses:
+      title: Custom Classes
+      type: string
+      description: Custom classes to apply to the card
+      examples:
+        - my-class another-class
+libraryOverrides:
+  dependencies:
+    - kraken/global

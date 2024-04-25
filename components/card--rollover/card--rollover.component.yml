@@ -1,0 +1,43 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json"
+name: Rollover Card
+status: stable
+group: UBC Web Services
+description: Component to render as a Rollover Card
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: Title
+      description: The title of the card
+    revealedText:
+      type: string
+      title: Revealed Text
+      description: Choose the card layout
+      examples:
+        - Planning your research
+    link:
+      type: string
+      title: Link
+      description: The destination of the card link
+      examples:
+        - https://ubc.ca
+    target:
+      type: boolean
+      title: Target
+      description: Open the link in a new tab
+    customClasses:
+      title: Custom Classes
+      type: string
+      description: Custom classes to apply to the card
+      examples:
+        - my-class another-class
+slots:
+  media:
+    title: Image Content
+    description: The image / media content
+libraryOverrides:
+  dependencies:
+    - kraken/global

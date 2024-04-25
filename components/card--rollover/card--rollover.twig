@@ -1,0 +1,27 @@
+{% set cardrolloverattributes = create_attribute() %}
+{% set classes = [
+    'bg-ubc-blue-cornflower',
+    'relative',
+    'group',
+    'flex',
+    'flex-col',
+    'min-h-[300px]',
+    'img-cover',
+    'h-full',
+    customClasses,
+  ]
+%}
+
+<article{{ cardrolloverattributes.addClass(classes) }}>
+	{% block media %}{% endblock %}
+	<p class="flex-none px-4 py-2 mt-0 uppercase">
+		{{ title }}
+		<svg role="img" class="inline-block w-6 h-6 stroke-2 text-ubc-blue translate-y-[-2px]">
+			<use xlink:href="#icon-caret"></use>
+		</svg>
+	</p>
+	<a class="absolute top-0 bottom-0 left-0 right-0 flex px-4 text-white no-underline transition-opacity duration-300 opacity-0 group-hover--opacity-100 focus--opacity-100 bg-ubc-blue link-expand group-hover--text-white hover--text-white" href="{{ link }}" aria-label="{{ title }}" {% if target %}
+    target="_blank"{% endif %}>
+		<span class="relative w-full text-center place-self-center keyline-bottom">{{ revealedText }}</span>
+	</a>
+</article>

@@ -1,0 +1,100 @@
+{% set cardprimaryattributes = create_attribute() %}
+{% set figureattributes = create_attribute() %}
+{% set contentattributes = create_attribute() %}
+{% set titleattributes = create_attribute() %}
+{% set classes = [
+    'ubc-card',
+    'ubc-card--primary',
+    'relative',
+    'h-full',
+    'hover--cursor-pointer',
+    'group',
+    'isolate',
+    noShadow ? '': 'shadow hover--shadow-lg',
+    imageZoom ? 'img-zoom',
+    color ? color: 'bg-transparent bg-light',
+    layout ? layout: 'ubc-card--vert',
+    customClasses,
+  ]
+%}
+{% set figure_classes = [
+    'mt-0',
+    'ubc-card__media',
+    'img-cover',
+    'overflow-hidden',
+  ]
+%}
+{% set content_classes = [
+    'p-6',
+    'flex',
+    'h-full',
+    'flex-col',
+  ]
+%}
+{%
+  set title_classes = [
+    'text-xl',
+    'mt-0',
+  ]
+%}
+{% if layout is same as 'ubc-card--vert' %}
+  {% set layout_classes = [
+      'flex',
+      'flex-col',
+    ]
+  %}
+  {% set figure_layout_classes = [
+      'flex-none',
+      'mt-6',
+      'mx-6',
+    ]
+  %}
+{% endif %}
+{% if layout is same as 'ubc-card--horiz' %}
+  {% set layout_classes = [
+      'sm--flex',
+      'sm--flex-row',
+    ]
+  %}
+{% endif %}
+{% if layout is same as 'ubc-card--horiz-rev' %}
+  {% set layout_classes = [
+      'sm--flex',
+      'sm--flex-row-reverse',
+    ]
+  %}
+{% endif %}
+{% if layout is same as 'ubc-card--horiz' or layout is same as 'ubc-card--horiz-rev' %}
+  {% set figure_layout_classes = [
+      'sm--max-w-[300px]',
+      'sm--shrink-0',
+    ]
+  %}
+  {% set horiz_content_classes = [
+      'flex-1',
+      'self-center',
+    ]
+  %}
+{% endif %}
+<article{{ cardprimaryattributes.addClass(classes, layout_classes) }}>
+  <figure{{ figureattributes.addClass(figure_classes, figure_layout_classes) }}>
+    {% block media %}{% endblock %}
+  </figure>
+  <div{{ contentattributes.addClass(content_classes, horiz_content_classes) }}>
+    <div class="py-2 ubc-card__content first-child--mt-0">
+      {% if meta %}
+        <div class="text-sm text-grey-600">{{ meta }}</div>
+      {% endif %}
+      <h3{{ title_attributes.addClass(title_classes) }}>
+        <a href="{{ link }}" class="no-underline hover--no-underline text-ubc-blue link-expand" {% if target %}
+    target="_blank"{% endif %}>
+          {{ title }}
+        </a>
+      </h3>
+      {% block content %}{% endblock %}
+    </div>
+    <div class="w-full mt-auto ubc-card__actions">
+      {% block actions %}{% endblock %}
+    </div>
+  </div>
+</article>
