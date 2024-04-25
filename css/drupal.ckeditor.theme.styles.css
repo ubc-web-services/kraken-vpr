@@ -1042,7 +1042,6 @@ blockquote p:last-of-type::after {
   border: 1px solid #e0e0e0;
   border-radius: 0;
   background-color: #fff;
-  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -1191,7 +1190,6 @@ fieldset fieldset legend {
   border-color: rgba(0, 33, 69, 1);
   background-color: #fff;
   background-origin: border-box;
-  -webkit-appearance: none;
   appearance: none;
   -webkit-print-color-adjust: exact;
   color-adjust: exact;
@@ -2550,8 +2548,7 @@ fieldset fieldset legend {
   background-size: 1em auto;
   border: 2px solid #e0e0e0 !important;
   border-radius: 0;
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 .ck-editor .form-select .chosen-container-active a.chosen-single {
@@ -4615,6 +4612,10 @@ fieldset fieldset legend {
   border-radius: 0.25rem;
 }
 
+.ck-editor .rounded-full {
+  border-radius: 9999px;
+}
+
 .ck-editor .rounded-sm {
   border-radius: 0.125rem;
 }
@@ -5089,6 +5090,10 @@ fieldset fieldset legend {
   font-style: italic;
 }
 
+.ck-editor .leading-none {
+  line-height: 1;
+}
+
 .ck-editor .leading-normal {
   line-height: 1.5;
 }
@@ -5097,9 +5102,18 @@ fieldset fieldset legend {
   letter-spacing: 0.05em;
 }
 
+.ck-editor .\!text-white {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
 .ck-editor .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.ck-editor .text-current {
+  color: currentColor;
 }
 
 .ck-editor .text-grey-500 {
@@ -5197,6 +5211,16 @@ fieldset fieldset legend {
   outline-style: solid;
 }
 
+.ck-editor .drop-shadow-md {
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.ck-editor .drop-shadow-none {
+  --tw-drop-shadow: drop-shadow(0 0 #0000);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .ck-editor .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -5231,6 +5255,11 @@ fieldset fieldset legend {
 .ck-editor .hover--bg-ubc-blue-sea:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 58 121 / var(--tw-bg-opacity));
+}
+
+.ck-editor .hover--\!text-ubc-blue-polar:hover {
+  --tw-text-opacity: 1 !important;
+  color: rgb(222 241 248 / var(--tw-text-opacity)) !important;
 }
 
 .ck-editor .hover--text-black:hover {
@@ -5281,6 +5310,11 @@ fieldset fieldset legend {
 
 .ck-editor .focus--opacity-100:focus {
   opacity: 1;
+}
+
+.ck-editor .group:hover .group-hover--bg-ubc-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 33 69 / var(--tw-bg-opacity));
 }
 
 .ck-editor .group:hover .group-hover--bg-ubc-blue-sea {
@@ -5354,6 +5388,10 @@ fieldset fieldset legend {
     width: 200px;
   }
 
+  .ck-editor .sm--max-w-\[300px\] {
+    max-width: 300px;
+  }
+
   .ck-editor .sm--max-w-lg {
     max-width: 32rem;
   }
@@ -5380,6 +5418,10 @@ fieldset fieldset legend {
 
   .ck-editor .sm--grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ck-editor .sm--flex-row {
+    flex-direction: row;
   }
 
   .ck-editor .sm--flex-row-reverse {
