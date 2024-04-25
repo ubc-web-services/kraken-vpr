@@ -47,13 +47,39 @@
   {% set target = false %}
 {% endif %}
 
+{% if content.field_show_image_on_right.0['#markup'] == 'On' %}
+  {% set layout = 'ubc-card--horiz-rev' %}
+{% else %}
+  {% set layout = 'ubc-card--horiz' %}
+{% endif %}
+
 {% block paragraph %}
-  {% embed 'kraken:card--text' with {
+  {% embed 'kraken:card--primary' with {
     title: paragraph.field_paragraph_card_title.value,
     link: link_url,
-    linkText: paragraph.field_paragraph_link_text.value,
-    target: target,
+    layout: layout,
     color: paragraph.field_paragraph_card_colour.0.entity.field_class.value,
-  } %}
+    target: target,
+} %}
+    {% block media %}
+      {% if not (paragraph.field_paragraph_card_image.isEmpty == true) and content.field_paragraph_card_image is defined %}
+        {{ content.field_paragraph_card_image.0 }}
+      {% endif %}
+    {% endblock %}
+    {% block content %}
+      {% if not (paragraph.field_paragraph_card_text.isEmpty == true) and content.field_paragraph_card_text is defined %}
+        <p class="mt-0">{{ paragraph.field_paragraph_card_text.value }}</p>
+      {% endif %}
+    {% endblock %}
+    {% block actions %}
+        <p>
+        {% embed 'kraken:button' with {
+            link: link_url,
+            text: content.field_paragraph_card_link.0['#title'],
+            style: 'unit-button',
+        } %}
+        {% endembed %}
+        </p>
+    {% endblock %}
   {% endembed %}
 {% endblock paragraph %}

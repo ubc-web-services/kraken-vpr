@@ -38,78 +38,24 @@
  * @ingroup themeable
  */
 #}
-{% set title_attributes = create_attribute() %}
-{% set link_attributes = create_attribute() %}
-{%
-  set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    'bg-ubc-blue-cornflower',
-    'relative',
-    'group',
-    'flex',
-    'flex-col',
-    'min-h-[300px]',
-    'img-cover',
-    'h-full',
-  ]
-%}
-{%
-  set title_classes = [
-    'flex-none',
-    'px-4',
-    'py-2',
-    'mt-0',
-    'uppercase',
-  ]
-%}
-{%
-  set link_classes = [
-    'opacity-0',
-    'transition-opacity',
-    'duration-300',
-    'group-hover--opacity-100',
-    'focus--opacity-100',
-    'absolute',
-    'top-0',
-    'left-0',
-    'bottom-0',
-    'right-0',
-    'flex',
-    'bg-ubc-blue',
-    'link-expand',
-    'text-white',
-    'group-hover--text-white',
-    'hover--text-white',
-    'no-underline',
-    'px-4',
-  ]
-%}
 
-{# addresses certain special characters being stripped out or replaced in external URLs #}
 {% if content.field_paragraph_card_link["#items"][0].isExternal() == true %}
   {% set link_url = content.field_paragraph_card_link.0['#url'].uri %}
+  {% set target = true %}
 {% else %}
   {% set link_url = paragraph.field_paragraph_card_link.0.url %}
+  {% set target = false %}
 {% endif %}
 
 {% block paragraph %}
-  <article{{ attributes.addClass(classes) }}>
-    {% block content %}
-    {{ content.field_paragraph_card_image.0 }}
-    <p{{ title_attributes.addClass(title_classes)}}>
-      {{ paragraph.field_paragraph_card_title.value }} <svg role="img" class="inline-block w-6 h-6 stroke-2 text-ubc-blue translate-y-[-2px]"><use xlink:href="#icon-caret" /></svg>
-    </p>
-    {% if not (paragraph.field_paragraph_card_link.isEmpty == true) and content.field_paragraph_card_link is defined %}
-      <a{{ link_attributes.addClass(link_classes) }}
-      href="{{ link_url }}" aria-label="{{ paragraph.field_paragraph_card_title.value }}">
-        <span class="relative w-full text-center place-self-center keyline-bottom">{{ paragraph.field_paragraph_revealed_text.value }}</span>
-      </a>
-    {% endif %}
+  {% embed 'kraken:card--rollover' with {
+    title: paragraph.field_paragraph_card_title.value,
+    link: link_url,
+    revealedText: paragraph.field_paragraph_revealed_text.value,
+    target: target,
+} %}
+    {% block media %}
+       {{ content.field_paragraph_card_image.0 }}
     {% endblock %}
-  </article>
+  {% endembed %}
 {% endblock paragraph %}
-
-
-
