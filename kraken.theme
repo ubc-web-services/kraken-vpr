@@ -607,22 +607,6 @@ function kraken_theme_suggestions_page_alter(array &$suggestions, array $variabl
 }
 
 /**
- * Implements hook_preprocess_breadcrumb().
- */
-function kraken_preprocess_breadcrumb(&$variables)
-{
-  if (($node = \Drupal::request()->attributes->get('node')) && $variables['breadcrumb'] && (strpos($_SERVER['REQUEST_URI'], "revisions") == false)) {
-
-    $variables['breadcrumb'][] = [
-      'text' => $node->getTitle()
-    ];
-    // need to cache via path
-    $variables['#cache']['contexts'][] = 'url.path';
-    $variables['#cache']['tags'][] = "node:{$node->nid->value}";
-  }
-}
-
-/**
  * Implements template_preprocess_links()
  */
 function kraken_preprocess_links(&$variables)
