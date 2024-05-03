@@ -1,8 +1,8 @@
-# UBC CLF 7 / 8 DRUPAL THEME (aka Kraken)
+# UBC CLF 10 DRUPAL THEME (aka Kraken)
 
-A responsive UBC CLF (Common Look and Feel) theme for Drupal 8 using Tailwind and Vue.js. Created by the UBC IT Web Services Department.
+A responsive UBC CLF (Common Look and Feel) theme for Drupal 10 using Tailwind and Bootstrap 5. Created by the UBC IT Web Services Department.
 
-Kraken is a theme for Drupal 8 & 9, providing UBC-branded units with the basic structure of the UBC CLF ([Common Look and Feel](https://clf.ubc.ca)).
+Kraken is a theme for Drupal 10+, providing UBC-branded units with the basic structure of the UBC CLF ([Common Look and Feel](https://clf.ubc.ca)).
 
 ## IE Support
 
@@ -10,17 +10,17 @@ This theme _does not_ support Internet Explorer. If older browser support is req
 
 ## Rationale
 
-Why _another_ theme? Why not extend the Galactus Drupal 8 / 9 theme?
+Why _another_ theme? Why not extend the Galactus Drupal 10 theme?
 
 As a web developer in Web Services, you should be able to expect that CSS and Javascript are added in a single consistent way in any project. The Galactus theme works as is, however it is intended for general-purpose use by the broader UBC community. Kraken's goal is to add proper dependency management and workflow for Web Service's theme layer in the same way we have done for the application layer. It is intentionally biased and uses specific CSS and Javascript frameworks ([Tailwindcss](https://tailwindcss.com) and [Vuejs](https://vuejs.org)). Both of these are well-supported and flexible enough to work on _any_ web project (CLF or not) and provide a consistent set of features and functionality. The benefits are improved reusability, improved ramp up time and improved optics. There should be no hidden features only understood by a single developer.
 
 ## Using the theme
 
-To make changes to the theme CSS and Javascript, you are required to use the command-line tools.
+To make changes to the theme CSS and Javascript, you will need to use the command-line tools.
 
 ### Requirements
 
-Ensure that you have [node.js](https://nodejs.org/en/download/) installed, version 12 or higher. To confirm your version, navigate to the Kraken theme directory in your command-line and type `node -v`.
+Ensure that you have [node.js](https://nodejs.org/en/download/) installed, version 18 or higher. To confirm your version, navigate to the Kraken theme directory in your command-line and type `node -v`.
 
 ### Installation
 
@@ -33,7 +33,8 @@ npm install
 This will install everything required to work with the CSS and Javascript:
 
 - the [Tailwindcss](https://tailwindcss.com) utility-based CSS library
-- the [Vuejs](https://vuejs.org) Javascript framework
+- the [Bootstrap 5](https://getbootstrap.com) library (Javascript portion only)
+- the [Vuejs](https://vuejs.org) Javascript framework (optional)
 - packages such as [Webpack](https://webpack.js.org), [Babel](https://babeljs.io), [Postcss](https://postcss.org), and [Autoprefixer](https://www.npmjs.com/package/autoprefixer) that automate building and preparing the web assets.
 
 ### Running the commands
