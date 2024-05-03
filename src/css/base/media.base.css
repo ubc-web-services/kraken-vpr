@@ -36,6 +36,7 @@ object {
   aspect-ratio: 16/9; /* yay! */
   max-width: 100%;
   height: auto;
+  width: 100%;
 }
 
 .img-cover img {

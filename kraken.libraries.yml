@@ -13,8 +13,10 @@ global:
   js:
     js/kraken.dismiss.min.js: { minified: true }
     js/kraken.misc.min.js: { minified: true }
+    js/kraken.video.min.js: { minified: true }
   dependencies:
     - core/drupal
+    - core/once
     - core/drupalSettings
 
 ## Extended Core Libraries

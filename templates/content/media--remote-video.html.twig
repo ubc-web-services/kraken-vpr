@@ -23,6 +23,11 @@
 
 <div{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
+  {% set thumb = content.thumbnail %}
   {{ content|without('field_media_oembed_video') }}
-  <div class="field--name-field-media-oembed-video">{{ content.field_media_oembed_video.0 }}</div>
+  {% if thumb %}
+    <div class="field--name-field-media-oembed-video" hidden>{{ content.field_media_oembed_video.0 }}</div>
+  {% else %}
+    <div class="field--name-field-media-oembed-video">{{ content.field_media_oembed_video.0 }}</div>
+  {% endif  %}
 </div>

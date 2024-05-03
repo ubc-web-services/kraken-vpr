@@ -9,6 +9,7 @@ module.exports = {
     "kraken.scroll": ["./src/js/kraken.scroll.js"],
     "kraken.scrolltocontent": ["./src/js/kraken.scrolltocontent.js"],
     "kraken.sticky": ["./src/js/kraken.sticky.js"],
+    "kraken.video": ["./src/js/kraken.video.js"],
     "tiny.slider": ["./src/js/tiny.slider.js"],
     vue: ["./src/js/vue.js"],
   },
