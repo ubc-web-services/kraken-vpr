@@ -1,0 +1,40 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json"
+name: Masthead
+status: stable
+group: UBC Web Services
+description: Component to render as a masthead with image
+props:
+  type: object
+  required:
+    - background
+  properties:
+    text:
+      type: string
+      title: Text
+      description: The text over top of the image
+    pageTitle:
+      type: boolean
+      title: Is page title
+      description: This setting makes the text an h1
+    backgroundLight:
+      type: boolean
+      title: Light background option
+      description: Is the background light?
+    gradient:
+      type: boolean
+      title: Image gradient
+      description: Add a gradient to the image
+    customClasses:
+      title: Custom Classes
+      type: string
+      description: Custom classes to apply to the masthead
+      examples:
+        - my-class another-class
+slots:
+  media:
+    title: Image Content
+    required: true
+    description: The image / media content
+libraryOverrides:
+  dependencies:
+    - kraken/global

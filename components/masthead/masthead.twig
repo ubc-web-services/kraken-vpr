@@ -1,0 +1,27 @@
+{% set mastheadattributes = create_attribute() %}
+{% set classes = [
+    'masthead',
+    'relative',
+    'img-cover',
+    gradient ? 'has-gradient--after',
+    backgroundLight ?  'bg-light': 'bg-dark',
+    customClasses,
+  ]
+%}
+
+<section {{ mastheadattributes.addClass(classes) }}>
+  <figure class="m-0">
+    {% block media %}{% endblock %}
+  </figure>
+  <div class="container absolute inset-0 z-40 flex flex-col justify-center px-5 mx-auto md--px-4">
+    <div class="p-16 max-w-[640px] xl--max-w-[768px]">
+      {% if pageTitle %}
+        <h1 class="mt-0 heading-responsive">{{ text }}</h1>
+      {% else %}
+        <div class="mt-0 heading-responsive">
+          {{ text }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

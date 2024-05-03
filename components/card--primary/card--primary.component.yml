@@ -13,6 +13,14 @@ props:
       type: string
       title: Title
       description: The title of the card
+    titlePrefix:
+      type: string
+      title: Title prefix
+      description: The prefix to the card title
+    titleSuffix:
+      type: string
+      title: Title suffix
+      description: The suffix to the card title
     subtitle:
       type: string
       title: Subtitle

@@ -75,14 +75,16 @@
       <div class="text-sm">{{ meta }}</div>
     {% endif %}
     {% if link %}
-    <h3{{ title_attributes.addClass(title_classes) }}>
-      <a{{ link_attributes.addClass(link_classes) }} href="{{ link }}" {% if target %}
-    target="_blank"{% endif %} rel="bookmark">{{ title }}</a>
-    </h3>
-    {% block content %}{% endblock %}
-    <p><span{{ button_attributes.addClass(button_classes) }}>{{ linkText }}</span></p>
+      <h3{{ title_attributes.addClass(title_classes) }}>
+        <a{{ link_attributes.addClass(link_classes) }} href="{{ link }}" {% if target %}
+      target="_blank"{% endif %} rel="bookmark">{{ title }}</a>
+      </h3>
     {% else %}
-    <h3{{ title_attributes.addClass(title_classes) }}>{{ title }}</h3>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ title }}</h3>
+    {% endif %}
+      {% block content %}{% endblock %}
+    {% if link %}
+      <p><span{{ button_attributes.addClass(button_classes) }}>{{ linkText }}</span></p>
     {% endif %}
   </div>
 </article>

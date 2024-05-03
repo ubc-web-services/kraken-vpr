@@ -1,0 +1,40 @@
+"$schema": "https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json"
+name: Masthead, Home
+status: stable
+group: UBC Web Services
+description: Component to render as the homepage masthead
+props:
+  type: object
+  required:
+    - subtitle
+  properties:
+    subtitle:
+      type: string
+      title: Subtitle
+      description: The title of the card
+    imageCaption:
+      type: string
+      title: Image Caption
+      description: The caption / credits for the image
+    customClasses:
+      title: Custom Classes
+      type: string
+      description: Custom classes to apply to the card
+      examples:
+        - my-class another-class
+slots:
+  title:
+    title: Title Content
+    required: true
+    description: The title of the masthead content
+  media:
+    title: Image Content
+    required: true
+    description: The image / media content
+  mediaMobile:
+    title: Mobile Image Content
+    required: true
+    description: The image / media content shown when the image is full width
+libraryOverrides:
+  dependencies:
+    - kraken/global
