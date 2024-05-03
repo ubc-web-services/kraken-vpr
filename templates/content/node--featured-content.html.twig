@@ -65,64 +65,47 @@
  *   in different view modes.
  */
 #}
-{% set container_attributes = create_attribute() %}
-{% set caption_attributes = create_attribute() %}
-{% set title_attributes = create_attribute() %}
-{%
-  set classes = [
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'relative',
-    'img-cover',
-  ]
-%}
-{%
-  set container_classes = [
-    'container',
-    'absolute',
-    'inset-0',
-    'z-40',
-    'flex',
-    'flex-col',
-    'justify-center',
-    'px-5',
-    'mx-auto',
-    'text-white',
-    'md--px-4',
-  ]
-%}
-{%
-  set caption_classes = [
-    'p-16',
-    'max-w-[640px]',
-    'xl--max-w-[768px]',
-  ]
-%}
-{%
-  set title_classes = [
-    'mt-0',
-    'text-white',
-    'heading-responsive',
-  ]
-%}
-{% if node.field_show_gradient_on_image.value %}
-  {% set gradient = 'has-gradient--after' %}
+
+{% set pagetitle = false %}
+{% set text = '' %}
+{% if not (node.field_announcement_image_teaser.isEmpty == true) and content.field_announcement_image_teaser is defined %}
+  {% set text = content.field_announcement_image_teaser.0 %}
+{% endif %}
+{% if not (node.field_event_image_teaser.isEmpty == true) and content.field_event_image_teaser is defined %}
+  {% set text = content.field_event_image_teaser.0 %}
+{% endif %}
+{% if node.bundle == 'ubc_landing_page' %}
+    {% if not (node.field_landing_image_teaser.isEmpty == true) and content.field_landing_image_teaser is defined %}
+        {% set text = content.field_landing_image_teaser.0 %}
+    {% else %}
+        {% set text = label %}
+        {% set pagetitle = true %}
+    {% endif %}
+{% endif %}
+{% if not (node.field_r_project_image_teaser.isEmpty == true) and content.field_r_project_image_teaser is defined %}
+    {% set text = content.field_r_project_image_teaser.0 %}
 {% endif %}
 
-<div{{ attributes.addClass(classes, gradient) }}>
-  {% block content %}
+{% embed 'kraken:masthead' with {
+  text: text,
+  gradient: true,
+  pageTitle: pagetitle,
+} %}
+  {% block media %}
+    {% if not (node.field_announcement_feature_image.isEmpty == true) and content.field_announcement_feature_image is defined %}
+      {{ content.field_announcement_feature_image['0'] }}
+    {% endif %}
+    {% if not (node.field_event_image.isEmpty == true) and content.field_event_image is defined %}
+      {{ content.field_event_image['0'] }}
+    {% endif %}
     {% if not (node.field_landing_feature_image.isEmpty == true) and content.field_landing_feature_image is defined %}
       {{ content.field_landing_feature_image['0'] }}
     {% endif %}
-    <div{{ container_attributes.addClass(container_classes) }}>
-      <div{{ caption_attributes.addClass(caption_classes) }}>
-        {% if not (node.field_landing_image_teaser.isEmpty == true) and content.field_landing_image_teaser is defined %}
-          <div{{ title_attributes.addClass(title_classes) }}>
-            {{ content.field_landing_image_teaser.0 }}
-          </div>
-        {% else %}
-          <h1{{ title_attributes.addClass(title_classes) }}>{{ label }}</h1>
-        {% endif %}
-      </div>
-    </div>
+     {% if not (node.field_project_image.isEmpty == true) and content.field_project_image is defined %}
+      {{ content.field_project_image['0'] }}
+    {% endif %}
+    {% if not (node.field_r_project_feature_image.isEmpty == true) and content.field_r_project_feature_image is defined %}
+      {{ content.field_r_project_feature_image['0'] }}
+    {% endif %}
   {% endblock %}
-</div>
+{% endembed %}

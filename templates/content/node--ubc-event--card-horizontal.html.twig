@@ -81,9 +81,16 @@
   {% set eventdate = 'Ongoing event' %}
   {% set time = '' %}
 {% endif %}
-{% set tagless_body %}
-  {{ content.body }}
-{% endset %}
+
+{% if not (node.body.isEmpty == true) and content.body is defined %}
+  {% if node.body.summary|length > 0 %}
+    {% set summary = node.body.summary %}
+  {% else %}
+    {% set summaryraw = content.body.0['#text']|striptags %}
+    {% set summary = '<p class="mt-2">' ~ summaryraw| truncate(300,true,true)| check_markup('filtered_text') ~ '</p>' %}
+  {% endif %}
+{% endif %}
+
 {% set link_target = '' %}
 {% set link_url = url %}
 {% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
@@ -107,7 +114,7 @@
     {% endif %}
   {% endblock %}
   {% block content %}
-    <p class="mt-2">{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
+    {{ summary }}
   {% endblock %}
   {% block actions %}
       <p>

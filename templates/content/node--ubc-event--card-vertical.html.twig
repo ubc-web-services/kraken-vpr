@@ -65,91 +65,6 @@
  *   in different view modes.
  */
 #}
-{% set figure_attributes = create_attribute() %}
-{% set content_attributes = create_attribute() %}
-{% set meta_attributes = create_attribute() %}
-{% set link_attributes = create_attribute() %}
-{% set text_attributes = create_attribute() %}
-{% set secondlinkwrapper_attributes = create_attribute() %}
-{% set secondlink_attributes = create_attribute() %}
-{%
-  set classes = [
-    'node',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'ubc-card',
-    'relative',
-    'h-full',
-    'hover--cursor-pointer',
-    'flex',
-    'flex-col',
-    'h-full',
-    'shadow',
-    'hover--shadow-lg',
-    'group',
-    'isolate',
-  ]
-%}
-{%
-  set img_classes = [
-    'img-cover',
-    'ubc-card__media',
-    'mt-0',
-    'flex-none',
-  ]
-%}
-{%
-  set content_classes = [
-    'p-8',
-    'ubc-card__content',
-    'first-child--mt-0',
-  ]
-%}
-{%
-  set meta_classes = [
-    'text-sm',
-    'text-grey-600',
-    'mt-0',
-  ]
-%}
-{%
-  set title_classes = [
-    'text-xl',
-    'mt-0',
-  ]
-%}
-{%
-  set link_classes = [
-    'no-underline',
-    'hover--no-underline',
-    'text-ubc-blue',
-    'link-expand',
-  ]
-%}
-{%
-  set text_classes = [
-    '',
-  ]
-%}
-{%
-  set second_link_wrapper_classes = [
-    'mt-auto',
-    'px-8',
-    'pb-8',
-    'w-full',
-  ]
-%}
-{%
-  set second_link_classes = [
-    'unit-button',
-    'group-hover--bg-ubc-blue-sea',
-  ]
-%}
-
-{# need to put content into variable for striptags to work #}
-{% set tagless_body %}
-  {{ content.body }}
-{% endset %}
 
 {% if endvalue > startvalue %}
   {% set eventdate = startday ~ ' - ' ~ endday ~ ', ' ~ endyear %}
@@ -168,48 +83,49 @@
   {% set time = '' %}
 {% endif %}
 
-{# addresses certain special characters being stripped out or replaced in external URLs #}
+{% if not (node.body.isEmpty == true) and content.body is defined %}
+  {% if node.body.summary|length > 0 %}
+    {% set summary = node.body.summary %}
+  {% else %}
+    {% set summaryraw = content.body.0['#text']|striptags %}
+    {% set summary = '<p class="mt-2">' ~ summaryraw| truncate(300,true,true)| check_markup('filtered_text') ~ '</p>' %}
+  {% endif %}
+{% endif %}
+
+{% set link_url = url %}
+{% set link_target = '_self' %}
 {% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
   {% set exturl = content.field_event_link[0]['#url']|raw  %}
   {% set exttitle = content.field_event_link[0]['#title']|raw %}
   {% set link_url = exturl %}
   {% set link_target = '_blank' %}
-  {% if exttitle == exturl %}
-    {% set link_title = 'Learn more' %}
-  {% else %}
-    {# % set link_title = exttitle % #}
-    {% set link_title = 'Learn more' %}
-  {% endif %}
-{% else %}
-  {% set link_url = url %}
-  {% set link_title = 'Learn more' %}
-  {% set link_target = '_self' %}
 {% endif %}
 
-<article{{ attributes.addClass(classes, layout_classes) }}>
-  {% if not (node.field_event_image.isEmpty == true) and content.field_event_image is defined %}
-    <figure{{ figure_attributes.addClass(img_classes) }}>{{ content.field_event_image.0 }}</figure>
-  {% endif %}
-  <div{{ content_attributes.addClass(content_classes) }}>
-    {% if not (node.field_event_category.isEmpty == true) and content.field_event_category is defined %}
+{% embed 'kraken:card--primary' with {
+  title: label,
+  link: link_url,
+  target: link_target,
+  layout: 'ubc-card--vert',
+  color: 'bg-white bg-light',
+  meta: eventdate,
+} %}
+  {% block media %}
+    {% if not (node.field_event_image.isEmpty == true) and content.field_event_image is defined %}
+      {{ content.field_event_image.0 }}
     {% endif %}
-    {{ title_prefix }}
-    <h3{{ title_attributes.addClass(title_classes) }}>
-      <a{{ link_attributes.addClass(link_classes) }} href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h3>
-    {{ title_suffix }}
-    {% if not (node.field_event_location.isEmpty == true) and content.field_event_location is defined %}
-    <div{{ meta_attributes.addClass(meta_classes) }}>
-      {{ content.field_event_location }}
-    </div>
-    {% endif %}
-    {% if not node.isPublished() %}
-    <div class="unpublished">Unpublished</div>
-    {% endif %}
-    {% if not (node.field_event_date.isEmpty == true) and content.field_event_date is defined %}
-    <p{{ meta_attributes.addClass(meta_classes)}} >{{ eventdate }}</p>
-    {% endif %}
-    <p{{ text_attributes.addClass(text_classes)}} >{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
-  </div>
-  <p{{ secondlinkwrapper_attributes.addClass(second_link_wrapper_classes) }}><a{{ secondlink_attributes.addClass(second_link_classes).setAttribute('target', link_target) }} href="{{ link_url }}" aria-label="Event details">{{ link_title }}</a></p>
-</article>
+  {% endblock %}
+  {% block content %}
+    {{ summary }}
+  {% endblock %}
+  {% block actions %}
+     <p>
+      {% embed 'kraken:button' with {
+          link: link_url,
+          text: 'Learn more',
+          style: 'unit-button',
+          target: link_target,
+      } %}
+      {% endembed %}
+      </p>
+  {% endblock %}
+{% endembed %}

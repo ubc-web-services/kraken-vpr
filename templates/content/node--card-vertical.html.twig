@@ -65,16 +65,36 @@
  *   in different view modes.
  */
 #}
-{% set tagless_body %}
-  {{ content.body }}
-{% endset %}
+{% if not (node.body.isEmpty == true) and content.body is defined %}
+  {% if node.body.summary|length > 0 %}
+    {% set summary = node.body.summary %}
+  {% else %}
+    {% set summaryraw = content.body.0['#text']|striptags %}
+    {% set summary = '<p class="mt-0">' ~ summaryraw| truncate(300,true,true)| check_markup('filtered_text') ~ '</p>' %}
+  {% endif %}
+{% endif %}
+
+{% set displaymeta = false %}
+{% if display_submitted %}
+  {% set displaymeta = node.createdtime|format_date('date_readable') %}
+{% endif %}
+
+{% set link_target = '' %}
+{% set link_url = url %}
+{% if not (node.field_announcement_external_link.isEmpty == true) and content.field_announcement_external_link is defined %}
+  {% set exturl = content.field_announcement_external_link[0]['#url']|raw  %}
+  {% set exttitle = content.field_announcement_external_link[0]['#title']|raw %}
+  {% set link_url = exturl %}
+  {% set link_target = '_blank' %}
+{% endif %}
 
 {% embed 'kraken:card--primary' with {
   title: label,
-  link: url,
+  link: link_url,
+  target: link_target,
   layout: 'ubc-card--vert',
   color: 'bg-white bg-light',
-  meta: node.createdtime|format_date('date_readable'),
+  meta: displaymeta,
 } %}
   {% block media %}
     {% if not (node.field_r_project_feature_image.isEmpty == true) and content.field_r_project_feature_image is defined %}
@@ -86,16 +106,20 @@
     {% if not (node.field_landing_feature_image.isEmpty == true) and content.field_landing_feature_image is defined %}
       {{ content.field_landing_feature_image.0 }}
     {% endif %}
+    {% if not (node.field_announcement_feature_image.isEmpty == true) and content.field_announcement_feature_image is defined %}
+      {{ content.field_announcement_feature_image.0 }}
+    {% endif %}
   {% endblock %}
   {% block content %}
-    <p class="mt-0">{{ tagless_body|striptags|check_markup('filtered_text') }}</p>
+    {{ summary }}
   {% endblock %}
   {% block actions %}
-      <p>
+     <p>
       {% embed 'kraken:button' with {
           link: link_url,
           text: 'Learn more',
           style: 'unit-button',
+          target: link_target,
       } %}
       {% endembed %}
       </p>
