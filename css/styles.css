@@ -1637,6 +1637,7 @@ object {
   aspect-ratio: 16/9; /* yay! */
   max-width: 100%;
   height: auto;
+  width: 100%;
 }
 
 .img-cover img {
@@ -3626,6 +3627,14 @@ summary:focus::-webkit-details-marker {
   color: #fff;
 }
 
+.ubc-card.bg-dark,
+.ubc-card.bg-dark h3,
+.ubc-card.bg-dark p,
+.ubc-card.bg-dark a:not(.unit-button),
+.ubc-card.bg-dark a:hover:not(.unit-button) {
+  color: #fff;
+}
+
 /* Inline list */
 
 .list-inline {
@@ -3650,6 +3659,7 @@ summary:focus::-webkit-details-marker {
 .bg-dark,
 .bg-dark a:not(.unit-button),
 .bg-dark.text-white a:hover:not(.unit-button),
+.ubc-card.bg-dark,
 .widget-card.bg-unit-primary,
 .widget-color-box.bg-unit-primary,
 .widget-color-box.bg-ubc-blue,
@@ -3659,6 +3669,7 @@ summary:focus::-webkit-details-marker {
 }
 
 .bg-dark a:not(.unit-button),
+.ubc-card.bg-dark a:not(.unit-button),
 .widget-card.bg-unit-primary a:not(.unit-button),
 .widget-color-box.bg-unit-primary a:not(.unit-button),
 .widget-color-box.bg-ubc-blue a:not(.unit-button),
@@ -3668,6 +3679,7 @@ summary:focus::-webkit-details-marker {
 }
 
 .bg-dark a:not(.unit-button):hover,
+.ubc-card.bg-dark a:not(.unit-button):hover,
 .widget-card.bg-unit-primary a:not(.unit-button):hover,
 .widget-color-box.bg-unit-primary a:not(.unit-button):hover,
 .widget-color-box.bg-ubc-blue a:not(.unit-button):hover,
@@ -3677,6 +3689,7 @@ summary:focus::-webkit-details-marker {
 }
 
 .bg-dark .unit-button--light,
+.ubc-card.bg-dark .unit-button--light,
 .widget-card.bg-unit-primary .unit-button--light,
 .widget-color-box.bg-unit-primary .unit-button--light,
 .widget-color-box.bg-ubc-blue .unit-button--light,
@@ -3686,6 +3699,7 @@ summary:focus::-webkit-details-marker {
 }
 
 .bg-dark .unit-button--dark,
+.ubc-card.bg-dark .unit-button--dark,
 .widget-card.bg-unit-primary .unit-button--dark,
 .widget-color-box.bg-unit-primary .unit-button--dark,
 .widget-color-box.bg-ubc-blue .unit-button--dark,
@@ -3697,6 +3711,9 @@ summary:focus::-webkit-details-marker {
 .bg-dark .unit-button--simple,
 .bg-dark .unit-button--simple:hover,
 .bg-dark.group:hover .unit-button--simple,
+.ubc-card.bg-dark .unit-button--simple,
+.ubc-card.bg-dark .unit-button--simple:hover,
+.ubc-card.bg-dark.group:hover .unit-button--simple,
 .widget-card.bg-unit-primary .unit-button--simple,
 .widget-card.bg-unit-primary .unit-button--simple:hover,
 .widget-card.bg-unit-primary.group:hover .unit-button--simple,
@@ -3723,6 +3740,9 @@ summary:focus::-webkit-details-marker {
 .bg-dark .unit-button--simple::after,
 .bg-dark .unit-button--simple:hover::after,
 .bg-dark.group:hover .unit-button--simple::after,
+.ubc-card.bg-dark .unit-button--simple::after,
+.ubc-card.bg-dark .unit-button--simple:hover::after,
+.ubc-card.bg-dark.group:hover .unit-button--simple::after,
 .widget-card.bg-unit-primary .unit-button--simple::after,
 .widget-card.bg-unit-primary .unit-button--simple:hover::after,
 .widget-card.bg-unit-primary.group:hover .unit-button--simple::after,
@@ -3744,6 +3764,44 @@ summary:focus::-webkit-details-marker {
 .widget-color-box.bg-ubc-blue-cobalt .unit-button--simple::after,
 .widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* light cards */
+
+.ubc-card.bg-light,
+.ubc-card.bg-light a:hover:not(.unit-button) {
+  color: #212121;
+}
+
+.ubc-card.bg-light a:not(.unit-button)  {
+  color: var(--color-link);
+}
+
+.ubc-card.bg-light a:not(.unit-button):hover {
+  color: var(--color-link-hover);
+}
+
+.ubc-card.bg-light .unit-button--light {
+  color: #000;
+}
+
+.ubc-card.bg-light .unit-button--dark {
+  border-color: #fff;
+}
+
+.ubc-card.bg-light .unit-button--simple {
+  color: var(--color-link);
+}
+
+.ubc-card.bg-light .unit-button--simple:hover,
+.ubc-card.bg-light.group:hover .unit-button--simple {
+  color: var(--color-link-hover);
+}
+
+.ubc-card.bg-light .unit-button--simple::after,
+.ubc-card.bg-light .unit-button--simple:hover::after,
+.ubc-card.bg-light.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23002145' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
 /* SVG Icon fix for cards */
@@ -4562,6 +4620,10 @@ summary:focus::-webkit-details-marker {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-row-reverse {

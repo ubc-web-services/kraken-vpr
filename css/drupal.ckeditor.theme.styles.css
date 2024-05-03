@@ -1644,6 +1644,7 @@ fieldset fieldset legend {
   aspect-ratio: 16/9; /* yay! */
   max-width: 100%;
   height: auto;
+  width: 100%;
 }
 
 .ck-editor .img-cover img {
@@ -3598,6 +3599,14 @@ fieldset fieldset legend {
   color: #fff;
 }
 
+.ck-editor .ubc-card.bg-dark,
+.ck-editor .ubc-card.bg-dark h3,
+.ck-editor .ubc-card.bg-dark p,
+.ck-editor .ubc-card.bg-dark a:not(.unit-button),
+.ck-editor .ubc-card.bg-dark a:hover:not(.unit-button) {
+  color: #fff;
+}
+
 /* Inline list */
 
 .ck-editor .list-inline {
@@ -3622,6 +3631,7 @@ fieldset fieldset legend {
 .ck-editor .bg-dark,
 .ck-editor .bg-dark a:not(.unit-button),
 .ck-editor .bg-dark.text-white a:hover:not(.unit-button),
+.ck-editor .ubc-card.bg-dark,
 .ck-editor .widget-card.bg-unit-primary,
 .ck-editor .widget-color-box.bg-unit-primary,
 .ck-editor .widget-color-box.bg-ubc-blue,
@@ -3631,6 +3641,7 @@ fieldset fieldset legend {
 }
 
 .ck-editor .bg-dark a:not(.unit-button),
+.ck-editor .ubc-card.bg-dark a:not(.unit-button),
 .ck-editor .widget-card.bg-unit-primary a:not(.unit-button),
 .ck-editor .widget-color-box.bg-unit-primary a:not(.unit-button),
 .ck-editor .widget-color-box.bg-ubc-blue a:not(.unit-button),
@@ -3640,6 +3651,7 @@ fieldset fieldset legend {
 }
 
 .ck-editor .bg-dark a:not(.unit-button):hover,
+.ck-editor .ubc-card.bg-dark a:not(.unit-button):hover,
 .ck-editor .widget-card.bg-unit-primary a:not(.unit-button):hover,
 .ck-editor .widget-color-box.bg-unit-primary a:not(.unit-button):hover,
 .ck-editor .widget-color-box.bg-ubc-blue a:not(.unit-button):hover,
@@ -3649,6 +3661,7 @@ fieldset fieldset legend {
 }
 
 .ck-editor .bg-dark .unit-button--light,
+.ck-editor .ubc-card.bg-dark .unit-button--light,
 .ck-editor .widget-card.bg-unit-primary .unit-button--light,
 .ck-editor .widget-color-box.bg-unit-primary .unit-button--light,
 .ck-editor .widget-color-box.bg-ubc-blue .unit-button--light,
@@ -3658,6 +3671,7 @@ fieldset fieldset legend {
 }
 
 .ck-editor .bg-dark .unit-button--dark,
+.ck-editor .ubc-card.bg-dark .unit-button--dark,
 .ck-editor .widget-card.bg-unit-primary .unit-button--dark,
 .ck-editor .widget-color-box.bg-unit-primary .unit-button--dark,
 .ck-editor .widget-color-box.bg-ubc-blue .unit-button--dark,
@@ -3669,6 +3683,9 @@ fieldset fieldset legend {
 .ck-editor .bg-dark .unit-button--simple,
 .ck-editor .bg-dark .unit-button--simple:hover,
 .ck-editor .bg-dark.group:hover .unit-button--simple,
+.ck-editor .ubc-card.bg-dark .unit-button--simple,
+.ck-editor .ubc-card.bg-dark .unit-button--simple:hover,
+.ck-editor .ubc-card.bg-dark.group:hover .unit-button--simple,
 .ck-editor .widget-card.bg-unit-primary .unit-button--simple,
 .ck-editor .widget-card.bg-unit-primary .unit-button--simple:hover,
 .ck-editor .widget-card.bg-unit-primary.group:hover .unit-button--simple,
@@ -3695,6 +3712,9 @@ fieldset fieldset legend {
 .ck-editor .bg-dark .unit-button--simple::after,
 .ck-editor .bg-dark .unit-button--simple:hover::after,
 .ck-editor .bg-dark.group:hover .unit-button--simple::after,
+.ck-editor .ubc-card.bg-dark .unit-button--simple::after,
+.ck-editor .ubc-card.bg-dark .unit-button--simple:hover::after,
+.ck-editor .ubc-card.bg-dark.group:hover .unit-button--simple::after,
 .ck-editor .widget-card.bg-unit-primary .unit-button--simple::after,
 .ck-editor .widget-card.bg-unit-primary .unit-button--simple:hover::after,
 .ck-editor .widget-card.bg-unit-primary.group:hover .unit-button--simple::after,
@@ -3716,6 +3736,44 @@ fieldset fieldset legend {
 .ck-editor .widget-color-box.bg-ubc-blue-cobalt .unit-button--simple::after,
 .ck-editor .widget-color-box.bg-ubc-blue-cobalt .unit-button--simple:hover::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* light cards */
+
+.ck-editor .ubc-card.bg-light,
+.ck-editor .ubc-card.bg-light a:hover:not(.unit-button) {
+  color: #212121;
+}
+
+.ck-editor .ubc-card.bg-light a:not(.unit-button)  {
+  color: var(--color-link);
+}
+
+.ck-editor .ubc-card.bg-light a:not(.unit-button):hover {
+  color: var(--color-link-hover);
+}
+
+.ck-editor .ubc-card.bg-light .unit-button--light {
+  color: #000;
+}
+
+.ck-editor .ubc-card.bg-light .unit-button--dark {
+  border-color: #fff;
+}
+
+.ck-editor .ubc-card.bg-light .unit-button--simple {
+  color: var(--color-link);
+}
+
+.ck-editor .ubc-card.bg-light .unit-button--simple:hover,
+.ck-editor .ubc-card.bg-light.group:hover .unit-button--simple {
+  color: var(--color-link-hover);
+}
+
+.ck-editor .ubc-card.bg-light .unit-button--simple::after,
+.ck-editor .ubc-card.bg-light .unit-button--simple:hover::after,
+.ck-editor .ubc-card.bg-light.group:hover .unit-button--simple::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23002145' stroke-miterlimit='10' stroke-width='4' d='M26 20.006L40 32 26 44.006'%3E%3C/path%3E%3C/svg%3E");
 }
 
 /* SVG Icon fix for cards */
@@ -4534,6 +4592,10 @@ fieldset fieldset legend {
 
 .ck-editor .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ck-editor .flex-row {
+  flex-direction: row;
 }
 
 .ck-editor .flex-row-reverse {
