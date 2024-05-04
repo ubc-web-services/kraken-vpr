@@ -4572,6 +4572,10 @@ summary:focus::-webkit-details-marker {
   max-width: 360px;
 }
 
+.max-w-\[520px\] {
+  max-width: 520px;
+}
+
 .max-w-\[640px\] {
   max-width: 640px;
 }
@@ -4646,10 +4650,6 @@ summary:focus::-webkit-details-marker {
   place-content: center;
 }
 
-.place-content-end {
-  place-content: end;
-}
-
 .place-items-center {
   place-items: center;
 }
@@ -4698,6 +4698,12 @@ summary:focus::-webkit-details-marker {
   overflow: hidden;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -4712,6 +4718,10 @@ summary:focus::-webkit-details-marker {
 
 .border {
   border-width: 1px;
+}
+
+.border-0 {
+  border-width: 0px;
 }
 
 .border-2 {
@@ -5036,8 +5046,16 @@ summary:focus::-webkit-details-marker {
   padding-left: 0.25rem;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
 .pl-2 {
   padding-left: 0.5rem;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
 }
 
 .pl-4 {
@@ -5154,6 +5172,10 @@ summary:focus::-webkit-details-marker {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .font-normal {
@@ -5372,11 +5394,6 @@ summary:focus::-webkit-details-marker {
   color: rgb(64 180 229 / var(--tw-text-opacity));
 }
 
-.hover--text-ubc-blue-polar:hover {
-  --tw-text-opacity: 1;
-  color: rgb(222 241 248 / var(--tw-text-opacity));
-}
-
 .hover--text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -5384,12 +5401,6 @@ summary:focus::-webkit-details-marker {
 
 .hover--no-underline:hover {
   text-decoration-line: none;
-}
-
-.hover--shadow:hover {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .hover--shadow-lg:hover {
@@ -5421,30 +5432,22 @@ summary:focus::-webkit-details-marker {
   opacity: 1;
 }
 
+@media (prefers-color-scheme: dark) {
+
+  .dark--text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+}
+
 @media (min-width: 480px) {
-
-  .xs--flex {
-    display: flex;
-  }
-
-  .xs--h-\[200px\] {
-    height: 200px;
-  }
 
   .xs--h-full {
     height: 100%;
   }
 
-  .xs--w-\[200px\] {
-    width: 200px;
-  }
-
   .xs--flex-1 {
     flex: 1 1 0%;
-  }
-
-  .xs--shrink-0 {
-    flex-shrink: 0;
   }
 }
 
@@ -5533,16 +5536,8 @@ summary:focus::-webkit-details-marker {
 
 @media (min-width: 980px) {
 
-  .md--col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
   .md--col-span-10 {
     grid-column: span 10 / span 10;
-  }
-
-  .md--col-span-2 {
-    grid-column: span 2 / span 2;
   }
 
   .md--col-span-3 {
@@ -5601,16 +5596,8 @@ summary:focus::-webkit-details-marker {
     grid-row-start: 2;
   }
 
-  .md--mt-2 {
-    margin-top: 0.5rem;
-  }
-
   .md--flex {
     display: flex;
-  }
-
-  .md--grid {
-    display: grid;
   }
 
   .md--h-16 {
@@ -5681,10 +5668,6 @@ summary:focus::-webkit-details-marker {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
-  .md--gap-6 {
-    gap: 1.5rem;
-  }
-
   .md--p-12 {
     padding: 3rem;
   }
@@ -5710,14 +5693,6 @@ summary:focus::-webkit-details-marker {
 
 @media (min-width: 1200px) {
 
-  .lg--col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
-  .lg--col-span-3 {
-    grid-column: span 3 / span 3;
-  }
-
   .lg--col-span-8 {
     grid-column: span 8 / span 8;
   }
@@ -5728,10 +5703,6 @@ summary:focus::-webkit-details-marker {
 
   .lg--w-one-quarter {
     width: 25%;
-  }
-
-  .lg--grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg--text-base {

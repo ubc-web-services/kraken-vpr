@@ -4544,6 +4544,10 @@ fieldset fieldset legend {
   max-width: 360px;
 }
 
+.ck-editor .max-w-\[520px\] {
+  max-width: 520px;
+}
+
 .ck-editor .max-w-\[640px\] {
   max-width: 640px;
 }
@@ -4618,10 +4622,6 @@ fieldset fieldset legend {
   place-content: center;
 }
 
-.ck-editor .place-content-end {
-  place-content: end;
-}
-
 .ck-editor .place-items-center {
   place-items: center;
 }
@@ -4670,6 +4670,12 @@ fieldset fieldset legend {
   overflow: hidden;
 }
 
+.ck-editor .truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ck-editor .rounded {
   border-radius: 0.25rem;
 }
@@ -4684,6 +4690,10 @@ fieldset fieldset legend {
 
 .ck-editor .border {
   border-width: 1px;
+}
+
+.ck-editor .border-0 {
+  border-width: 0px;
 }
 
 .ck-editor .border-2 {
@@ -5008,8 +5018,16 @@ fieldset fieldset legend {
   padding-left: 0.25rem;
 }
 
+.ck-editor .pl-10 {
+  padding-left: 2.5rem;
+}
+
 .ck-editor .pl-2 {
   padding-left: 0.5rem;
+}
+
+.ck-editor .pl-3 {
+  padding-left: 0.75rem;
 }
 
 .ck-editor .pl-4 {
@@ -5126,6 +5144,10 @@ fieldset fieldset legend {
 
 .ck-editor .font-bold {
   font-weight: 700;
+}
+
+.ck-editor .font-medium {
+  font-weight: 500;
 }
 
 .ck-editor .font-normal {
@@ -5344,11 +5366,6 @@ fieldset fieldset legend {
   color: rgb(64 180 229 / var(--tw-text-opacity));
 }
 
-.ck-editor .hover--text-ubc-blue-polar:hover {
-  --tw-text-opacity: 1;
-  color: rgb(222 241 248 / var(--tw-text-opacity));
-}
-
 .ck-editor .hover--text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -5356,12 +5373,6 @@ fieldset fieldset legend {
 
 .ck-editor .hover--no-underline:hover {
   text-decoration-line: none;
-}
-
-.ck-editor .hover--shadow:hover {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .ck-editor .hover--shadow-lg:hover {
@@ -5393,30 +5404,22 @@ fieldset fieldset legend {
   opacity: 1;
 }
 
+@media (prefers-color-scheme: dark) {
+
+  .ck-editor .dark--text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+}
+
 @media (min-width: 480px) {
-
-  .ck-editor .xs--flex {
-    display: flex;
-  }
-
-  .ck-editor .xs--h-\[200px\] {
-    height: 200px;
-  }
 
   .ck-editor .xs--h-full {
     height: 100%;
   }
 
-  .ck-editor .xs--w-\[200px\] {
-    width: 200px;
-  }
-
   .ck-editor .xs--flex-1 {
     flex: 1 1 0%;
-  }
-
-  .ck-editor .xs--shrink-0 {
-    flex-shrink: 0;
   }
 }
 
@@ -5505,16 +5508,8 @@ fieldset fieldset legend {
 
 @media (min-width: 980px) {
 
-  .ck-editor .md--col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
   .ck-editor .md--col-span-10 {
     grid-column: span 10 / span 10;
-  }
-
-  .ck-editor .md--col-span-2 {
-    grid-column: span 2 / span 2;
   }
 
   .ck-editor .md--col-span-3 {
@@ -5573,16 +5568,8 @@ fieldset fieldset legend {
     grid-row-start: 2;
   }
 
-  .ck-editor .md--mt-2 {
-    margin-top: 0.5rem;
-  }
-
   .ck-editor .md--flex {
     display: flex;
-  }
-
-  .ck-editor .md--grid {
-    display: grid;
   }
 
   .ck-editor .md--h-16 {
@@ -5653,10 +5640,6 @@ fieldset fieldset legend {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
-  .ck-editor .md--gap-6 {
-    gap: 1.5rem;
-  }
-
   .ck-editor .md--p-12 {
     padding: 3rem;
   }
@@ -5682,14 +5665,6 @@ fieldset fieldset legend {
 
 @media (min-width: 1200px) {
 
-  .ck-editor .lg--col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
-  .ck-editor .lg--col-span-3 {
-    grid-column: span 3 / span 3;
-  }
-
   .ck-editor .lg--col-span-8 {
     grid-column: span 8 / span 8;
   }
@@ -5700,10 +5675,6 @@ fieldset fieldset legend {
 
   .ck-editor .lg--w-one-quarter {
     width: 25%;
-  }
-
-  .ck-editor .lg--grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .ck-editor .lg--text-base {
