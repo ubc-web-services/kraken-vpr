@@ -139,9 +139,9 @@
     padding-left: 0.5em;
 }
 
-.webform-has-field-prefix input,
-.webform-has-field-suffix input {
-    flex: 1;
+.webform-has-field-prefix:not(.checkboxes--wrapper, .radios--wrapper) input,
+.webform-has-field-suffix:not(.checkboxes--wrapper, .radios--wrapper) input {
+  flex: 1 1 0%;
 }
 
 /* fix drag icon */

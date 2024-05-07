@@ -1035,7 +1035,6 @@ select {
   border: 1px solid #e0e0e0;
   border-radius: 0;
   background-color: #fff;
-  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -1184,7 +1183,6 @@ input[type="search"] {
   border-color: rgba(0, 33, 69, 1);
   background-color: #fff;
   background-origin: border-box;
-  -webkit-appearance: none;
   appearance: none;
   -webkit-print-color-adjust: exact;
   color-adjust: exact;
@@ -2551,8 +2549,7 @@ summary:focus::-webkit-details-marker {
   background-size: 1em auto;
   border: 2px solid #e0e0e0 !important;
   border-radius: 0;
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 .form-select .chosen-container-active a.chosen-single {
