@@ -139,10 +139,8 @@
   padding-left: 0.5em;
 }
 
-.webform-has-field-prefix:not(.checkboxes--wrapper) input,
-.webform-has-field-suffix:not(.checkboxes--wrapper) input,
-.webform-has-field-prefix:not(.radios--wrapper) input,
-.webform-has-field-suffix:not(.radios--wrapper) input {
+.webform-has-field-prefix:not(.checkboxes--wrapper, .radios--wrapper) input,
+.webform-has-field-suffix:not(.checkboxes--wrapper, .radios--wrapper) input {
   flex: 1 1 0%;
 }
 
