@@ -156,7 +156,26 @@
     {% if not node.isPublished() %}
       <div class="unpublished">Unpublished</div>
     {% endif %}
-    {{ content|without('field_profile_accreditation', 'field_profile_affiliated', 'field_profile_category', 'field_profile_department_unit', 'field_profile_email', 'field_profile_faculty', 'field_profile_google_scholar', 'field_profile_image', 'field_profile_job_title', 'field_profile_name_prefix', 'field_profile_name_suffix', 'field_profile_office', 'field_profile_phone', 'field_profile_preferred_pronouns', 'field_profile_preferred_website', 'field_profile_research_area', 'field_profile_role', 'field_profile_tags', 'links') }}
+    {{ content|without(
+      'field_profile_accreditation',
+      'field_profile_affiliated',
+      'field_profile_category',
+      'field_profile_department_unit',
+      'field_profile_email',
+      'field_profile_faculty',
+      'field_profile_google_scholar',
+      'field_profile_image',
+      'field_profile_job_title',
+      'field_profile_name_prefix',
+      'field_profile_name_suffix',
+      'field_profile_office',
+      'field_profile_phone',
+      'field_profile_pronouns',
+      'field_profile_preferred_website',
+      'field_profile_research_area',
+      'field_profile_role',
+      'field_profile_tags',
+      'links') }}
   </div>
   {% if not (node.field_profile_tags.isEmpty == true) and content.field_profile_tags is defined %}
     <hr class="mt-8 styled-hr">
