@@ -71,7 +71,7 @@
     {% set summary = node.body.summary %}
   {% else %}
     {% set summaryraw = content.body.0['#text']|striptags %}
-    {% set summary = '<p>' ~ summaryraw| truncate(300,true,true)| check_markup('filtered_text') ~ '</p>' %}
+    {% set summary = summaryraw| truncate(300,true,true)| check_markup('filtered_text') %}
   {% endif %}
 {% endif %}
 
@@ -127,7 +127,7 @@
     {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
       <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}" class="link-expand-break">Website</a></p>
     {% endif %}
-    {{ summary }}
+    <p>{{ summary }}</p>
   {% endblock %}
   {% block actions %}
       <p class="text-right">

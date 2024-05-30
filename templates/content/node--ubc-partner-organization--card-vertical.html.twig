@@ -71,7 +71,7 @@
     {% set summary = node.body.summary %}
   {% else %}
     {% set summaryraw = content.body.0['#text']|striptags %}
-    {% set summary = '<p>' ~ summaryraw| truncate(300,true,true)| check_markup('filtered_text') ~ '</p>' %}
+    {% set summary = summaryraw| truncate(300,true,true)| check_markup('filtered_text') %}
   {% endif %}
 {% endif %}
 
@@ -103,7 +103,7 @@
     {% if not (node.field_partner_representative.isEmpty == true) and content.field_partner_representative is defined %}
       <p><strong>Representative</strong> {{ content.field_partner_representative.0 }}</p>
     {% endif %}
-    {{ summary }}
+    <p>{{ summary }}</p>
   {% endblock %}
   {% block actions %}
       <p>
