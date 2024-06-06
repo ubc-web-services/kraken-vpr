@@ -85,10 +85,14 @@
 {% if not (node.field_r_project_image_teaser.isEmpty == true) and content.field_r_project_image_teaser is defined %}
     {% set text = content.field_r_project_image_teaser.0 %}
 {% endif %}
+{% set hasgradient = null %}
+{% if node.field_show_gradient_on_image.value  %}
+  {% set hasgradient = 'true' %}
+{% endif %}
 
 {% embed 'kraken:masthead' with {
   text: text,
-  gradient: true,
+  gradient: hasgradient,
   pageTitle: pagetitle,
 } %}
   {% block media %}
