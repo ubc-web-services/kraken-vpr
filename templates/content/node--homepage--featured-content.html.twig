@@ -65,6 +65,10 @@
  *   in different view modes.
  */
 #}
+{% set container_attributes = create_attribute() %}
+{% set caption_attributes = create_attribute() %}
+{% set title_attributes = create_attribute() %}
+{% set link_attributes = create_attribute() %}
 {%
   set classes = [
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
@@ -72,10 +76,71 @@
     'img-cover',
   ]
 %}
+{%
+  set container_classes = [
+    'container',
+    'absolute',
+    'inset-0',
+    'z-40',
+    'flex',
+    'flex-col',
+    'justify-center',
+    'px-5',
+    'mx-auto',
+    'text-white',
+    'md--px-4',
+  ]
+%}
+{%
+  set caption_classes = [
+    'p-16',
+    'max-w-[640px]',
+    'xl--max-w-[768px]',
+  ]
+%}
+{%
+  set title_classes = [
+    'mt-0',
+    'text-white',
+    'heading-responsive',
+  ]
+%}
+{%
+  set link_classes = [
+    'sm--text-lg',
+    'xl--text-4xl',
+    'unit-button',
+    'link-expand',
+  ]
+%}
+
+{% if node.field_show_gradient_on_image.value %}
+  {% set gradient = 'has-gradient--after' %}
+{% endif %}
 
 {{ attach_library('kraken/scroll-to-content') }}
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes, gradient) }}>
   {% block content %}
-    {{ content }}
+    {% if not (node.field_home_feature_image.isEmpty == true) and content.field_home_feature_image is defined %}
+      {{ content.field_home_feature_image['0'] }}
+    {% endif %}
+    <div{{ container_attributes.addClass(container_classes) }}>
+      <div{{ caption_attributes.addClass(caption_classes) }}>
+        <div{{ title_attributes.addClass(title_classes) }}>
+          {{ content.field_feature_text.0 }}
+        </div>
+        {% if not (node.field_feature_link.isEmpty == true) and content.field_feature_link is defined %}
+          <p>
+            <a{{ link_attributes.addClass(link_classes) }} href="{{ content.field_feature_link[0]['#url'] }}">{{ content.field_feature_link[0]['#title'] }}</a>
+          </p>
+        {% endif %}
+      </div>
+      <button class="absolute bottom-0 block w-full text-center left-o" id="js-scroll-to-unit-content">
+        <svg class="inline-block w-16 h-16 text-white rotate-90 xl--w-20 xl--h-20 stroke-[6]" role="presentation">
+          <use xlink:href="#icon-caret"></use>
+        </svg>
+        <span class="sr-only">Go to main content</span>
+      </button>
+    </div>
   {% endblock %}
 </div>
