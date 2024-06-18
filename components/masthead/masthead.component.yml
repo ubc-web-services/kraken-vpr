@@ -5,8 +5,6 @@ group: UBC Web Services
 description: Component to render as a masthead with image
 props:
   type: object
-  required:
-    - background
   properties:
     text:
       type: string
