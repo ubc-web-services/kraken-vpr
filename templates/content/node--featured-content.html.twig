@@ -87,7 +87,7 @@
 {% endif %}
 {% set hasgradient = null %}
 {% if node.field_show_gradient_on_image.value  %}
-  {% set hasgradient = 'true' %}
+  {% set hasgradient = true %}
 {% endif %}
 
 {% embed 'kraken:masthead' with {

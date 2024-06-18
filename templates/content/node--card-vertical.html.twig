@@ -79,13 +79,13 @@
   {% set displaymeta = node.createdtime|format_date('date_readable') %}
 {% endif %}
 
-{% set link_target = '' %}
+{% set link_target = false %}
 {% set link_url = url %}
 {% if not (node.field_announcement_external_link.isEmpty == true) and content.field_announcement_external_link is defined %}
   {% set exturl = content.field_announcement_external_link[0]['#url']|raw  %}
   {% set exttitle = content.field_announcement_external_link[0]['#title']|raw %}
   {% set link_url = exturl %}
-  {% set link_target = '_blank' %}
+  {% set link_target = true %}
 {% endif %}
 
 {% embed 'kraken:card--primary' with {
