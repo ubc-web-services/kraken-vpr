@@ -13,7 +13,6 @@ props:
       type: string
       title: Link
       description: The button link
-      format: uri
       examples:
         - https://ubc.ca
     text:
