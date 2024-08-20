@@ -4990,6 +4990,11 @@ summary:focus::-webkit-details-marker {
   padding-bottom: 6rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -5521,6 +5526,11 @@ summary:focus::-webkit-details-marker {
     flex-direction: row-reverse;
   }
 
+  .sm--px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .sm--pl-8 {
     padding-left: 2rem;
   }
@@ -5711,6 +5721,10 @@ summary:focus::-webkit-details-marker {
 }
 
 @media (min-width: 1720px) {
+
+  .xl--mr-8 {
+    margin-right: 2rem;
+  }
 
   .xl--h-20 {
     height: 5rem;

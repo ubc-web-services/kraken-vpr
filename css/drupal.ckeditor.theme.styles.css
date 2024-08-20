@@ -4962,6 +4962,11 @@ fieldset fieldset legend {
   padding-bottom: 6rem;
 }
 
+.ck-editor .py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .ck-editor .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -5493,6 +5498,11 @@ fieldset fieldset legend {
     flex-direction: row-reverse;
   }
 
+  .ck-editor .sm--px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .ck-editor .sm--pl-8 {
     padding-left: 2rem;
   }
@@ -5683,6 +5693,10 @@ fieldset fieldset legend {
 }
 
 @media (min-width: 1720px) {
+
+  .ck-editor .xl--mr-8 {
+    margin-right: 2rem;
+  }
 
   .ck-editor .xl--h-20 {
     height: 5rem;
