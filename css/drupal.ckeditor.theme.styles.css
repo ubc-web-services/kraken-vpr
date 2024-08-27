@@ -1493,37 +1493,37 @@ fieldset fieldset legend {
 
 /* default ol styles */
 
-.ck-editor ol li {
+.ck-editor .text-formatted ol li {
   list-style-type: decimal;
 }
 
-.ck-editor ol li li {
+.ck-editor .text-formatted ol li li {
   list-style-type: lower-alpha;
 }
 
-.ck-editor ol li li li {
+.ck-editor .text-formatted ol li li li {
   list-style-type: lower-roman;
 }
 
-.ck-editor ol li li li li {
+.ck-editor .text-formatted ol li li li li {
   list-style-type: upper-alpha;
 }
 
-.ck-editor ol li li li li li {
+.ck-editor .text-formatted ol li li li li li {
   list-style-type: upper-roman;
 }
 
 /* default ul styles */
 
-.ck-editor ul li {
+.ck-editor .text-formatted ul li {
   list-style-type: disc;
 }
 
-.ck-editor ul li li {
+.ck-editor .text-formatted ul li li {
   list-style-type: circle;
 }
 
-.ck-editor ul li li li {
+.ck-editor .text-formatted ul li li li {
   list-style-type: square;
 }
 

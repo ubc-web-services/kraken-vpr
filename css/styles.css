@@ -1486,37 +1486,37 @@ a:active {
 
 /* default ol styles */
 
-ol li {
+.text-formatted ol li {
   list-style-type: decimal;
 }
 
-ol li li {
+.text-formatted ol li li {
   list-style-type: lower-alpha;
 }
 
-ol li li li {
+.text-formatted ol li li li {
   list-style-type: lower-roman;
 }
 
-ol li li li li {
+.text-formatted ol li li li li {
   list-style-type: upper-alpha;
 }
 
-ol li li li li li {
+.text-formatted ol li li li li li {
   list-style-type: upper-roman;
 }
 
 /* default ul styles */
 
-ul li {
+.text-formatted ul li {
   list-style-type: disc;
 }
 
-ul li li {
+.text-formatted ul li li {
   list-style-type: circle;
 }
 
-ul li li li {
+.text-formatted ul li li li {
   list-style-type: square;
 }
 
