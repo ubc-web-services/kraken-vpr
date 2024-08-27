@@ -1484,6 +1484,42 @@ a:active {
 * This file contains rules for adjusting the presentation of lists and list items
 */
 
+/* default ol styles */
+
+ol li {
+  list-style-type: decimal;
+}
+
+ol li li {
+  list-style-type: lower-alpha;
+}
+
+ol li li li {
+  list-style-type: lower-roman;
+}
+
+ol li li li li {
+  list-style-type: upper-alpha;
+}
+
+ol li li li li li {
+  list-style-type: upper-roman;
+}
+
+/* default ul styles */
+
+ul li {
+  list-style-type: disc;
+}
+
+ul li li {
+  list-style-type: circle;
+}
+
+ul li li li {
+  list-style-type: square;
+}
+
 /* styles for formatted text (since we don't style lists automatically) */
 
 ul.list-unstyled,

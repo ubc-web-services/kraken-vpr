@@ -1491,6 +1491,42 @@ fieldset fieldset legend {
 * This file contains rules for adjusting the presentation of lists and list items
 */
 
+/* default ol styles */
+
+.ck-editor ol li {
+  list-style-type: decimal;
+}
+
+.ck-editor ol li li {
+  list-style-type: lower-alpha;
+}
+
+.ck-editor ol li li li {
+  list-style-type: lower-roman;
+}
+
+.ck-editor ol li li li li {
+  list-style-type: upper-alpha;
+}
+
+.ck-editor ol li li li li li {
+  list-style-type: upper-roman;
+}
+
+/* default ul styles */
+
+.ck-editor ul li {
+  list-style-type: disc;
+}
+
+.ck-editor ul li li {
+  list-style-type: circle;
+}
+
+.ck-editor ul li li li {
+  list-style-type: square;
+}
+
 /* styles for formatted text (since we don't style lists automatically) */
 
 .ck-editor ul.list-unstyled,
