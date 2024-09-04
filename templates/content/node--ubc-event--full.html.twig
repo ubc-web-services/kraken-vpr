@@ -166,7 +166,18 @@
     </div>
     {% endif %}
 
-    {{ content|without('field_event_date', 'field_event_link', 'field_event_location', 'links', 'field_event_tags', 'field_event_category', 'field_event_supporting', 'google_cal_link', 'ical_link', 'outlook_link') }}
+    {{ content|without(
+      'field_event_date',
+      'field_event_link',
+      'field_event_location',
+      'links',
+      'field_event_tags',
+      'field_event_is_virtual',
+      'field_event_category',
+      'field_event_supporting',
+      'google_cal_link',
+      'ical_link',
+      'outlook_link') }}
 
     {% if not (node.field_event_link.isEmpty == true) and content.field_event_link is defined %}
     <p>
