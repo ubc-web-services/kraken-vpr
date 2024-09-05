@@ -115,6 +115,9 @@
   {% set eventdate = 'Ongoing event' %}
   {% set time = '' %}
 {% endif %}
+{% if node.field_event_is_virtual.value  %}
+  {% set eventvirtual = 'Virtual event' %}
+{% endif %}
 
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass(content_classes) }}>
@@ -132,7 +135,12 @@
     {% if not (node.field_event_date.isEmpty == true) and content.field_event_date is defined %}
       <h2 class="mt-0 font-sans font-normal h4">{{ eventdate }}{{ time }}</h2>
     {% endif %}
-     {% if not (node.field_event_location.isEmpty == true) and content.field_event_location is defined %}
+     {% if not (node.field_event_is_virtual.isEmpty == true) and content.field_event_is_virtual is defined %}
+      <div class="mt-2 text-sm text-grey-700">
+        {{ eventvirtual }}
+      </div>
+      {% endif %}
+      {% if not eventvirtual and not (node.field_event_location.isEmpty == true) and content.field_event_location is defined %}
       <div class="mt-2 text-sm text-grey-700">
         {{ content.field_event_location.0.address_line1 }}
         {% if not (node.field_event_location.0.address_line2.isEmpty == true) %}
