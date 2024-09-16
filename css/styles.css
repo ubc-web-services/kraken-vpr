@@ -1522,6 +1522,7 @@ a:active {
 
 /* styles for formatted text (since we don't style lists automatically) */
 
+.text-formatted .webform-progress ul li.progress-step,
 ul.list-unstyled,
 ol.list-unstyled,
 .list-unstyled ul,
