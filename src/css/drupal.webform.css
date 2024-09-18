@@ -149,3 +149,8 @@
   width: auto;
   height: auto;
 }
+
+/* remove errant bullets from webform page wizard */
+ul.progress-tracker li {
+  list-style-type: unset !important;
+}
