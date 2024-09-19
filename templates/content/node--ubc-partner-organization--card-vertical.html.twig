@@ -68,7 +68,7 @@
 
 {% if not (node.body.isEmpty == true) and content.body is defined %}
   {% if node.body.summary|length > 0 %}
-    {% set summary = node.body.summary %}
+    {% set summary = node.body.summary|striptags| check_markup('filtered_text') %}
   {% else %}
     {% set summaryraw = content.body.0['#text']|striptags %}
     {% set summary = summaryraw| truncate(300,true,true)| check_markup('filtered_text') %}
