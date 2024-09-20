@@ -39,6 +39,13 @@ object {
   width: 100%;
 }
 
+/* embedded spotify media (iframes) */
+.field--name-field-media-oembed-spotify embed,
+.field--name-field-media-oembed-spotify iframe,
+.field--name-field-media-oembed-spotify object {
+  aspect-ratio: 3/1; /* yay! */
+}
+
 .img-cover img {
   width: 100%;
   height: 100%;
