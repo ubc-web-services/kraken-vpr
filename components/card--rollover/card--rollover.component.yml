@@ -5,8 +5,6 @@ group: UBC Web Services
 description: Component to render as a Rollover Card
 props:
   type: object
-  required:
-    - title
   properties:
     title:
       type: string
