@@ -1,0 +1,143 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: Full node entity.
+ *   - id: The node ID.
+ *   - bundle: The type of the node, for example, "page" or "article".
+ *   - authorid: The user ID of the node author.
+ *   - createdtime: Time the node was published formatted in Unix timestamp.
+ *   - changedtime: Time the node was changed formatted in Unix timestamp.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+
+{% if not (node.body.isEmpty == true) and content.body is defined %}
+  {% if node.body.summary|length > 0 %}
+    {% set summary = node.body.summary|striptags| check_markup('filtered_text') %}
+  {% else %}
+    {% set summaryraw = content.body.0['#text']|striptags %}
+    {% set summary = summaryraw| truncate(300,true,true)| check_markup('filtered_text') %}
+  {% endif %}
+{% endif %}
+
+{% set link_target = false %}
+{% set link_url = url %}
+
+{% embed 'kraken:card--primary' with {
+  title: label,
+  titlePrefix: content.field_profile_name_prefix.0,
+  titleSuffix: content.field_profile_name_suffix.0,
+  link: link_url,
+  layout: 'ubc-card--vert',
+  color: 'bg-white bg-light',
+  target: link_target,
+} %}
+  {% block media %}
+    {% if not (node.field_profile_image.isEmpty == true) and content.field_profile_image is defined %}
+      <div class="p-6 img-rounded">{{ content.field_profile_image.0 }}</div>
+    {% endif %}
+  {% endblock %}
+  {% block content %}
+    {% if not (node.field_profile_role.isEmpty == true) and content.field_profile_role is defined %}
+      <p class="mt-2 text-sm">{{ content.field_profile_role.0 }}</p>
+    {% endif %}
+    {% if not (node.field_profile_job_title.isEmpty == true) and content.field_profile_job_title is defined %}
+      <p class="mt-0 text-sm">{{ content.field_profile_job_title.0 }}</p>
+    {% endif %}
+    {% if not (node.field_profile_department_unit.isEmpty == true) and content.field_profile_department_unit is defined %}
+      <p class="mt-2 text-xs">
+      {%- for tag in content.field_profile_department_unit['#items'] -%}
+          {{- tag.entity.name.value -}}
+          {% if loop.last == false %}, {% endif %}
+      {%- endfor -%}
+      </p>
+    {% endif %}
+    {% if not (node.field_profile_affiliated.isEmpty == true) and content.field_profile_affiliated is defined %}
+      <p class="mt-2 text-xs">
+        {%- for tag in content.field_profile_affiliated['#items'] -%}
+          {{- tag.entity.name.value -}}
+          {% if loop.last == false %}, {% endif %}
+      {%- endfor -%}
+      </p>
+    {% endif %}
+    {% if not (node.field_profile_phone.isEmpty == true) and content.field_profile_phone is defined %}
+      <p class="text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue link-expand-break"><use xlink:href="#icon-phone"></use></svg> {{ content.field_profile_phone.0 }}</p>
+    {% endif %}
+    {% if not (node.field_profile_email.isEmpty == true) and content.field_profile_email is defined %}
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-mail"></use></svg> <a href="mailto:{{ content.field_profile_email.0 }}" class="link-expand-break">{{ content.field_profile_email.0 }}</a></p>
+    {% endif %}
+    {% if not (node.field_profile_office.isEmpty == true) and content.field_profile_office is defined %}
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-5 h-5 mr-4 text-ubc-blue "><use xlink:href="#icon-location"></use></svg> {{ content.field_profile_office.0 }}</p>
+    {% endif %}
+    {% if not (node.field_profile_preferred_website.isEmpty == true) and content.field_profile_preferred_website is defined %}
+      <p class="mt-0 text-sm"><svg aria-hidden="true" class="inline-block w-4 h-4 mr-5 text-ubc-blue "><use xlink:href="#icon-link-external"></use></svg> <a href="{{ content.field_profile_preferred_website[0]['#url'] }}" class="link-expand-break">Website</a></p>
+    {% endif %}
+    <p>{{ summary }}</p>
+  {% endblock %}
+  {% block actions %}
+      <p class="text-right">
+      {% embed 'kraken:button' with {
+          link: link_url,
+          text: 'View profile',
+          style: 'unit-button--simple',
+          target: link_target,
+      } %}
+      {% endembed %}
+      </p>
+  {% endblock %}
+{% endembed %}
