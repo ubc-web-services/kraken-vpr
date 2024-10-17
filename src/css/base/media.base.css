@@ -52,23 +52,6 @@ object {
   object-fit: cover;
 }
 
-.img-zoom {
-  overflow: hidden;
-}
-
-.img-zoom img {
-  transition: transform 0.3s ease-in-out;
-  transform-origin: bottom center;
-}
-
-.img-zoom:hover img {
-  transform: scale(1.05);
-}
-
-.img-rounded img {
-  border-radius: 9999px;
-}
-
 @media (min-width: $breakpoint--md) {
 
   .md--img-cover-none img {
@@ -92,7 +75,10 @@ object {
   transform: scale(1.05);
 }
 
-.img-rounded img {
+.img-rounded img,
+.image-style-circle-400,
+.image-style-circle-600,
+.image-style-circle-focal-point-600 {
   border-radius: 9999px;
 }
 

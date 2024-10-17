@@ -1713,23 +1713,6 @@ fieldset fieldset legend {
   object-fit: cover;
 }
 
-.ck-editor .img-zoom {
-  overflow: hidden;
-}
-
-.ck-editor .img-zoom img {
-  transition: transform 0.3s ease-in-out;
-  transform-origin: bottom center;
-}
-
-.ck-editor .img-zoom:hover img {
-  transform: scale(1.05);
-}
-
-.ck-editor .img-rounded img {
-  border-radius: 9999px;
-}
-
 @media (min-width: 980px) {
 
   .ck-editor .md--img-cover-none img {
@@ -1753,7 +1736,10 @@ fieldset fieldset legend {
   transform: scale(1.05);
 }
 
-.ck-editor .img-rounded img {
+.ck-editor .img-rounded img,
+.ck-editor .image-style-circle-400,
+.ck-editor .image-style-circle-600,
+.ck-editor .image-style-circle-focal-point-600 {
   border-radius: 9999px;
 }
 
