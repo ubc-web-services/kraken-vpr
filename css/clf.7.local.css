@@ -119,8 +119,7 @@ body.layout--full-width-left {
 #ubc7-header,
 #ubc7-unit,
 #ubc7-unit-menu,
-#ubc7-footer,
-.clf-container {
+#ubc7-footer {
   box-sizing: content-box;
   font-family: Arial, sans-serif !important;
 }
@@ -994,6 +993,10 @@ a#ubc7-global-utility-no-script {
   .layout--full-width-left #ubc7-unit-menu .clf-container,
   .layout--full-width-left #ubc7-footer .clf-container {
     width: auto;
+  }
+
+  .clf-container {
+    box-sizing: content-box;
   }
 
   .layout--full-width #ubc7-header .clf-container {
