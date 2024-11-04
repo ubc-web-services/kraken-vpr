@@ -119,7 +119,8 @@ body.layout--full-width-left {
 #ubc7-header,
 #ubc7-unit,
 #ubc7-unit-menu,
-#ubc7-footer {
+#ubc7-footer,
+.clf-container {
   box-sizing: content-box;
   font-family: Arial, sans-serif !important;
 }
@@ -128,6 +129,8 @@ body.layout--full-width-left {
   width: 100%;
   background-color: #fff;
 }
+
+.
 
 #ubc7-global-menu .clf-container,
 #ubc7-header .clf-container,
