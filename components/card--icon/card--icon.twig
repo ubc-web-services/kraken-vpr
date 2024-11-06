@@ -40,6 +40,13 @@
     'mt-0',
   ]
 %}
+{% if layout is same as 'flex-col' %}
+  {% set layout_classes = [
+      'flex',
+      'flex-col',
+    ]
+  %}
+{% endif %}
 {% if layout is same as 'flex-row' %}
   {% set layout_classes = [
       'sm--flex',
@@ -51,18 +58,6 @@
   {% set layout_classes = [
       'sm--flex',
       'sm--flex-row-reverse',
-    ]
-  %}
-{% endif %}
-{% if layout is same as 'ubc-card--horiz' or layout is same as 'ubc-card--horiz-rev' %}
-  {% set figure_layout_classes = [
-      'sm--max-w-[300px]',
-      'sm--shrink-0',
-    ]
-  %}
-  {% set horiz_content_classes = [
-      'flex-1',
-      'self-center',
     ]
   %}
 {% endif %}
