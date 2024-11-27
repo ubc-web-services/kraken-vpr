@@ -1,0 +1,9 @@
+/** @define visibility */
+
+/* create classes for controlling visibility */
+
+@media (max-width: $breakpoint--md--max) {
+    .hidden--mobile {
+        display: none;
+    }
+}

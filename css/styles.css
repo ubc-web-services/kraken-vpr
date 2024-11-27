@@ -4071,6 +4071,16 @@ summary:focus::-webkit-details-marker {
   background: linear-gradient(to bottom, rgba(0, 33, 69, .7) 0%, rgba(0, 33, 69, 0) 55%);
 }
 
+/** @define visibility */
+
+/* create classes for controlling visibility */
+
+@media (max-width: 979px) {
+    .hidden--mobile {
+        display: none;
+    }
+}
+
 /** @define vue.utility */
 
 /* adds a set of utilities for inclusion in vue.js */

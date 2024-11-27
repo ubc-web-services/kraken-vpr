@@ -48,6 +48,7 @@
 @import "utilities/svg.utility.css";
 /* @import "utilities/text-truncate.utility.css"; */
 @import "utilities/ubc-gradient.utility.css";
+@import "utilities/visibility.utility.css";
 @import "utilities/vue.utility.css";
 
 /* Add utility classes last so that they take precedence */
