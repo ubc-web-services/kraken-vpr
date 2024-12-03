@@ -87,6 +87,12 @@
   {% set link_url = exturl %}
   {% set link_target = true %}
 {% endif %}
+{% if not (node.field_story_page_external_link.isEmpty == true) and content.field_story_page_external_link is defined %}
+  {% set exturl = content.field_story_page_external_link[0]['#url']|raw  %}
+  {% set exttitle = content.field_story_page_external_link[0]['#title']|raw %}
+  {% set link_url = exturl %}
+  {% set link_target = true %}
+{% endif %}
 
 {% embed 'kraken:card--image' with {
   title: label,
@@ -108,6 +114,9 @@
     {% endif %}
     {% if not (node.field_announcement_feature_image.isEmpty == true) and content.field_announcement_feature_image is defined %}
       {{ content.field_announcement_feature_image.0 }}
+    {% endif %}
+    {% if not (node.field_story_page_image.isEmpty == true) and content.field_story_page_image is defined %}
+      {{ content.field_story_page_image.0 }}
     {% endif %}
 	{% endblock %}
 	{% block content %}
