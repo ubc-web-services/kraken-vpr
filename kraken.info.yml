@@ -58,4 +58,5 @@ regions:
   sidebar_secondary: 'Secondary Sidebar'
   secondary_content: 'Secondary Content'
   prefooter: 'Pre-Footer'
+  customfooter: 'Custom Footer'
   drawer: 'Off Canvas Drawer'
