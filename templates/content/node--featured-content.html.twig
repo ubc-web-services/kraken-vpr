@@ -74,6 +74,9 @@
 {% if not (node.field_event_image_teaser.isEmpty == true) and content.field_event_image_teaser is defined %}
   {% set text = content.field_event_image_teaser.0 %}
 {% endif %}
+{% if not (node.field_image_teaser.isEmpty == true) and content.field_image_teaser is defined %}
+  {% set text = content.field_image_teaser.0 %}
+{% endif %}
 {% if not (node.field_story_image_teaser.isEmpty == true) and content.field_story_image_teaser is defined %}
   {% set text = content.field_story_image_teaser.0 %}
 {% endif %}
