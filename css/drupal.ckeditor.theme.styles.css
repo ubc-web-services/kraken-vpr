@@ -4488,6 +4488,10 @@ fieldset fieldset legend {
   height: 100vh;
 }
 
+.ck-editor .max-h-\[50px\] {
+  max-height: 50px;
+}
+
 .ck-editor .min-h-96 {
   min-height: 24rem;
 }
