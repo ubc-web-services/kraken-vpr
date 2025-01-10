@@ -18,7 +18,6 @@
   ]
 %}
 {% set figure_classes = [
-    'mt-0',
     'ubc-card__media',
     'img-cover',
     'overflow-hidden',
@@ -56,11 +55,19 @@
       'sm--flex-row',
     ]
   %}
+  {% set figure_layout_classes = [
+      'mt-0',
+    ]
+  %}
 {% endif %}
 {% if layout is same as 'ubc-card--horiz-rev' %}
   {% set layout_classes = [
       'sm--flex',
       'sm--flex-row-reverse',
+    ]
+  %}
+  {% set figure_layout_classes = [
+      'mt-0',
     ]
   %}
 {% endif %}
