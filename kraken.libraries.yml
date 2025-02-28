@@ -129,7 +129,6 @@ clf-js-prod:
 
 ## Production Bootstrap
 clf-js-bootstrap:
-  version: 5.1
   css:
     base:
       css/bootstrap.5.min.css: { }
@@ -139,14 +138,12 @@ clf-js-bootstrap:
 
 ## CLF Version 8
 clf-8:
-  version: 8.0.0
   css:
     base:
       css/clf.8.min.css: { minified: true }
 
 ## CLF Version 7 (legacy)
 clf-legacy:
-  version: 7.0.4
   css:
     base:
       css/clf.7.reset.min.css: { minified: true }
@@ -233,7 +230,6 @@ clf-whitney-prod:
 
 ## CLF Dark Mode (not yet complete)
 clf-dark-mode:
-  version: 8.0.0
   css:
     base:
       css/clf.8.dark.mode.min.css: { minified: true }
@@ -271,14 +267,12 @@ maintenance-page:
 ## Third Party Library Integrations
 ### Full Calendar
 fullcalendar:
-  version: 4.4.2
   css:
     theme:
-      css/fullcalendar.custom.min.css: { minified: true }
+      css/fullcalendar.custom.min.css: { minified: true, weight: 51 }
 
 ## Tiny Slider
 tiny-slider:
-  version: 2.9.4
   js:
     js/vendors~tiny.slider.min.js: { minified: true, preprocess: false }
     js/tiny.slider.min.js: { minified: true, preprocess: false }
