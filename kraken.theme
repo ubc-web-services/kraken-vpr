@@ -370,6 +370,7 @@ function kraken_preprocess_page(&$variables)
   $variables['instagram_option'] = theme_get_setting('clf_social_instagram');
   $variables['linkedin_option'] = theme_get_setting('clf_social_linkedin');
   $variables['twitter_option'] = theme_get_setting('clf_social_twitter');
+  $variables['bluesky_option'] = theme_get_setting('clf_social_bluesky');
   $variables['youtube_option'] = theme_get_setting('clf_social_youtube');
 
   // Svg options.

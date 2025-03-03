@@ -669,6 +669,15 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#description' => t('Format of https://www.xyz.com'),
   ];
 
+  $form['social']['clf_social_bluesky'] = [
+    '#type' => 'textfield',
+    '#title' => t('Bluesky Account Link'),
+    '#default_value' => theme_get_setting('clf_social_bluesky'),
+    '#size' => 60,
+    '#maxlength' => 128,
+    '#description' => t('Format of https://www.xyz.com'),
+  ];
+
   $form['social']['clf_social_instagram'] = [
     '#type' => 'textfield',
     '#title' => t('Instagram Account Link'),
