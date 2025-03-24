@@ -3308,6 +3308,7 @@ summary:focus::-webkit-details-marker {
 
 .tabcordion__tab {
   flex: 1 1 0%;
+  list-style-type: none !important;
 }
 
 .tabcordion__tab:hover {

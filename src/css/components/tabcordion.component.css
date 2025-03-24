@@ -12,6 +12,7 @@
 
 .tabcordion__tab {
   @apply flex-1;
+  list-style-type: none !important;
 }
 
 .tabcordion__tab:hover {
