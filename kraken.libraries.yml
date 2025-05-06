@@ -4,19 +4,26 @@
 global:
   css:
     theme:
-      css/bootstrap.5.min.css: { minified: true }
       css/styles.min.css: { minified: true }
   js:
     js/kraken.dismiss.min.js: { minified: true }
     js/kraken.mediaquery.min.js: { minified: true }
     js/kraken.misc.min.js: { minified: true }
     js/kraken.video.min.js: { minified: true }
-    js/vendors~bootstrap.min.js: { minified: true, preprocess: false }
-    js/bootstrap.min.js: { minified: true, preprocess: false }
+    js/bootstrap.min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/once
     - core/drupalSettings
+    - kraken/bootstrap
+
+## load local bootstrap library
+bootstrap:
+  css:
+    theme:
+      css/bootstrap.5.min.css: { minified: true }
+  js:
+    js/vendors~bootstrap.min.js: { minified: true, preprocess: false }
 
 ## CLF Version 8
 clf-8:
@@ -211,11 +218,12 @@ alert-display:
 ### Bootstrap Carousel
 bs-carousel:
   js:
-    js/kraken.carousel.min.js: { minified: true, preprocess: false }
+    js/kraken.carousel.min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/once
     - core/jquery
+    - kraken/bootstrap
 
 ## Scroll to top
 scroll:
