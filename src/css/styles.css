@@ -4,7 +4,7 @@
 * This file is the main entry point for primary styles
 */
 
-/* Add CSS variables (uses postcss-simple-vars) */
+/* Add CSS variables */
 @import "config/variables.config.css";
 
 /* Add normalize and general base styles */
@@ -19,14 +19,20 @@
 @import "base/table.base.css";
 @import "base/print.base.css";
 
-/* Import any node assets */
-@import "../../node_modules/tiny-slider/dist/tiny-slider.css";
+/* Add any Drupal specific stylesheets */
+@import "drupal/drupal.node.preview.css";
+@import "drupal/drupal.entity.moderation.css";
+@import "drupal/drupal.media.css";
+@import "drupal/drupal.views.css";
+@import "drupal/clf.drupal.css";
+@import "drupal/drupal.theme.css";
+
 
 /* Add styles for specific components */
-/* @import "tailwindcss/components"; */
+@import "tailwindcss/components";
 @import "components/accordion.component.css";
 @import "components/button.component.css";
-@import "components/carousel.component.css";
+/* @import "components/carousel.component.css"; */
 @import "components/chosen.component.css";
 @import "components/icon.component.css";
 @import "components/message.component.css";
@@ -46,7 +52,6 @@
 @import "utilities/min-height.utility.css";
 @import "utilities/skip-link.utility.css";
 @import "utilities/svg.utility.css";
-/* @import "utilities/text-truncate.utility.css"; */
 @import "utilities/ubc-gradient.utility.css";
 @import "utilities/visibility.utility.css";
 @import "utilities/vue.utility.css";

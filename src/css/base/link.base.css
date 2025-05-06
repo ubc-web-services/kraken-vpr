@@ -14,15 +14,15 @@ button::after {
 
 a {
   text-decoration: underline;
-  color: var(--color-link);
+  color: var(--default-color-link);
 }
 
 a:hover {
-  color: var(--color-link-hover);
+  color: var(--default-color-link-hover);
 }
 
 a:active {
-  color: var(--color-link-active);
+  color: var(--default-color-link-active);
 }
 
 /* accessibly hidden links and content */

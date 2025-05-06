@@ -46,17 +46,15 @@ object {
   aspect-ratio: 3/1; /* yay! */
 }
 
-.img-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.img-cover img,
+.masthead__img img {
+  @apply object-cover w-full h-full;
 }
 
-@media (min-width: $breakpoint--md) {
+@media (min-width: 980px) {
 
   .md--img-cover-none img {
-    width: auto;
-    height: auto;
+    @apply w-auto h-auto;
     object-fit: initial;
   }
 

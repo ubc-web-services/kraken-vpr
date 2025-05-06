@@ -1,4 +1,4 @@
-/*!
+/*
  * File: scroll.js
  *
  * Desc: js for adding intersection observer to the top top button, revealing it when the totop-mask is outside of the viewport

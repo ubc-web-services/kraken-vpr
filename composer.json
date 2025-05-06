@@ -1,6 +1,6 @@
 {
   "name": "ubc-web-services/kraken-vpr",
-  "description": "A Drupal 8 UBC CLF 7/8 theme (VPR specific)",
+  "description": "A Drupal 10 UBC CLF 7/8 theme (VPR specific)",
   "type": "drupal-theme",
   "authors": [{
     "name": "O'Toole, James",

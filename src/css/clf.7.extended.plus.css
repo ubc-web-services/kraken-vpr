@@ -1,9 +1,11 @@
-@import "config/variables.config.css";
-
-@media screen and (min-width: $breakpoint--xxl) {
+/**
+ * @file
+ * Styles for a 2400px wide version of the CLF (requires clf.7.extended.css)
+ */
+ @media screen and (min-width: 2400px) {
 
   .container {
-      max-width: $breakpoint--xxl !important;
+      max-width: 2400px !important;
   }
 
   #ubc7-global-menu .clf-container,
@@ -11,7 +13,7 @@
   #ubc7-unit .clf-container,
   #ubc7-footer .clf-container,
   #ubc7-unit-menu .clf-container {
-    width: calc($breakpoint--xxl - 32px);
+    width: 2368px;;
   }
 
   #ubc7-header .span9 {
@@ -23,6 +25,12 @@
   }
 
   .layout--centered #main-content {
-    width: $breakpoint--xxl;
+    width: 2400px;
   }
+
+  .container,
+  .container-xxl {
+    max-width: 1720px;
+  }
+
 }

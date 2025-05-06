@@ -1,10 +1,10 @@
 /** @define drupal.login */
 
-/*
-* This file contains styles for the default drupal login
-*/
-
-.rounded {
+/**
+ * @file
+ * Styles for the default drupal login
+ */
+ .rounded {
   border-radius: 0.25rem;
 }
 
@@ -29,52 +29,41 @@
 @media (min-width: 640px) {
 
   .sm--max-w-md {
-    max-width: 34rem;
+    @apply max-w-[34rem]
   }
 }
 
 .tabs--primary {
-  font-size: 0.875rem;
+  @apply text-sm;
 }
 
 .description {
-  padding: 0.5em 0;
+  @apply py-[.5em] px-0;
 }
 
 .form-checkbox,
 .form-radio {
-  flex-wrap: wrap;
+  @apply flex-wrap;
 }
 
 .user-pass p {
-  margin-bottom: 1.625rem;
+  @apply mb-leading;
 }
 
 .user-register-form .form-submit,
 .user-pass .form-submit,
 .user-login-form .form-submit {
-  display: block;
-  width: 100%;
-  font-size: 1.125rem;
+  @apply block w-full text-[1.125rem]
 }
 
 .form-managed-file .form-submit {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  color: #0055b7;
-  border-width: 1px;
-  border-color: #0055b7;
-  background-color: #fff;
+  @apply block px-6 py-3 text-center no-underline bg-white border text-ubc-blue-cobalt border-ubc-blue-cobalt;
 }
 
 .form-managed-file .form-submit:hover {
-  color: #fff;
-  border-color: #0055b7;
-  background-color: #0055b7;
+  @apply text-white border bg-ubc-blue-cobalt border-ubc-blue-cobalt;
 }
 
 body {
-  background-color: #002145;
+  @apply bg-ubc-blue;
 }

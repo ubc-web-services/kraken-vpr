@@ -8,6 +8,7 @@
 * replace the default Drupal ajax throbber because it's ugly
 */
 
+/* Throbber / ajax loading animation */
 .ajax-progress,
 .ajax-progress--throbber,
 .ajax-progress-throbber,
@@ -26,8 +27,7 @@
   opacity: 1;
   -webkit-border-radius: 0;
   border-radius: 0;
-  background-image: none !important;
-  background: $throbber-background;
+  background: rgba(var(--white), 0.5);
 }
 
 .ajax-progress--throbber::after,
@@ -51,51 +51,3 @@
   background-position: center;
   background-size: 4rem 4rem;
 }
-
-/*
-.ajax-progress--throbber::before,
-.ajax-progress--fullscreen::before,
-.ajax-progress-throbber::before,
-.ajax-progress-fullscreen::before,
-.ajax-progress--throbber::after,
-.ajax-progress--fullscreen::after,
-.ajax-progress-throbber::after,
-.ajax-progress-fullscreen::after {
-  content: " ";
-  display: block;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 100%;
-  border-width: .25rem;
-  border-style: solid;
-  overflow: hidden;
-  text-indent: -9999em;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.ajax-progress--throbber::before,
-.ajax-progress--fullscreen::before,
-.ajax-progress-throbber::before,
-.ajax-progress-fullscreen::before {
-	border-color: $throbber-border;
-}
-
-.ajax-progress--throbber::after,
-.ajax-progress--fullscreen::after,
-.ajax-progress-throbber::after,
-.ajax-progress-fullscreen::after {
-	border-color: $throbber-color $throbber-color $throbber-color transparent;
-	animation: spin .75s infinite linear;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/

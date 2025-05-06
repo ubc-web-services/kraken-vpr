@@ -1,0 +1,46 @@
+/** @define clf.drupal */
+
+/*
+* This file overrides some default CLF styles
+*/
+
+/* blocks */
+#block-userlogin .item-list ul {
+  @apply ml-0 list-none;
+}
+
+#block-userlogin .item-list li {
+  @apply float-left mr-[.5em] text-sm;
+}
+
+#block-userlogin .item-list li + li {
+  @apply float-right mr-0;
+}
+
+/* for UBC Ckeditor Widgets styles - need to create a new branch before committing */
+@media (min-width: 980px) {
+
+  .flex-item,
+  .flex-1 {
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+
+  .flex-2 {
+    -webkit-box-flex: 2;
+    flex: 2;
+  }
+}
+
+.field--name-field-profile-office,
+.field--name-field-event-map,
+.img-and-caption {
+  @apply my-6;
+}
+
+.pin {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

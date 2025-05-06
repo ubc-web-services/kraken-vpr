@@ -2,7 +2,7 @@
 
 /* create classes for controlling visibility */
 
-@media (max-width: $breakpoint--md--max) {
+@media (max-width: 979px) {
     .hidden--mobile {
         display: none;
     }

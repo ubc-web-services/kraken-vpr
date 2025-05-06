@@ -5,16 +5,11 @@
 */
 
 .piped {
-  position: relative;
-  display: inline-block;
-  padding-right: 1rem;
+  @apply relative inline-block pr-4;
 }
 
 .piped::after {
-  position: absolute;
-  top: 0;
-  right: 0.25rem;
-  display: block;
+  @apply absolute top-0 right-[.25rem] block;
   content: "/";
   line-height: 1.5;
 }
@@ -29,21 +24,8 @@
 }
 
 /* subnavigation */
-/*
-.subnav__links {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.subnav--nested {
-  @apply list-none;
-}*/
-
 .navlink--secondary {
-  @apply relative block py-2 px-[14px] pr-10 overflow-hidden no-underline text-ubc-blue;
-  border-bottom: 1px solid #97d4e9 !important;
+  @apply relative block py-2 px-[14px] pr-10 overflow-hidden no-underline text-ubc-blue border-b !border-ubc-blue-cornflower;
 }
 
 .navlink--secondary::after {
@@ -98,7 +80,6 @@
 }
 
 /* account for non-links */
-
 .navlink--secondary:not(a) {
   @apply relative block py-2 px-[14px] pr-10 overflow-hidden no-underline font-semibold text-grey-800;
   border-bottom: none !important;
@@ -113,13 +94,17 @@
 }
 
 /* account for non-links in primary-nav */
-
 #ubc7-unit-menu .navbar-link:not(a) {
   @apply font-semibold no-underline bg-white text-grey-800;
   clear: both;
   display: block;
   padding: 3px 20px;
   white-space: nowrap;
+}
+
+/* ensure collapsed nav is visible on large screens */
+[data-screen=lg] .subnav.widget-accordion .subnav__links[hidden] {
+  display: block!important;
 }
 
 /* vue subanv */
@@ -136,8 +121,7 @@
 }
 
 .nav--split .js-reveal__trigger {
-  @apply flex-none inline-flex w-[40px] text-ubc-blue bg-transparent place-content-center place-items-center;
-  border-bottom: 1px solid #97d4e9 !important;
+  @apply flex-none inline-flex w-[40px] text-ubc-blue bg-transparent place-content-center place-items-center border-b !border-ubc-blue-cornflower;
 }
 
 .nav--split .js-reveal__trigger svg {
@@ -171,8 +155,7 @@
 
 .pager__item--next a,
 .pager__item--previous a {
-  display: block;
-  width: 2rem;
+  @apply block w-8;
 }
 
 .pager__item--previous a {
