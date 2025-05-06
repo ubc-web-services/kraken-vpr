@@ -17,7 +17,7 @@ global:
     - core/drupalSettings
     - kraken/bootstrap
 
-## load local bootstrap library
+## Bootstrap library
 bootstrap:
   css:
     theme:
