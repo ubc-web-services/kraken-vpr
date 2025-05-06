@@ -76,7 +76,7 @@ h6,
   margin-bottom: 0;
   letter-spacing: 0.05em;
   font-family: var(--alternate-font-stack);
-  font-size:875rem;
+  font-size: .875rem;
   font-weight: var(--title-weight);
   line-height: 1.425;
 }
