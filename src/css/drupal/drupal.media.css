@@ -89,7 +89,7 @@ img.align-right,
 
 
 /* styles for below the small breakpoint */
-@media (min-width: 768px) {
+@media (max-width: 767px) {
 
   .text-formatted .align-left,
   .text-formatted .align-right {
