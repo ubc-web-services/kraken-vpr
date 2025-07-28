@@ -1,156 +1,84 @@
-
-@import "config/variables.config.css";
-
-/* alterations to form elements provided by the webform module */
-
-.webform-actions,
-.webform-submission-form .form-actions {
-  margin-top: calc(var(--leading) * 1rem);
-}
-
-.webform-submission-form .field-prefix,
-.webform-submission-form .field-suffix {
-  font-size: .875em;
-}
-
-.webform-multiple-table .form-item,
-.webform-mapping-table .form-item,
-.webform-likert-table .form-item,
-.webform-submission-form input.form-color {
-  margin-top: 0;
-}
-
-.webform-submission-form .fieldset-wrapper {
-  margin-top: 1em;
-}
-
-.webform-submission-form .form-required {
-  color: inherit;
-  position: relative;
-}
-
-.text-count-message,
-.description {
-  @apply text-sm text-grey-700;
-}
-
-.form--inline .form-item {
-  margin-top: 0;
-}
-
-.webform-submission-form input[type="submit"]:not(.webform-button--submit) {
-  @apply inline-flex text-center no-underline uppercase border;
-  padding: 0.5em 1em .3em;
-  cursor: pointer;
-  transition: all 0.125s ease-out;
-  color: $button-text;
-  border-color: $button-border;
-  background-color: $button-bg;
-  line-height: 1.3;
-  font-size: .75em;
-}
-
-.webform-submission-form input[type="submit"]:not(.webform-button--submit):hover {
-  @apply no-underline shadow-md;
-  color: $button-text--hover;
-  border-color: $button-border--hover;
-  background-color: $button-bg--hover;
-}
-
-.webform-submission-form input[name="autocomplete_table_add"],
-.webform-submission-form input[name="custom_composite_table_add"] {
-  margin-top: .5em;
-  margin-bottom: .5em;
-}
-
-.tabledrag-toggle-weight {
-  font-size: .75em;
-}
-
-@media (min-width: $breakpoint--xs) {
-
-  .webform-options-display-two-columns,
-  .webform-options-display-three-columns {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0;
-    -moz-column-count: initial;
-    -webkit-column-count: initial;
-    column-count: initial;
+/**
+ * @file
+ * Webform styles
+ */
+ .webform-actions {
+    @apply mt-6;
   }
 
-  .webform-options-display-two-columns div.form-item {
-    width: 50%;
+  .webform-submission-form .field-prefix,
+  .webform-submission-form .field-suffix {
+    @apply text-sm;
   }
 
-  .webform-options-display-three-columns div.form-item {
-    width: calc(100% / 3);
+  .webform-multiple-table .form-item,
+  .webform-mapping-table .form-item,
+  .webform-likert-table .form-item,
+  .webform-submission-form input.form-color {
+    @apply mt-0;
   }
 
-}
+  .webform-submission-form .fieldset-wrapper {
+    @apply mt-[1em];
+  }
 
-/* adjust webform checkboxes / radios */
-.webform-submission-form .checkboxes--wrapper legend,
-.webform-submission-form .webform-checkboxes-other--wrapper legend,
-.webform-submission-form .radios--wrapper legend,
-.webform-submission-form .webform-radios-other--wrapper legend {
-  padding-bottom: 0;
-  text-transform: none;
-  border-bottom: none;
-  font-size: .875rem;
-  color: #002145;
-}
+  .text-count-message,
+  .description {
+    @apply text-sm text-grey-700;
+  }
 
-.webform-submission-form .checkboxes--wrapper .fieldset-wrapper,
-.webform-submission-form .webform-checkboxes-other--wrapper .fieldset-wrapper,
-.webform-submission-form .radios--wrapper .fieldset-wrapper,
-.webform-submission-form .webform-radios-other--wrapper .fieldset-wrapper,
-.webform-submission-form :not(.checkboxes--wrapper) .form-item.form-checkbox,
-.webform-submission-form :not(.radios--wrapper) .form-item.form-radio {
-  margin-top: .5em;
-}
+  .form--inline .form-item {
+    @apply mt-0;
+  }
 
-/* fix prefix and suffix for fields */
-.webform-has-field-prefix,
-.webform-has-field-suffix {
-	display: flex;
-	flex-wrap: wrap;
-}
+  input[type="submit"]:not(.webform-button--submit) {
+    @apply inline-flex text-center no-underline uppercase border text-xs cursor-pointer pt-[.5em] px-[1em] pb-[.3em] text-white bg-ubc-blue border-transparent;
 
-.webform-has-field-prefix label,
-.webform-has-field-prefix .description,
-.webform-has-field-suffix label,
-.webform-has-field-suffix .description {
-	width: 100%;
-}
+    transition: all 0.125s ease-out;
+    line-height: 1.3;
+  }
 
-.webform-has-field-prefix .field-prefix,
-.webform-has-field-suffix .field-suffix {
-	flex-grow: 0;
-  display: inline-block;
-  place-self: center;
-}
+  input[type="submit"]:not(.webform-button--submit):hover {
+    @apply text-white no-underline border-transparent shadow-md bg-ubc-blue-sea;
+  }
 
-.webform-has-field-prefix .field-prefix {
-	padding-right: 0.5em;
-}
+  input[name="autocomplete_table_add"],
+  input[name="custom_composite_table_add"] {
+    @apply my-[.5em];
+  }
 
-.webform-has-field-suffix .field-suffix {
-  padding-left: 0.5em;
-}
+  .tabledrag-toggle-weight {
+    @apply text-xs;
+  }
 
-.webform-has-field-prefix:not(.checkboxes--wrapper, .radios--wrapper) input,
-.webform-has-field-suffix:not(.checkboxes--wrapper, .radios--wrapper) input {
-  flex: 1 1 0%;
-}
+  @media (min-width: 480px) {
 
-/* fix drag icon */
-.webform-submission-form a.tabledrag-handle .handle {
-  width: auto;
-  height: auto;
-}
+    .webform-options-display-two-columns,
+    .webform-options-display-three-columns {
+      @apply flex flex-wrap mt-0 columns-[initial];
+    }
 
-/* remove errant bullets from webform page wizard */
-ul.progress-tracker li {
-  list-style-type: unset !important;
-}
+    .webform-options-display-two-columns div.form-item {
+      @apply w-half;
+    }
+
+    .webform-options-display-three-columns div.form-item {
+      @apply w-one-third;
+    }
+  }
+
+  .webform-submission-form .checkboxes--wrapper legend,
+  .webform-submission-form .webform-checkboxes-other--wrapper legend,
+  .webform-submission-form .radios--wrapper legend,
+  .webform-submission-form .webform-radios-other--wrapper legend {
+    @apply pb-0 text-sm normal-case border-b-0 text-ubc-blue;
+  }
+
+  .webform-submission-form .checkboxes--wrapper .fieldset-wrapper,
+  .webform-submission-form .webform-checkboxes-other--wrapper .fieldset-wrapper,
+  .webform-submission-form .radios--wrapper .fieldset-wrapper,
+  .webform-submission-form .webform-radios-other--wrapper .fieldset-wrapper,
+  .webform-submission-form :not(.checkboxes--wrapper) .form-item.form-checkbox,
+  .webform-submission-form :not(.radios--wrapper) .form-item.form-radio {
+    @apply mt-[.5em];
+  }

@@ -4,6 +4,54 @@
 * This file contains rules for adjusting the presentation of lists and list items
 */
 
+/* Lists */
+ul,
+ol,
+dl {
+  @apply my-3;
+}
+
+ul {
+  @apply pl-6;
+
+  list-style-type: disc;
+}
+
+ol {
+  @apply pl-6;
+
+  list-style-type: decimal;
+}
+
+dt {
+  text-transform: uppercase;
+}
+
+h2 + ul,
+h2 + ol,
+h2 + dl,
+h3 + ul,
+h3 + ol,
+h3 + dl,
+h4 + ul,
+h4 + ol,
+h4 + dl,
+h5 + ul,
+h5 + ol,
+h5 + dl,
+h6 + ul,
+h6 + ol,
+h6 + dl {
+  @apply mt-leading;
+}
+
+ul > ul,
+ol > ol,
+ul > ol,
+ol > ul {
+  @apply my-0;
+}
+
 /* default ol styles */
 .text-formatted ol li {
   list-style-type: decimal;
@@ -60,14 +108,14 @@ ol.item-list,
   display: inline;
 }
 
-@media (min-width: $breakpoint--sm) {
+@media (min-width: 768px) {
 
   .sm--list-inline li {
     display: inline;
   }
 }
 
-@media (min-width: $breakpoint--md) {
+@media (min-width: 980px) {
 
   .md--list-inline li {
     display: inline;
@@ -103,7 +151,6 @@ ol.item-list,
 
 .list-checked li {
   @apply pl-6;
-
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1792 1792'%3E%3Cpath d='M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z' fill='%23002145'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: top 0.25em left;
@@ -124,8 +171,10 @@ ol.item-list,
   background-image: none;
 }
 
-@media (min-width: $breakpoint--xl) {
+@media (min-width: 1720px) {
+
   .list-checked li {
     @apply pl-8;
   }
+
 }

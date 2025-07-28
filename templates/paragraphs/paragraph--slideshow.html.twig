@@ -1,0 +1,53 @@
+{%
+  set classes = [
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'carousel',
+    'slide',
+    'bootstrap-carousel',
+  ]
+%}
+{%
+  set uniqueid = 'carousel-feature'|clean_unique_id
+%}
+{%
+  set slides = content.field_slide['#items'].value|length
+%}
+{% block content %}
+  {% if not (paragraph.field_slide.isEmpty == true) and content.field_slide is defined %}
+    {{ attach_library('kraken/bs-carousel') }}
+    <div{{ attributes.addClass(classes).setAttribute('data-bs-ride', 'carousel').setAttribute('id', uniqueid) }}>
+      {% if slides > 1 %}
+        <div class="carousel-indicators">
+          {% set slidekey = 0 %}
+          {% set slidenumber = 1 %}
+          {% for key, value in content.field_slide['#items'].value %}
+            {% if loop.first %}
+              <button type="button" data-bs-target="#{{ uniqueid }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            {% else %}
+              {% set slidekey = slidekey + 1 %}
+              {% set slidenumber = slidenumber + 1 %}
+              <button type="button" data-bs-target="#{{ uniqueid }}" data-bs-slide-to="{{ slidekey }}" aria-label="Slide {{ slidenumber }}"></button>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="carousel-inner">
+        {{ content|without(
+            'field_region_vertical_spacing',
+            'field_region_width',
+            'field_paragraph_group_title',
+            ) }}
+      </div>
+      {% if slides > 1 %}
+        <button class="carousel-control-prev" type="button" data-bs-target="#{{ uniqueid }}" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#{{ uniqueid }}" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}

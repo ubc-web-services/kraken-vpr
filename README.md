@@ -1,6 +1,6 @@
-# UBC CLF 10 DRUPAL THEME (aka Kraken)
+# UBC CLF DRUPAL THEME (aka Kraken)
 
-A responsive UBC CLF (Common Look and Feel) theme for Drupal 10 using Tailwind and Bootstrap 5. Created by the UBC IT Web Services Department.
+A responsive UBC CLF (Common Look and Feel) theme for Drupal using Tailwind and Bootstrap 5. Created by the UBC IT Web Services Department.
 
 Kraken is a theme for Drupal 10+, providing UBC-branded units with the basic structure of the UBC CLF ([Common Look and Feel](https://clf.ubc.ca)).
 
@@ -12,7 +12,7 @@ This theme _does not_ support Internet Explorer. If older browser support is req
 
 Why _another_ theme? Why not extend the Galactus Drupal 10 theme?
 
-As a web developer in Web Services, you should be able to expect that CSS and Javascript are added in a single consistent way in any project. The Galactus theme works as is, however it is intended for general-purpose use by the broader UBC community. Kraken's goal is to add proper dependency management and workflow for Web Service's theme layer in the same way we have done for the application layer. It is intentionally biased and uses specific CSS and Javascript frameworks ([Tailwindcss](https://tailwindcss.com) and [Vuejs](https://vuejs.org)). Both of these are well-supported and flexible enough to work on _any_ web project (CLF or not) and provide a consistent set of features and functionality. The benefits are improved reusability, improved ramp up time and improved optics. There should be no hidden features only understood by a single developer.
+As a web developer in Web Services, you should be able to expect that CSS and Javascript are added in a single consistent way in any project. The Galactus theme works as is, however it is intended for general-purpose use by the broader UBC community. Kraken's goal is to add proper dependency management and workflow for Web Service's theme layer in the same way we have done for the application layer. It is intentionally biased and uses specific CSS and Javascript frameworks ([Tailwindcss](https://tailwindcss.com) and [Bootstrap 5](https://getbootstrap.com)). Both of these are well-supported and flexible enough to work on _any_ web project (CLF or not) and provide a consistent set of features and functionality. The benefits are improved reusability, improved ramp up time and improved optics. There should be no hidden features only understood by a single developer. Do note that the version of Bootstrap included with the theme is an updated version (currently v5), not version 2 (as used by the default CLF).
 
 ## Using the theme
 
@@ -33,41 +33,27 @@ npm install
 This will install everything required to work with the CSS and Javascript:
 
 - the [Tailwindcss](https://tailwindcss.com) utility-based CSS library
-- the [Bootstrap 5](https://getbootstrap.com) library (Javascript portion only)
-- the [Vuejs](https://vuejs.org) Javascript framework (optional)
-- packages such as [Webpack](https://webpack.js.org), [Babel](https://babeljs.io), [Postcss](https://postcss.org), and [Autoprefixer](https://www.npmjs.com/package/autoprefixer) that automate building and preparing the web assets.
+- the [Bootstrap 5](https://getbootstrap.com) library
+- packages such as [Webpack](https://webpack.js.org), [Postcss](https://postcss.org), and [Autoprefixer](https://www.npmjs.com/package/autoprefixer) that automate building and preparing the web assets.
 
 ### Running the commands
 
-There are four main node.js commands defined in in [`/package.json`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/package.json#L24).
+There are four node.js commands defined in in [`/package.json`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/package.json#L24).
 
-The two most common commands to run:
-
-- `npm run dev`
+- `npm run css`
 
   - compiles the CSS in the `/src/css` directory, excluding the subdirectories, and saves the minified files in `/css`. Settings in [`/postcss.config.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/postcss.config.js)
+- `npm run js`
   - compiles the Javascript in the `/src/css` directory, excluding the subdirectories, and saves the unminified files in `/js`. Settings in [`/webpack.common.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/webpack.common.js) and [`/webpack.dev.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/webpack.prod.js)
 
 - `npm run prod`
   - compiles the CSS in the `src > css` directory, excluding the subdirectories, and saves the minified files in `/css`. Settings in [`/postcss.config.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/postcss.config.js)
   - compiles the Javascript in the `/src/css` directory, excluding the subdirectories, and saves the minified files in `/js` with a `.min.js` extension. Settings in [`/webpack.common.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/webpack.common.js) and [`/webpack.prod.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/webpack.prod.js)
-  - compresses the `.js` and `.css` files in GZip and Brotli formats. Settings in [`/compress.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/compress.js)
   - saves an external sourcemap (`.map` file) to facilitate debugging. Settings in [`/webpack.prod.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/webpack.prod.js)
 
-There are also additional commands for CSS property sorting:
+- `npm run watch`
+  - watches for changes to the CSS in the `/src/css` directory and recompiles when a file is resaved (top level only).
 
-- `npm run css-lint`
-
-  - checks CSS in the `/src/css` directory for the order in which properties are declared and best practices.
-
-- `npm run css-fix`
-  - attempts to automatically fix the errors that are found with the `npm run css-lint` command.
-
-And there are commands to build the CSS or JS assets separately (both development and production versions):
-
-- `npm run css`
-
-- `npm run js`
 
 ---
 
@@ -88,28 +74,14 @@ Additionally, all vendor prefixes for supported browsers are added automatically
 
 I highly recommend installing [the Tailwind VS Code extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss). It provides code completion for Tailwind utility classes as defined in the `tailwind.config.js` file. Another useful utility is [the Headwind VS Code extension](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind), that sorts classes in your markup based on an opinionated order.
 
-## [Vue.js](https://vuejs.org)
-
-Much of the javascript this theme uses is powered by the Vue.js library. This does have some exceptions where native javascript is used instead (e.g. [`/src/js/kraken.dismiss.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/src/js/kraken.dismiss.js), [`/src/js/kraken.misc.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/src/js/kraken.misc.js), [`/src/js/kraken.scroll.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/src/js/kraken.scroll.js)). All attempts have been made to remove jQuery as a dependency.
-
-For ease of integration, there is a single vue instance called - `#main-content`. Vue can work with any markup in the templates inside of this wrapper.
-
-When running the build scripts, the package despendencies (including the vue.js library) are split from custom vue code, resulting in `/js/vue[.min].js` and `/js/vendors~vue[.min].js`. Settings in [`/webpack.common.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/webpack.common.js)
-
-The primary file is at [`/src/js/vue.js`](https://github.com/ubc-web-services/product-boilerplate/blob/master/web/themes/custom/kraken/src/js/vue.js), which imports all dependencies, components and defines the main vue instance. Custom [single file components](https://vuejs.org/v2/guide/single-file-components.html) are stored in the [`/src/js/components/`](https://github.com/ubc-web-services/product-boilerplate/tree/master/web/themes/custom/kraken/src/js/components) directory.
-
-To ease working with Vue, there is [an excellent dev tools extension for Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) to assist with debugging.
-
 ## Kraken theme settings
 
 Once installed and set to default, you can adjust the following theme settings:
 
 - switch between v.7 and v.8 of the CLF (note that v.7 of the CLF is not from the CDN and contains a subset of the full CLF).
-- adjust the CSS and Javascript you load between development and production versions.
-- set the theme colour options and have those same colours available using the `--color-primary`, `--color-secondary`, `--color-tertiary` and `--color-accent` CSS variables. These are also mapped to Tailwind classes.
 - change the base font size and line heights to adjust the overall relative sizing and vertical spacing of the type.
 - add a CWL login option to the login page.
-- optionally load the CLF fonts from the Google Fonts service.
+- optionally load the CLF fonts or the Google Fonts service.
 - add verification header tags for Google and Bing search services.
 - opt into a set of svg icons that can be added to the site via the svg [`use`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use) tag
 

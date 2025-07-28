@@ -1,0 +1,33 @@
+/** @define drupal.node.preview */
+
+/*
+* This styles the node preview forms.
+*/
+
+/* node preview elements */
+.node-preview-container {
+  @apply border-b border-ubc-blue-sea bg-white/50;
+}
+
+.node-preview-backlink {
+  @apply inline-block px-4 py-2 mx-0 my-2 text-white no-underline border border-ubc-blue-sea bg-ubc-blue-sea/80;
+  border-radius: 0.25rem;
+}
+
+.node-preview-backlink:hover {
+  @apply text-white no-underline border border-ubc-blue bg-ubc-blue/80;
+}
+
+.node-preview-container select {
+  @apply min-w-[200px];
+}
+
+/* node unpublished */
+.node--unpublished .unpublished {
+  @apply absolute top-0 right-0 left-0 h-0 text-center uppercase break-words text-[#d8d8d8] text-[5em] leading-none font-bold overflow-visible;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+}
+
+.node--unpublished .field__item {
+  @apply relative;
+}

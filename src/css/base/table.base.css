@@ -5,9 +5,7 @@
 */
 
 table {
-  @apply w-full text-left;
-
-  margin-top: calc(var(--leading) * 1rem);
+  @apply w-full text-left mt-leading;
   border-spacing: 0;
   border-collapse: collapse;
 }
@@ -56,9 +54,7 @@ table caption {
 }
 
 .table--plain tr {
-  @apply border-b-0;
-
-  background-color: transparent !important;
+  @apply border-b-0 !bg-transparent;
 }
 
 .table--condensed th,
@@ -70,7 +66,7 @@ table caption {
 
 .table--striped tr.odd,
 .table--striped tbody tr:nth-child(2n+1) {
-  background-color: $table-row-striping-color;
+  @apply bg-ubc-blue-cornflower/20;
 }
 
 .table--striped td,
@@ -79,5 +75,5 @@ table caption {
 }
 
 .table--hover tbody tr:hover {
-  background-color: $table-row-hover-color;
+  @apply bg-ubc-blue-cornflower/30;
 }

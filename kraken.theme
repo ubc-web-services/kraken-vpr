@@ -14,18 +14,6 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
 
 /**
- * Implements hook_preprocess().
- */
-function kraken_preprocess(&$variables)
-{
-  // load variable in all templates to know if we are using vue or not
-  $variables['clf_vue'] = false;
-  if (theme_get_setting('clf_js') != 'js-bootstrap') {
-    $variables['clf_vue'] = true;
-  }
-}
-
-/**
  * Implements hook_page_attachments_alter().
  */
 function kraken_page_attachments_alter(array &$page)
@@ -187,11 +175,6 @@ function kraken_preprocess_html(&$variables)
     $variables['#attached']['library'][] = 'kraken/clf-whitney-prod';
   }
 
-  // Add Fontawesome library if set.
-  if (theme_get_setting('clf_fontawesome') == true) {
-    $variables['#attached']['library'][] = 'kraken/fontawesome';
-  }
-
   $variables['layout_option'] = theme_get_setting('clf_layout');
   $variables['color_version'] = theme_get_setting('clf_version');
 
@@ -257,16 +240,10 @@ function kraken_preprocess_html(&$variables)
   }
 
   /* add a body class if we are using the bootstrap js framework */
-  if (theme_get_setting('clf_js') == 'js-bootstrap') {
-    $variables['attributes']['class'][] = 'js-bootstrap';
-  }
+  $variables['attributes']['class'][] = 'js-bootstrap';
 
   // Add inline banner colour.
   $unitbar_color = theme_get_setting('clf_theme_unitbar_colour');
-  $primary_color = theme_get_setting('clf_theme_unit_colour');
-  $secondary_color = theme_get_setting('clf_theme_secondary_colour');
-  $tertiary_color = theme_get_setting('clf_theme_tertiary_colour');
-  $accent_color = theme_get_setting('clf_theme_accent_colour');
   $link_color = theme_get_setting('clf_theme_link_colour');
   $link_hover_color = theme_get_setting('clf_theme_link_hover_colour');
   $link_active_color = theme_get_setting('clf_theme_link_active_colour');
@@ -286,13 +263,9 @@ function kraken_preprocess_html(&$variables)
     [
       '#tag' => 'style',
       '#value' => ':root {
-        --color-primary: ' . $primary_color . ' !important;
-        --color-secondary: ' . $secondary_color . ' !important;
-        --color-tertiary: ' . $tertiary_color . ' !important;
-        --color-accent: ' . $accent_color . ' !important;
-        --color-link: ' . $link_color . ';
-        --color-link-hover: ' . $link_hover_color . ';
-        --color-link-active: ' . $link_active_color . ';
+        --default-color-link: ' . $link_color . ';
+        --default-color-link-hover: ' . $link_hover_color . ';
+        --default-color-link-active: ' . $link_active_color . ';
         --leading: ' . $leading . ';
         --base-font-size: ' . $base_font_size . ';
         --text-font-stack: ' . $sansseriffonts . ';

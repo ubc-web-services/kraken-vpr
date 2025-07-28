@@ -3,16 +3,15 @@
 /*
 * This file contains styles for the drupal maintenance page
 */
-@import "config/variables.config.css";
-
 html {
-  color: $text-color;
+  @apply !bg-ubc-blue;
+  color: var(--text-color);
   font-family: var(--text-font-stack);
   font-size: 100%;
 }
 
 body {
-  background-color: #002145 !important;
+  @apply !bg-ubc-blue;
   font-family: var(--text-font-stack);
   font-size: var(--base-font-size);
   line-height: var(--leading);
