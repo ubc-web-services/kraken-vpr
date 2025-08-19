@@ -35,7 +35,6 @@ clf-8:
 clf-legacy:
   css:
     base:
-      css/clf.7.reset.min.css: { minified: true }
       css/clf.7.local.min.css: { minified: true }
 
 ### CLF: Blue on white

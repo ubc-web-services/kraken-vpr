@@ -20,9 +20,9 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0, clf_vue) }}
+{{ menus.menu_links(items, attributes, 0) }}
 
-{% macro menu_links(items, attributes, menu_level, clf_vue) %}
+{% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% set listclasses = [
@@ -43,9 +43,6 @@
       %}
       {% if item.is_expanded %}
         <li{{ item.attributes.addClass(classes, 'expanded', 'dropdown').removeClass('menu-item') }}>
-          {% if clf_vue %}
-            <Disclose classes="nav--split" contentclasses="" title="{{ item.title }}" triggerclasses="navlink--secondary has-children {{ item.in_active_trail ? 'isactive' }}" {{ item.in_active_trail ? 'isactive' }} link="{{ item.url}}">
-          {% else %}
             <div class="btn-group">
               {{ link(item.title, item.url, item.attributes.addClass('btn', 'navlink--secondary')) }}
               <button class="hidden btn dropdown-toggle" data-bs-toggle="dropdown" aria-label="Show submenu">
@@ -57,10 +54,7 @@
           {{ link(item.title, item.url, {'class': ['navbar-link', 'navlink--secondary', 'no-children']}) }}
       {% endif %}
       {% if item.below %}
-        {{ menus.menu_links(item.below, attributes.removeClass('nav', 'subnav__links'), menu_level + 1, clf_vue) }}
-        {% if clf_vue %}
-        </Disclose>
-        {% else %}
+        {{ menus.menu_links(item.below, attributes.removeClass('nav', 'subnav__links'), menu_level + 1) }}
         </div>
         {% endif %}
       {% endif %}
