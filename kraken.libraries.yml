@@ -193,12 +193,6 @@ system-message:
     theme:
       css/drupal.system.message.min.css: { minified: true }
 
-## Webforms
-webform:
-  css:
-    theme:
-      css/drupal.webform.min.css: { minified: true }
-
 ## Login / Register / Password Reset pages
 drupal-login:
   css:
