@@ -42,8 +42,6 @@
           <div class="btn-group">
             {{ link(item.title, item.url, item.attributes.addClass('btn')) }}
             <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-label="Show submenu" aria-expanded="false"><span class="ubc7-arrow blue down-arrow" aria-hidden="true"></span></button>
-        {% endif %}
-
       {% else %}
         <li{{ item.attributes.addClass(classes, 'item').removeClass('menu-item') }}>
           {{ link(item.title, item.url, {'class': ['navbar-link']}) }}
@@ -51,7 +49,6 @@
       {% if item.below %}
         {{ menus.menu_links(item.below, attributes.removeClass('navbar-nav'), menu_level + 1) }}
         </div>
-        {% endif %}
       {% endif %}
       </li>
     {% endfor %}

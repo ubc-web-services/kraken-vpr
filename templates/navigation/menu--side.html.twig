@@ -48,7 +48,6 @@
               <button class="hidden btn dropdown-toggle" data-bs-toggle="dropdown" aria-label="Show submenu">
                 <span class="ubc7-arrow blue down-arrow" aria-hidden="true"></span>
               </button>
-          {% endif %}
       {% else %}
         <li{{ item.attributes.addClass(classes, 'item').removeClass('menu-item') }}>
           {{ link(item.title, item.url, {'class': ['navbar-link', 'navlink--secondary', 'no-children']}) }}
@@ -56,7 +55,6 @@
       {% if item.below %}
         {{ menus.menu_links(item.below, attributes.removeClass('nav', 'subnav__links'), menu_level + 1) }}
         </div>
-        {% endif %}
       {% endif %}
     </li>
     {% endfor %}
