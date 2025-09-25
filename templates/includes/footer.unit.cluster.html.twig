@@ -1,6 +1,11 @@
 
 <hr class="mt-0 border-2 border-ubc-blue-cobalt" />
 <div class="container px-4 py-6 mx-auto unit-content" id="unit-footer">
+  {% if vpr_sig_url %}
+  <a class="inline-block mb-6" href="/">
+    <image src="{{ vpr_sig_url }}" class="max-h-[50px] max-w-full sm--max-w-lg" alt="{{ unit_name }} signature" />
+  </a>
+  {% endif %}
   <div class="grid grid-cols-12 gap-6">
     <div class="col-span-12 sm--col-span-5">
       <h2 class="mt-0 font-sans font-semibold normal-case h6 text-ubc-blue">{{ unitname_footer }}</h2>
