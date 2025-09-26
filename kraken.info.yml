@@ -6,8 +6,6 @@ description: 'Kraken is a Drupal base theme that provides integration with the U
 package: kraken
 core_version_requirement: '>=10'
 generator: 'starterkit_theme:9.5.1'
-dependencies:
-  - ubc_ckeditor_widgets:ubc_ckeditor_widgets
 
 libraries:
   - kraken/messages

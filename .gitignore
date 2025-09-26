@@ -43,3 +43,13 @@ xmlrpc.php
 
 # Node packages
 /node_modules
+
+# Visual Regression Testing
+test-results/
+playwright-report/
+
+# DDEV
+/recipes/
+/vendor/
+/web/
+/.gitattributes
