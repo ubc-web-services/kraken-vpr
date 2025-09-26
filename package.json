@@ -25,10 +25,16 @@
     "watch": "NODE_ENV=production postcss ./src/css/*.css -d ./css --ext min.css -w",
     "css": "TAILWIND_MODE=build NODE_ENV=production postcss ./src/css/*.css -d  ./css --ext min.css",
     "js": "webpack --config webpack.dev.js && webpack --config webpack.prod.js",
-    "prod": "TAILWIND_MODE=build NODE_ENV=production postcss ./src/css/*.css -d ./css --ext min.css && webpack --config webpack.prod.js"
+    "prod": "TAILWIND_MODE=build NODE_ENV=production postcss ./src/css/*.css -d ./css --ext min.css && webpack --config webpack.prod.js",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "test:visual:report": "playwright show-report",
+    "test:visual:clean": "rm -rf test-results/ && rm -rf playwright-report/"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3"
+    "@playwright/test": "^1.55.1",
+    "bootstrap": "^5.2.3",
+    "playwright": "^1.55.1"
   },
   "devDependencies": {
     "@popperjs/core": "^2.11.8",

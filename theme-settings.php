@@ -197,9 +197,11 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#description' => t('This option allows an SVG of signature to be uploaded, which is then displayed in the unit footer. It will only display for sites with the Portfolio option chosen above.'),
     '#default_value' => theme_get_setting('vpr_portfolio_signature'),
     '#upload_location' => 'public://unit-signature/',
-    '#upload_validators' => array(
-      'file_validate_extensions' => array('svg'),
-    ),
+    '#upload_validators' => [
+      'FileExtension' => [
+        'extensions' => 'svg',
+      ]
+    ],
   ];
 
   $form['vpr']['clf_subunitname'] = [
