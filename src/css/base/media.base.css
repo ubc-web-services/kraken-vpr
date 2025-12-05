@@ -80,6 +80,11 @@ object {
   border-radius: 9999px;
 }
 
+/* image filters */
+.img-greyscale {
+  filter: grayscale(100%);
+}
+
 /* embedded media */
 .media--type-soundcloud iframe,
 .media--type-remote-audio iframe {

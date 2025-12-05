@@ -1,0 +1,54 @@
+/** @define drupal.paragraphs */
+
+/*
+* Styles for paragraphs
+*/
+
+/* paragraphs */
+.paragraph--type--text__inner > :first-child,
+.paragraph--type--text > div > div > :first-child {
+  @apply mt-0;
+}
+
+.paragraph.bg-ubc-blue {
+  color: #fff;
+}
+
+.paragraph.bg-ubc-blue a {
+  color: $ubc-blue-polar;
+}
+
+.paragraph.bg-ubc-blue a:hover {
+  color: $ubc-blue-cornflower;
+}
+
+.paragraph.bg-ubc-blue .unit-button--light {
+  color: $ubc-blue-cobalt;
+}
+
+.paragraph.bg-ubc-blue .unit-button--dark {
+  border-color: $ubc-blue-polar;
+}
+
+.paragraph.bg-ubc-blue .unit-button--light:hover,
+.paragraph.bg-ubc-blue .unit-button--dark:hover {
+  color: #fff;
+}
+
+.paragraph.bg-ubc-blue .unit-button--simple::after {
+  content: url("../img/svg/icon-arrow--polar.svg");
+}
+
+.paragraph.bg-ubc-blue .unit-button--simple:hover::after {
+  content: url("../img/svg/icon-arrow--cornflower.svg");
+}
+
+.paragraph--type--text__inner > :first-child,
+.paragraph--type--text > div > div > :first-child {
+  @apply mt-0;
+}
+
+/* SVG Icon fix for cards */
+.paragraph--type--icon-card img {
+  @apply mx-auto;
+}
