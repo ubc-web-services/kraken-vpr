@@ -21,6 +21,11 @@
   grid-gap: var(--grid-layout-gap);
 }
 
+/* Views exposed forms */
+.views-exposed-form .form-item {
+  @apply mt-0;
+}
+
 /* views more link */
 .more-link a {
   @apply inline-flex px-6 py-3 text-xs no-underline bg-white border text-ubc-blue-cobalt border-ubc-blue-cobalt;

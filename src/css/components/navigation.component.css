@@ -147,10 +147,27 @@
 .pager__item--previous a {
   overflow: hidden;
   text-indent: -200em;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23999' d='M65.67 36.36L34.32 5 20.68 18.64 52 50 20.68 81.35 34.32 95l45-45z'/%3E%3C/svg%3E");
+  background-image: url(../img/svg/icon-caret--ubc-blue.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 1em 1em;
+}
+
+.pager__item--last a,
+.pager__item--last:hover a,
+.pager__item--first a,
+.pager__item--first:hover a {
+  overflow: hidden;
+  text-indent: -200em;
+  background-image: url(../img/svg/icon-double-caret--ubc-blue.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 1.25em 1.25em;
+}
+
+.pager__item--last:hover a,
+.pager__item--first:hover a {
+  background-image: url(../img/svg/icon-double-caret--white.svg);
 }
 
 .pager__item--next a,
@@ -165,7 +182,7 @@
 .bg-caret--white,
 .pager__item--next a:hover,
 .pager__item--previous a:hover {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23002145' d='M65.67 36.36L34.32 5 20.68 18.64 52 50 20.68 81.35 34.32 95l45-45z'/%3E%3C/svg%3E");
+  background-image: url(../img/svg/icon-caret--white.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 1em 1em;
@@ -175,6 +192,7 @@
   @apply text-black no-underline bg-unit-tertiary hover--no-underline;
 }
 
-.pager__item.is-active a {
-  @apply text-black;
+.pager__item.is-active a,
+.pager__item.is-active a:hover {
+  @apply text-black bg-unit-tertiary;
 }

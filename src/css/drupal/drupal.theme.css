@@ -43,35 +43,6 @@
   content: url("../img/svg/icon-arrow--cornflower.svg");
 }
 
-/* views pager */
-.pager__items {
-  @apply inline-flex;
-
-  line-height: 2.5;
-}
-
-.pager__items a,
-.pager__items .pager__item--current {
-  @apply block w-12 h-12 mx-1 text-center no-underline border-2 rounded-full text-ubc-blue;
-
-  border-color: transparent;
-}
-
-.pager__items a:hover {
-  @apply border-grey-300;
-}
-
-.pager__items .pager__item--current,
-.pager__items .is-active a {
-  @apply font-bold text-center border-ubc-blue-neptune text-grey-900;
-}
-
-@media (min-width: 2400px) {
-
-  .pager__items {
-    line-height: 2;
-  }
-}
 
 /* jquery datepicker */
 .ui-datepicker {

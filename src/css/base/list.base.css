@@ -104,21 +104,22 @@ ol.item-list,
   @apply pl-0 list-none;
 }
 
-.list-inline li {
-  display: inline;
+.list-inline > li {
+  display: inline-block;
+  padding-left: 0;
 }
 
 @media (min-width: 768px) {
 
-  .sm--list-inline li {
-    display: inline;
+  .sm--list-inline > li {
+    display: inline-block;
   }
 }
 
 @media (min-width: 980px) {
 
-  .md--list-inline li {
-    display: inline;
+  .md--list-inline > li {
+    display: inline-block;
   }
 }
 

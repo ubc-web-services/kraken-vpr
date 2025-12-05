@@ -32,12 +32,6 @@
   }
 }
 
-.field--name-field-profile-office,
-.field--name-field-event-map,
-.img-and-caption {
-  @apply my-6;
-}
-
 .pin {
   top: 0;
   right: 0;

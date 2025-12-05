@@ -144,61 +144,8 @@ img.align-right,
   }
 }
 
-/*
-figure.align-center,
-figure.align-left,
-figure.align-right,
-figure.img-and-caption {
-  display: table;
+.field--name-field-profile-office,
+.field--name-field-event-map,
+.img-and-caption {
+  @apply my-6;
 }
-
-figure.align-center figcaption,
-figure.align-left figcaption,
-figure.align-right figcaption,
-figure.img-and-caption figcaption {
-  display: table-caption;
-  caption-side: bottom;
-}
-
-.media--type-image {
-  @apply mt-leading;
-}
-
-figure .media--type-image {
-  @apply mt-0;
-}
-
-figure .media--type-image img {
-  @apply w-full;
-}
-
-figure.align-left,
-.align-left.media--type-image {
-  @apply mt-0 mr-leading mb-leading;
-
-  float: left;
-}
-
-figure.align-right,
-.align-right.media--type-image {
-  @apply mt-0 ml-leading mb-leading;
-
-  float: right;
-}
-
-.align-right.media--type-image,
-.align-left.media--type-image {
-  @apply inline-block;
-}
-
-.align-center.media--type-image img,
-figure.align-center {
-  @apply mx-auto;
-}
-
-figure.align-center > article,
-figure.align-center > div {
-  display: block;
-  max-width: 100%;
-}
-*/
