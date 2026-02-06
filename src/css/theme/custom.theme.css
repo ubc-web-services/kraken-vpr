@@ -203,3 +203,8 @@
   @apply absolute block bg-white h-[1px] w-[40%] left-[30%] bottom-[-5px] opacity-50;
   content: '';
 }
+
+/* fix webform fieldset legend colour */
+form fieldset legend span.form-required {
+    color: unset;
+}
