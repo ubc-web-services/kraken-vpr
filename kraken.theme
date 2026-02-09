@@ -263,9 +263,9 @@ function kraken_preprocess_html(&$variables)
     [
       '#tag' => 'style',
       '#value' => ':root {
-        --default-color-link: ' . $link_color . ' !important;
-        --default-color-link-hover: ' . $link_hover_color . ' !important;
-        --default-color-link-active: ' . $link_active_color . ' !important;
+        --default-color-link: ' . $link_color . ';
+        --default-color-link-hover: ' . $link_hover_color . ';
+        --default-color-link-active: ' . $link_active_color . ';
         --leading: ' . $leading . ';
         --base-font-size: ' . $base_font_size . ';
         --text-font-stack: ' . $sansseriffonts . ';
