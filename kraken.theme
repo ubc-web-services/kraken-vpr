@@ -610,6 +610,84 @@ function kraken_theme_suggestions_views_view(array $variables)
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for form_element.
+ */
+function kraken_preprocess_form_element(&$variables) {
+  $element = $variables['element'];
+  // Modify the label classes per element type (alaso see form-element-label.html.twig)
+  // Ensure the label attribute array exists.
+  if (empty($variables['label']['#attributes']['class'])) {
+    $variables['label']['#attributes']['class'] = [];
+  }
+
+  // Base classes for all form labels.
+  $base_classes = ['form-label', 'js-form-label'];
+
+  // Type-specific classes.
+  $type_classes = [
+    'checkbox' => ['form-label--checkbox', 'flex-1', 'ms-2'],
+    'checkboxes' => ['form-label--checkboxes', 'pb-1'],
+    'radio' => ['form-label--radio', 'flex-1', 'ms-2'],
+    'radios' => ['form-label--radios', 'pb-1'],
+  ];
+
+  // Default/fallback classes (when no type-specific set is found).
+  $default_classes = ['form-label--default', 'pb-1'];
+
+  // Merge base classes first.
+  $variables['label']['#attributes']['class'] = array_merge(
+    $variables['label']['#attributes']['class'],
+    $base_classes
+  );
+
+  // Determine the element type, if present.
+  $type = $element['#type'] ?? NULL;
+
+  if ($type && isset($type_classes[$type])) {
+    // Merge in type-specific classes.
+    $variables['label']['#attributes']['class'] = array_merge(
+      $variables['label']['#attributes']['class'],
+      $type_classes[$type]
+    );
+  }
+  else {
+    // Fallback: merge in default classes.
+    $variables['label']['#attributes']['class'] = array_merge(
+      $variables['label']['#attributes']['class'],
+      $default_classes
+    );
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form_element.
+ */
+function kraken_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+
+  // Add suggestion based on element type
+  if (isset($element['#type'])) {
+    $suggestions[] = 'form_element__' . $element['#type'];
+  }
+
+  // Add suggestion based on element name
+  if (isset($element['#name'])) {
+    $suggestions[] = 'form_element__' . str_replace('-', '_', $element['#name']);
+  }
+
+  // Add suggestion based on form ID
+  if (isset($element['#array_parents'][0])) {
+    $suggestions[] = 'form_element__' . $element['#array_parents'][0];
+  }
+
+  // Combine form ID and element type
+  if (isset($element['#array_parents'][0]) && isset($element['#type'])) {
+    $suggestions[] = 'form_element__' . $element['#array_parents'][0] . '__' . $element['#type'];
+  }
+}
+
+/**
  * Implements template_preprocess_entity_embed().
  */
 function kraken_preprocess_entity_embed_container(&$variables)
