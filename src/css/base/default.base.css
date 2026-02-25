@@ -29,6 +29,8 @@ button:focus {
   outline: none !important;
 }
 
-[hidden] {
-  display: none;
+[hidden],
+[data-screen="sm"] .hidden--mobile,
+[data-screen="lg"] .hidden--desktop {
+  display: none !important;
 }
