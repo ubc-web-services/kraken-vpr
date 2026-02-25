@@ -56,17 +56,21 @@
     title_display not in ['after', 'before'] ? 'form-no-label',
     disabled == 'disabled' ? 'form-disabled',
     errors ? 'form-item--error',
-    'mt-4',
+    'flex',
+    'flex-wrap',
+    'items-center',
+    'mt-2',
   ]
 %}
 {%
   set description_classes = [
     'description',
     description_display == 'invisible' ? 'visually-hidden',
-    'my-2',
+    'my-1',
     'text-xs',
     'text-grey-700/90',
     'w-full',
+    'ms-6',
   ]
 %}
 

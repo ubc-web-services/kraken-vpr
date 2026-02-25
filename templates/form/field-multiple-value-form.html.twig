@@ -23,13 +23,24 @@
   {%
     set classes = [
       'js-form-item',
-      'form-item'
+      'form-item',
+      'my-4'
     ]
+  %}
+  {%
+  set description_classes = [
+    'description',
+    description_display == 'invisible' ? 'visually-hidden',
+    'my-2',
+    'text-xs',
+    'text-grey-700/90',
+    'w-full',
+  ]
   %}
   <div{{ attributes.addClass(classes) }}>
     {{ table }}
     {% if description.content %}
-      <div{{ description.attributes.addClass('description') }} >{{ description.content }}</div>
+      <div{{ description.attributes.addClass(description_classes) }} >{{ description.content }}</div>
     {% endif %}
     {% if button %}
       <div class="clearfix">{{ button }}</div>
