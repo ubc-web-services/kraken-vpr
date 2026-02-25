@@ -115,17 +115,18 @@ strong {
   font-weight: 600;
 }
 
+code,
 kbd,
-code {
-  @apply py-[.125em] px-[.25em] bg-grey-100 text-[.875em];
+pre,
+samp {
+  font-family: var(--code-font-stack);
+  font-feature-settings: normal;
+  font-variation-settings: normal;
 }
 
-kbd {
-  @apply inline-block border shadow-sm border-grey-300;
-  text-wrap: nowrap;
-  border-radius: 3px;
-  font-weight: 600;
-  line-height: 1;
+kbd,
+code {
+  @apply py-[.125em] px-[.25em] bg-grey-100;
 }
 
 code,
@@ -136,6 +137,30 @@ samp,
 .text--code {
   position: relative;
   vertical-align: baseline;
+}
+
+pre {
+  @apply relative p-4 border rounded-sm bg-grey-100 border-grey-300 text-grey-800;
+  direction: ltr;
+  font-style: normal;
+  min-width: 200px;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+pre code {
+  background: unset;
+  border-radius: 0;
+  padding: 0;
+}
+
+kbd {
+  @apply inline-block text-sm border shadow-sm border-grey-300;
+  text-wrap: nowrap;
+  border-radius: 3px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 sup {
@@ -232,122 +257,24 @@ hr,
 /* https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
 .text-measure {
   max-width: 60ch;
+  display: block;
 }
 
 .text-measure-sm {
   max-width: 50ch;
+  display: block;
 }
 
 .text-measure-lg {
   max-width: 70ch;
+  display: block;
 }
 
-/* Responsive text sizing - disabled by default
-/*
-@media (min-width: 1720px) {
-
-  body {
-    @apply text-2xl;
-  }
-
-  h1,
-  .h1 {
-    @apply text-8xl;
-    margin-top: calc(var(--leading) * 3rem);
-    letter-spacing: -0.01em;
-  }
-
-  h2,
-  .h2 {
-    @apply text-7xl;
-    margin-top: calc(var(--leading) * 2.5rem);
-  }
-
-  h3,
-  .h3 {
-    @apply text-6xl;
-    margin-top: calc(var(--leading) * 2.5rem);
-    line-height: 1.25;
-  }
-
-  h4,
-  .h4 {
-    @apply text-5xl;
-    margin-top: calc(var(--leading) * 1rem);
-  }
-
-  h5,
-  .h5 {
-    @apply text-3xl;
-    margin-top: calc(var(--leading) * 0.875rem);
-    line-height: 1.4;
-  }
-
-  h6,
-  .h6 {
-    @apply text-2xl;
-  }
-
-  .heading-display,
-  .heading-display h1 {
-    @apply text-7xl;
-  }
-
-  blockquote {
-    @apply text-4xl;
-  }
-
-  cite,
-  .cite {
-    @apply text-base;
-  }
-
-  .text-lead {
-    @apply text-5xl;
-  }
-
-  .text-xs {
-    @apply !text-lg;
-  }
-
-  .text-sm {
-    @apply !text-xl;
-  }
-
-  .text-base {
-    @apply !text-2xl;
-  }
-
-  .text-lg {
-    @apply !text-3xl;
-  }
-
-  .text-xl {
-    @apply !text-4xl;
-  }
-
-  .text-2xl {
-    @apply !text-5xl;
-  }
-
-  .text-3xl {
-    @apply !text-6xl;
-  }
-
-  .text-4xl {
-    @apply !text-7xl;
-  }
-
-  .text-5xl {
-    @apply !text-8xl;
-  }
-
-  .text-6xl {
-    @apply !text-9xl;
-  }
-
-  .text-7xl {
-    @apply !text-10xl;
-  }
+/* indent styles */
+.indented {
+  @apply ml-8;
 }
-*/
+
+[dir="rtl"] .indented {
+  @apply ml-0 mr-8;
+}

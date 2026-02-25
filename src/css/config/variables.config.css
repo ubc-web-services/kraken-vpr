@@ -2,7 +2,36 @@
 * This file contains all default application-wide Sass and CSS3 variables.
 */
 :root {
+    /* Base line height - inverted ratio for tighter headings */
+    --line-height-tight: 0.35;
     --base-line-height: var(--leading);
+    --line-height-base: var(--leading);
+        /* Base font size */
+    --base-font-size: 1rem; /* 16px */
+    /* Scale ratio (1.25 = Major Third) */
+    --scale-ratio: 1.25;
+    /* Calculated font sizes */
+    --text-xs: calc(
+        var(--base-font-size) / var(--scale-ratio) / var(--scale-ratio)
+    );
+    --text-sm: calc(var(--base-font-size) / var(--scale-ratio));
+    --text-base: var(--base-font-size);
+    --text-lg: calc(var(--base-font-size) * var(--scale-ratio));
+    --text-xl: calc(
+        var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio)
+    );
+    --text-2xl: calc(
+        var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio) *
+        var(--scale-ratio)
+    );
+    --text-3xl: calc(
+        var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio) *
+        var(--scale-ratio) * var(--scale-ratio)
+    );
+    --text-4xl: calc(
+        var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio) *
+        var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)
+    );
 
     --ubc-blue: 0, 33, 69; /* #002145 */
     --ubc-blue-sea: 0, 58, 121; /* #003a79 */

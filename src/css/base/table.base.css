@@ -77,3 +77,66 @@ table caption {
 .table--hover tbody tr:hover {
   @apply bg-ubc-blue-cornflower/30;
 }
+
+/* sortable tables */
+.tablesort {
+  display: none;
+}
+
+.tablesort--asc {
+  background-image: url(../img/svg/icon-sort-asc.svg);
+}
+
+.tablesort--desc {
+  background-image: url(../img/svg/icon-sort-desc.svg);
+}
+
+.column-sort {
+  position: relative;
+}
+
+.column-sort::after  {
+  position: absolute;
+  right: -1.25rem;
+  height: 1rem;
+  width: 1rem;
+  content: '';
+  background-image: url(../img/svg/icon-sort.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
+[aria-sort] .column-sort:has(.tablesort--desc)::after {
+  background-image: url(../img/svg/icon-sort-desc.svg);
+}
+
+[aria-sort] .column-sort:has(.tablesort--asc)::after {
+  background-image: url(../img/svg/icon-sort-asc.svg);
+}
+
+/* sortable wysiwyg tables */
+table.sortable th {
+  position: relative;
+}
+
+table.sortable th::after {
+  background-image: url(../img/svg/icon-sort.svg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  content: "";
+  margin-left: .5em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-bottom: -.125em;
+}
+
+table.sortable th[aria-sort=descending]::after {
+  background-image: url(../img/svg/icon-sort-desc.svg);
+}
+
+table.sortable th[aria-sort=ascending]::after {
+  background-image: url(../img/svg/icon-sort-asc.svg);
+}
