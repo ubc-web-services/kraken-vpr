@@ -5,14 +5,17 @@
 */
 .tag {
   @apply mr-4 text-xs text-white no-underline rounded bg-ubc-blue;
+
   padding: 0.35em 0.75em 0.25em;
 }
 
+/*
 .tag::before {
   content: "# ";
   font-size: 1.25em;
   line-height: 0;
 }
+*/
 
 .tag a,
 .tag a:hover {
