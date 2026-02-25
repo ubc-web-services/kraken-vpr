@@ -49,3 +49,15 @@ a:active {
 .link-expand-break {
   @apply relative z-50;
 }
+
+.link-external::after {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.25em;
+  content: "";
+  transform: translateY(0.25em);
+  background-image: url(../img/svg/icon-link-external--grey.svg);
+  background-repeat: no-repeat;  background-position: 50%;
+  background-size: .875em .875em;
+}
