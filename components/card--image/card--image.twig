@@ -76,8 +76,12 @@
     {% endif %}
     {% if link %}
       <h3{{ title_attributes.addClass(title_classes) }}>
-        <a{{ link_attributes.addClass(link_classes) }} href="{{ link }}" {% if target %}
-      target="_blank"{% endif %} rel="bookmark">{{ title }}</a>
+        {% if link %}
+          <a{{ link_attributes.addClass(link_classes) }} href="{{ link }}" {% if target %}
+      target="_blank"{% endif %} rel="bookmark">
+        {% endif %}
+        {{ title }}
+        {% if link %}</a>{% endif %}
       </h3>
     {% else %}
       <h3{{ title_attributes.addClass(title_classes) }}>{{ title }}</h3>

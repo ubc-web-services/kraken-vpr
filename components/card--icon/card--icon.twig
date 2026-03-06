@@ -68,10 +68,14 @@
   <div{{ contentattributes.addClass(content_classes, horiz_content_classes) }}>
     <div class="py-2 ubc-card__content first-child--mt-0">
       <h3{{ title_attributes.addClass(title_classes) }}>
+        {% if link %}
         <a href="{{ link }}" class="no-underline hover--no-underline text-ubc-blue link-expand" {% if target %}
     target="_blank"{% endif %}>
+        {% endif %}
           {{ title }}
+        {% if link %}
         </a>
+        {% endif %}
       </h3>
       {% block content %}{% endblock %}
     </div>
