@@ -16,6 +16,10 @@
   set classes = [
     title_display == 'after' ? 'option',
     title_display == 'invisible' ? 'visually-hidden',
+    'block',
+    'mt-1',
+    'text-sm',
+    'text-ubc-blue',
   ]
 %}
 {%
@@ -25,8 +29,9 @@
 %}
 
 {% if title is not empty and required -%}
-  <label{{ attributes.addClass(classes, reqClasses) }}>{{ title }} <span class="form-required" title="This field is required.">*</span></label>
+  <label{{ attributes.addClass(classes, reqClasses) }}>{{ title }} <span class="font-bold form-required text-[rgb(var(--error))]" title="This field is required.">*</span></label>
 {%- endif %}
+{{ element_type }}
 {% if title is not empty and not required -%}
   <label{{ attributes.addClass(classes) }}>{{ title }}</label>
 {%- endif %}

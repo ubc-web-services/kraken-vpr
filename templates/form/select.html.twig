@@ -10,8 +10,32 @@
  * @see template_preprocess_select()
  */
 #}
+{% set classes =
+  [
+    'pr-9',
+    'py-2',
+    'pl-2',
+    'border',
+    'w-full',
+    'max-w-full',
+    'border-grey-300',
+    'text-grey-800/90',
+    'text-sm',
+    'bg-white',
+    'appearance-none',
+    'box-border',
+    'bg-origin-border',
+    'bg-[url(../img/svg/icon-select-down--grey.svg)]',
+    'bg-[right_0.5rem_center]',
+    'bg-no-repeat',
+    'bg-[length:1.5em_1.5em]',
+    'cursor-pointer',
+    'h-10',
+  ]
+%}
+
 {% apply spaceless %}
-  <select{{ attributes }}>
+  <select{{ attributes.addClass(classes) }}>
     {% for option in options %}
       {% if option.type == 'optgroup' %}
         <optgroup label="{{ option.label }}">
