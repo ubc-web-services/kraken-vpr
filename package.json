@@ -32,9 +32,9 @@
     "test:visual:clean": "rm -rf test-results/ && rm -rf playwright-report/"
   },
   "dependencies": {
-    "@playwright/test": "^1.55.1",
+    "@playwright/test": "^1.56.0",
     "bootstrap": "^5.2.3",
-    "playwright": "^1.55.1"
+    "playwright": "^1.56.0"
   },
   "devDependencies": {
     "@popperjs/core": "^2.11.8",
