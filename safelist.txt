@@ -210,3 +210,5 @@ md--w-half
 md--w-one-third
 lg--w-one-quarter
 leading-normal
+pull-right
+pull-left
