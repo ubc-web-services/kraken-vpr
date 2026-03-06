@@ -668,7 +668,7 @@ a#ubc7-global-utility-no-script {
   @apply relative inline-block w-full align-middle whitespace-nowrap text-[0] md--relative md--inline-block md--align-middle md--whitespace-nowrap md--text-[0] md--hover--bg-[#002145];
 }
 #ubc7-unit-menu .btn-group .btn {
-  @apply block text-left text-[#002145] mr-10 pl-5 border-b-[#c3d0db] border-0 border-b border-solid md--block md--text-left md--text-[#002145] md--mr-10 md--pl-5 md--border-0;
+  @apply block text-left text-[#002145] mr-10 pl-5 border-b-[#c3d0db] border-0 border-b border-solid md--block md--text-left md--text-[#002145] md--mr-10 md--pl-3 md--border-0;
   background: #fff;
 }
 @media screen and (max-width: 979px) {
@@ -931,14 +931,19 @@ a#ubc7-global-utility-no-script {
     background: transparent;
   }
   #ubc7-unit-menu .dropdown .btn-group a.btn,
+  #ubc7-unit-menu .dropdown .btn-group > span.btn,
   #ubc7-unit-menu .dropdown .btn-group button {
     @apply relative z-[1] inline-block h-10 bg-none shadow-[0_0_0_transparent] my-0 py-0 rounded-none border-0;
+  }
+  #ubc7-unit-menu .dropdown .btn-group > span.btn {
+    margin-right: 0;
   }
   #ubc7-unit-menu .dropdown .btn-group:hover button,
   #ubc7-unit-menu .dropdown .btn-group button {
     @apply relative w-6 h-[22px] mr-0 px-0 border-l-[#c3d0db] border-l border-solid;
   }
-  #ubc7-unit-menu .btn-group a.btn {
+  #ubc7-unit-menu .btn-group a.btn,
+  #ubc7-unit-menu .btn-group > span.btn {
     @apply pr-[7px];
   }
   #ubc7-unit-menu .dropdown .btn-group button .ubc7-arrow {
@@ -1014,7 +1019,8 @@ a#ubc7-global-utility-no-script {
     @apply h-[22px];
   }
   #ubc7-unit-menu .dropdown .btn-group:hover button,
-  #ubc7-unit-menu .dropdown .btn-group a.btn {
+  #ubc7-unit-menu .dropdown .btn-group a.btn,
+  #ubc7-unit-menu .dropdown .btn-group > span.btn {
     @apply h-[45px] leading-[45px];
   }
   #ubc7-unit-menu .nav-collapse .dropdown-menu > li > a {
