@@ -4,46 +4,6 @@
 * This file contains all styles used to modify Drupal makrup to match the theme.
 */
 
-/* paragraphs */
-.paragraph--type--text__inner > :first-child,
-.paragraph--type--text > div > div > :first-child {
-  @apply mt-0;
-}
-
-.paragraph.bg-ubc-blue {
-  color: #fff;
-}
-
-.paragraph.bg-ubc-blue a {
-  color: $ubc-blue-polar;
-}
-
-.paragraph.bg-ubc-blue a:hover {
-  color: $ubc-blue-cornflower;
-}
-
-.paragraph.bg-ubc-blue .unit-button--light {
-  color: $ubc-blue-cobalt;
-}
-
-.paragraph.bg-ubc-blue .unit-button--dark {
-  border-color: $ubc-blue-polar;
-}
-
-.paragraph.bg-ubc-blue .unit-button--light:hover,
-.paragraph.bg-ubc-blue .unit-button--dark:hover {
-  color: #fff;
-}
-
-.paragraph.bg-ubc-blue .unit-button--simple::after {
-  content: url("../img/svg/icon-arrow--polar.svg");
-}
-
-.paragraph.bg-ubc-blue .unit-button--simple:hover::after {
-  content: url("../img/svg/icon-arrow--cornflower.svg");
-}
-
-
 /* jquery datepicker */
 .ui-datepicker {
   font-size: 75%;
@@ -53,8 +13,8 @@
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
   color: #fff;
-  border: 1px solid $ubc-blue;
-  background: $ubc-blue-cobalt;
+  border: 1px solid rgba(var(--ubc-blue), 1);
+  background: rgba(var(--ubc-blue-cobalt), 1);
 }
 
 

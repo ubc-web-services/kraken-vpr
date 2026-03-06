@@ -1,104 +1,80 @@
+/** @define drupal.media */
+
 /* drupal media */
 
-/* test simplified styles */
-embed,
-iframe,
-object {
-  aspect-ratio: 16/9; /* yay! */
-  max-width: 100%;
-  height: auto;
+figure img,
+img[data-entity-type="file"] {
+  @apply mt-0;
 }
 
-figure img {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+figure > div,
+figure .field--type-image {
+  display: table-cell;
 }
 
+/* add margin to media */
+.image-inline:not(:where(figure .image-inline)),
+.media--type-image:not(:where(figure .media--type-image)),
+.media--type-remote-video:not(:where(figure .media--type-remote-video)),
 figure.align-left,
-figure.align-right {
-  margin-bottom: calc(var(--leading) * 1rem);
+figure.align-right,
+figure.align-center,
+img.align-center,
+img[data-entity-type="file"]:not(:where(figure img)) {
+  @apply my-leading;
 }
 
-.media,
-img.align-center {
-  margin-top: calc(var(--leading) * 1rem);
+/* make embedded video full width when not aligned */
+figure:not(.align-left, .align-center, .align-right):has(.media--type-remote-video)  {
+  width: 100%;
 }
 
-figure .media {
-  margin-top: 0;
-}
-
+/* don't let floated images float on tiny screens */
+figure.align-left,
+figure.align-right,
 img.align-left,
 img.align-right,
-.align-left.media img,
-.align-right.media img,
-.align-left.media iframe,
-.align-right.media iframe {
-  margin-top: 0;
-  margin-bottom: calc(var(--leading) * 1rem);
+.media.align-left,
+.media.align-right {
+  @apply float-none mx-auto mb-leading;
 }
 
-/* fixes for card styles */
-.ubc-card__media .media {
-  margin-top: 0 !important;
+
+
+figure.align-center,
+img.align-center,
+.align-center,
+.media.align-center {
+  @apply mx-auto;
 }
 
-@media (min-width: 768px) {
-  .align-left {
-    float: left;
-    margin-right: 1.5rem;
-  }
+.align-center,
+.media.align-center {
+  @apply table;
+}
 
-  .align-right {
-    float: right;
-    margin-left: 1.5rem;
-  }
-
-  .align-center {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .caption.align-center {
-    display: table;
-  }
-
-  .align-left,
-  .align-right,
-  .align-center {
-    clear: both;
-    max-width: 50%;
-  }
+@media screen and (min-width: 640px) {
 
   figure.align-left,
-  figure.align-right {
-    margin-bottom: calc(var(--leading) * .5rem);
-  }
-
   img.align-left,
+  .media.align-left {
+    @apply float-left mr-leading;
+  }
+
+  figure.align-right,
   img.align-right,
-  .align-left.media img,
-  .align-right.media img,
-  .align-left.media iframe,
-  .align-right.media iframe {
-    margin-bottom: calc(var(--leading) * .5rem);
+  .media.align-right {
+    @apply float-right ml-leading;
   }
 
-}
-
-
-/* styles for below the small breakpoint */
-@media (max-width: 767px) {
-
-  .text-formatted .align-left,
-  .text-formatted .align-right {
-    @apply float-none max-w-full;
+  /* set a max width for floated items */
+  .align-left,
+  .align-right {
+    @apply max-w-[50%];
   }
 
-  figure.align-left,
-  figure.align-right {
-    width: 100%;
+  .align-center {
+    @apply max-w-[75%];
   }
 
 }
@@ -111,26 +87,19 @@ img.align-right,
 
 /* add play button on top of image thumbnail */
 .media--type-remote-video {
-  position: relative;
+  @apply relative;
 }
 
 .media--type-remote-video .field--name-thumbnail {
-  /*position: absolute;*/
-  width: 100%;
-  /*height: 100%;*/
-  cursor: pointer;
+  @apply w-full cursor-pointer;
 }
 
 .media--type-remote-video .field--name-thumbnail img {
-  width: 100%;
+  @apply w-full;
 }
 
 .media--type-remote-video .field--name-thumbnail:after {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  @apply absolute top-0 left-0 w-full h-full;
   background-image: url("../img/svg/icon-play.svg");
   background-position: center;
   background-size: 4rem 4rem;
@@ -148,4 +117,62 @@ img.align-right,
 .field--name-field-event-map,
 .img-and-caption {
   @apply my-6;
+}
+
+/* File icons. */
+.file {
+  @apply inline-block pl-[1.5em] bg-no-repeat bg-[left_center];
+  background-size: .875em .875em;
+}
+
+[dir="rtl"] .file {
+  @apply inline-block min-h-[1em] pr-[1.5em] pl-[inherit] bg-right;
+}
+
+.file--general,
+.file--application-octet-stream,
+.file--application-x-executable {
+  background-image: url(../img/svg/file-blank.svg);
+}
+
+.file--package-x-generic {
+  background-image: url(../img/svg/file-zipped.svg);
+}
+
+.file--x-office-spreadsheet {
+  background-image: url(../img/svg/file-excel.svg);
+}
+
+.file--x-office-document {
+  background-image: url(../img/svg/file-word.svg);
+}
+
+.file--x-office-presentation {
+  background-image: url(../img/svg/file-powerpoint.svg);
+}
+
+.file--text-x-script,
+.file--text-html {
+  background-image: url(../img/svg/file-code.svg);
+}
+
+.file--application-pdf {
+  background-image: url(../img/svg/file-pdf.svg);
+}
+
+.file--audio {
+  background-image: url(../img/svg/file-audio.svg);
+}
+
+.file--video {
+  background-image: url(../img/svg/file-video.svg);
+}
+
+.file--text-plain,
+.file--text {
+  background-image: url(../img/svg/file-text.svg);
+}
+
+.file--image {
+  background-image: url(../img/svg/file-image.svg);
 }

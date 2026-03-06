@@ -15,19 +15,19 @@
 }
 
 .paragraph.bg-ubc-blue a {
-  color: $ubc-blue-polar;
+  color: rgba(var(--ubc-blue-polar), 1);
 }
 
 .paragraph.bg-ubc-blue a:hover {
-  color: $ubc-blue-cornflower;
+  color: rgba(var(--ubc-blue-cornflower), 1);
 }
 
 .paragraph.bg-ubc-blue .unit-button--light {
-  color: $ubc-blue-cobalt;
+  color: rgba(var(--ubc-blue-cobalt), 1);
 }
 
 .paragraph.bg-ubc-blue .unit-button--dark {
-  border-color: $ubc-blue-polar;
+  border-color: rgba(var(--ubc-blue-polar), 1);
 }
 
 .paragraph.bg-ubc-blue .unit-button--light:hover,
