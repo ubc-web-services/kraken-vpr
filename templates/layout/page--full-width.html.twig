@@ -79,10 +79,17 @@
   ]
 %}
 {%
+  set breadcrumb_classes = [
+    'col-span-full',
+  ]
+%}
+{%
   set main_content_classes = [
     'col-span-full',
     'md--col-span-6',
+    'md--row-span-2',
     'md--col-start-4',
+    'md--row-start-2',
     'mt-12',
   ]
 %}
@@ -91,15 +98,16 @@
     'col-span-full',
     'md--col-span-3',
     'md--col-start-1',
-    'mt-12',
+    'md--row-start-2',
   ]
 %}
 {%
   set sidebar_secondary_classes = [
     'col-span-full',
     'md--col-span-3',
+    'md--row-span-2',
     'md--col-start-10',
-    'mt-12',
+    'md--row-start-2',
   ]
 %}
 {%
@@ -120,8 +128,9 @@
     set main_content_classes = [
       'col-span-full',
       'md--col-span-8',
-      'md--col-start-5',
-      'md--row-start-1',
+      'md--row-span-2',
+      'md--col-start-1',
+      'md--row-start-2',
       'mt-12',
     ]
   %}
@@ -129,9 +138,8 @@
     set sidebar_primary_classes = [
       'col-span-full',
       'md--col-span-4',
-      'md--col-start-1',
-      'md--row-start-1',
-      'mt-12',
+      'md--row-start-2',
+      'md--col-start-9',
     ]
   %}
 {% endif %}
@@ -140,7 +148,9 @@
     set main_content_classes = [
       'col-span-full',
       'md--col-span-8',
-      'md--col-start-1',
+      'md--row-span-2',
+      'md--col-start-5',
+      'md--row-start-2',
       'mt-12',
     ]
   %}
@@ -148,8 +158,8 @@
     set sidebar_secondary_classes = [
       'col-span-full',
       'md--col-span-4',
-      'md--col-start-9',
-      'mt-12',
+      'md--row-start-2',
+      'md--col-start-1',
     ]
   %}
 {% endif %}
@@ -159,11 +169,9 @@
 
 <div id="main-content">
 
-  {% block pre_content %}
-    {% if page.pre_content %}
-      {{ page.pre_content }}
-    {% endif %}
-  {% endblock pre_content %}
+  {% if page.pre_content %}
+    {{ page.pre_content }}
+  {% endif %}
 
   {% block clftop %}
     {% if (clf_version == '8') %}
@@ -175,9 +183,9 @@
 
   {% block masthead %}
     {% if page.masthead %}
-    <section id="masthead" class="overflow-hidden masthead">
-      {{ page.masthead }}
-    </section>
+      <section id="masthead" class="overflow-hidden masthead">
+        {{ page.masthead }}
+      </section>
     {% endif %}
   {% endblock masthead %}
 
@@ -185,6 +193,14 @@
     <div id="unit-content">
       <main>
         <div{{ attributes.addClass(grid_classes) }}>
+
+          {% block breadcrumb %}
+            {% if page.breadcrumb %}
+              <div{{ breadcrumb_attributes.addClass(breadcrumb_classes) }}>
+                {{ page.breadcrumb }}
+              </div>
+            {% endif %}
+          {% endblock breadcrumb %}
 
           {% block primary_content %}
             <div{{ main_content_attributes.addClass(main_content_classes).setAttribute('id', 'primary-content') }}>
@@ -227,7 +243,7 @@
                 {{ page.secondary_content }}
               </section>
             {% endif %}
-           {% endblock secondary_content %}
+          {% endblock secondary_content %}
 
         </div>
 
