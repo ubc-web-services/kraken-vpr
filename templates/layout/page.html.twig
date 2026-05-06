@@ -177,78 +177,103 @@
     {{ page.pre_content }}
   {% endif %}
 
-  {% if (clf_version == '8') %}
-    {% include '@kraken/includes/header.html.twig' %}
-  {% else %}
-    {% include '@kraken/includes/header.clf7.html.twig' %}
-  {% endif %}
+  {% block clftop %}
+    {% if (clf_version == '8') %}
+      {% include '@kraken/includes/header.html.twig' %}
+    {% else %}
+      {% include '@kraken/includes/header.clf7.html.twig' %}
+    {% endif %}
+  {% endblock clftop %}
 
-  {% if page.masthead %}
-  <section id="masthead" class="overflow-hidden masthead">
-    {{ page.masthead }}
-  </section>
-  {% endif %}
-  <div id="unit-content">
-    <main>
-      <div{{ attributes.addClass(grid_classes) }}>
+  {% block masthead %}
+    {% if page.masthead %}
+      <section id="masthead" class="overflow-hidden masthead">
+        {{ page.masthead }}
+      </section>
+    {% endif %}
+  {% endblock masthead %}
 
-        {% if page.breadcrumb %}
-          <div{{ breadcrumb_attributes.addClass(breadcrumb_classes) }}>
-            {{ page.breadcrumb }}
-          </div>
-        {% endif %}
+  {% block unitcontent %}
+    <div id="unit-content">
+      <main>
+        <div{{ attributes.addClass(grid_classes) }}>
 
-        <div{{ main_content_attributes.addClass(main_content_classes).setAttribute('id', 'primary-content') }}>
-          {% if page.heading %}
-            {{ page.heading }}
-          {% endif %}
-          {% if page.help %}
-            <div id="help-region">{{ page.help }}</div>
-          {% endif %}
-          <section class="section">
-            {% if page.highlighted %}
-              <div id="highlighted">{{ page.highlighted }}</div>
+          {% block breadcrumb %}
+            {% if page.breadcrumb %}
+              <div{{ breadcrumb_attributes.addClass(breadcrumb_classes) }}>
+                {{ page.breadcrumb }}
+              </div>
             {% endif %}
-            {{ page.content }}
-          </section>
+          {% endblock breadcrumb %}
+
+          {% block primary_content %}
+            <div{{ main_content_attributes.addClass(main_content_classes).setAttribute('id', 'primary-content') }}>
+              {% if page.heading %}
+                {{ page.heading }}
+              {% endif %}
+              {% if page.help %}
+                <div id="help-region">{{ page.help }}</div>
+              {% endif %}
+              <section class="section">
+                {% if page.highlighted %}
+                  <div id="highlighted">{{ page.highlighted }}</div>
+                {% endif %}
+                {% block content %}
+                  {{ page.content }}
+                {% endblock content %}
+              </section>
+            </div>
+          {% endblock primary_content %}
+
+          {% block sidebar_primary %}
+            {% if sidebar_primary_exists %}
+              <section{{ sidebar_primary_attributes.addClass(sidebar_primary_classes).setAttribute('id', 'sidebar-primary') }}>
+                {{ page.sidebar_primary }}
+              </section>
+            {% endif %}
+          {% endblock sidebar_primary %}
+
+          {% block sidebar_secondary %}
+            {% if sidebar_secondary_exists %}
+              <section{{ sidebar_secondary_attributes.addClass(sidebar_secondary_classes).setAttribute('id', 'sidebar-secondary') }}>
+                {{ page.sidebar_secondary }}
+              </section>
+            {% endif %}
+          {% endblock sidebar_secondary %}
+
+          {% block secondary_content %}
+            {% if page.secondary_content %}
+              <section{{ secondary_content_attributes.addClass(secondary_content_classes).setAttribute('id', 'secondary-content') }}>
+                {{ page.secondary_content }}
+              </section>
+            {% endif %}
+          {% endblock secondary_content %}
+
         </div>
 
-        {% if sidebar_primary_exists %}
-          <section{{ sidebar_primary_attributes.addClass(sidebar_primary_classes).setAttribute('id', 'sidebar-primary') }}>
-            {{ page.sidebar_primary }}
-          </section>
-        {% endif %}
+        {% block prefooter %}
+          {% if page.prefooter %}
+            <div{{ prefooter_attributes.setAttribute('id', 'prefooter-content') }}>
+              {{ page.prefooter }}
+            </div>
+          {% endif %}
+        {% endblock prefooter %}
 
-        {% if sidebar_secondary_exists %}
-          <section{{ sidebar_secondary_attributes.addClass(sidebar_secondary_classes).setAttribute('id', 'sidebar-secondary') }}>
-            {{ page.sidebar_secondary }}
-          </section>
-        {% endif %}
+      </main>
+    </div>
+  {% endblock unitcontent %}
 
-        {% if page.secondary_content %}
-          <section{{ secondary_content_attributes.addClass(secondary_content_classes).setAttribute('id', 'secondary-content') }}>
-            {{ page.secondary_content }}
-          </section>
-        {% endif %}
-
-      </div>
-
-      {% if page.prefooter %}
-        <div{{ prefooter_attributes.setAttribute('id', 'prefooter-content') }}>
-          {{ page.prefooter }}
-        </div>
-      {% endif %}
-
-    </main>
-  </div>
-
-  {% if (clf_version == '8') %}
-    {% include '@kraken/includes/footer.html.twig' %}
-  {% else %}
-    {% include '@kraken/includes/footer.clf7.html.twig' %}
-  {% endif %}
-  {% include '@kraken/includes/totop-button.html.twig' %}
+  {% block clfbottom %}
+    {% if (clf_version == '8') %}
+      {% include '@kraken/includes/footer.html.twig' %}
+    {% else %}
+      {% include '@kraken/includes/footer.clf7.html.twig' %}
+    {% endif %}
+    {% include '@kraken/includes/totop-button.html.twig' %}
+  {% endblock clfbottom %}
 
 </div>
 
-{% include '@kraken/includes/svg.html.twig' %}
+{% block svg %}
+  {% include '@kraken/includes/svg.html.twig' %}
+{% endblock svg %}
