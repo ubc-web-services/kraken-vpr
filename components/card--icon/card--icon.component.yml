@@ -5,9 +5,6 @@ group: UBC Web Services
 description: Component to render as an Icon Card
 props:
   type: object
-  required:
-    - title
-    - layout
   properties:
     title:
       type: string

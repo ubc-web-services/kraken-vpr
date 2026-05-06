@@ -5,8 +5,6 @@ group: UBC Web Services
 description: Component to render an svg icon.
 props:
   type: object
-  required:
-    - icon
   properties:
     icon:
       type: string
