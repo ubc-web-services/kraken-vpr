@@ -4,7 +4,11 @@
  * @file
  * Styles for the default drupal login
  */
- .rounded {
+ body {
+  @apply !bg-ubc-blue;
+}
+
+.rounded {
   border-radius: 0.25rem;
 }
 
