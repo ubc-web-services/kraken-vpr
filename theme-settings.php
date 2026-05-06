@@ -12,7 +12,6 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$form_state)
 {
-  $themeSettingsProvider = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
   // Move the default theme settings to our custom vertical tabs for core theme
   // settings.
   $form['core'] = [
@@ -67,7 +66,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':url_unit_sub_footer' => 'https://clf.ubc.ca/parts-of-the-clf/#unit-sub-footer',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_unitname', 'kraken'),
+    '#default_value' => theme_get_setting('clf_unitname'),
     '#size' => 60,
     '#maxlength' => 128,
     '#required' => true,
@@ -82,7 +81,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':url' => 'https://clf.ubc.ca/design-specifications/#theme-options',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_version', 'kraken'),
+    '#default_value' => theme_get_setting('clf_version'),
     '#options' => [
       '8' => t('8.0.0 (not yet released)'),
       'legacy--bw' => t('7.0.4  - Blue on White'),
@@ -101,7 +100,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':url' => 'https://clf.ubc.ca/design-specifications/#layout-options',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_layout', 'kraken'),
+    '#default_value' => theme_get_setting('clf_layout'),
     '#options' => [
       'full' => t('Full Width (Default)'),
       'centered' => t('Fixed width, centered with Grey Background'),
@@ -113,21 +112,21 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'checkbox',
     '#title' => t('<strong>Widen the CLF (v.7) to 1720px</strong>'),
     '#description' => t('By default, version 7 of the CLF is constrained to 1200px wide. This option adds an additional 1720px (adjustable in CSS) breakpoint to the CLF required regions (does not effect content regions)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_widen', 'kraken'),
+    '#default_value' => theme_get_setting('clf_widen'),
   ];
 
   $form['general']['clf_widen_more'] = [
     '#type' => 'checkbox',
     '#title' => t('<strong>Widen the CLF (v.7) to 2400px</strong>'),
     '#description' => t('This option adds an additional 2400px (adjustable in CSS) breakpoint to the CLF required regions (does not effect content regions)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_widen_more', 'kraken'),
+    '#default_value' => theme_get_setting('clf_widen_more'),
   ];
 
   $form['general']['clf_dark_mode'] = [
     '#type' => 'checkbox',
     '#title' => t('<strong>Load Dark Mode stylesheet</strong>'),
     '#description' => t('Allow a Dark Mode option to be loaded if a user\'s preferences ask for it. This option requires additional CSS and is only supported for CLF 8+.'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_dark_mode', 'kraken'),
+    '#default_value' => theme_get_setting('clf_dark_mode'),
   ];
 
   $form['general']['cwl_site'] = [
@@ -139,7 +138,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':url' => '/user',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('cwl_site', 'kraken'),
+    '#default_value' => theme_get_setting('cwl_site'),
   ];
 
   $form['general']['clf_fonts'] = [
@@ -153,7 +152,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':brandurl' => 'http://brand.ubc.ca/font-request-form/',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_fonts', 'kraken'),
+    '#default_value' => theme_get_setting('clf_fonts'),
     '#options' => [
       '' => t("Don't load any webfonts"),
       'default' => t("Open Sans / Merriweather - Google CDN"),
@@ -166,7 +165,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'checkbox',
     '#title' => t('<strong>Make the top navigation sticky?</strong>'),
     '#description' => t('This option allows the top navigation to stay pinned to the top of the page when scrolling.'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_sticky', 'kraken'),
+    '#default_value' => theme_get_setting('clf_sticky'),
   ];
 
   // CLF GENERAL OPTIONS.
@@ -181,7 +180,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#prefix' => t('<h2>VPR specific settings</h2>'),
     '#title' => t('<strong>Sitewide footer</strong>'),
     '#description' => t('This option sets the sitewide footer that identifies the site as a member of the VPR suite of websites.'),
-    '#default_value' => $themeSettingsProvider->getSetting('vpr_acknowledgement_footer', 'kraken'),
+    '#default_value' => theme_get_setting('vpr_acknowledgement_footer'),
     '#options' => [
       'portfolio' => t('Portfolio'),
       'cluster' => t('Cluster'),
@@ -196,7 +195,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#required' => false,
     '#title' => t('<strong>Portfolio signature (SVG)</strong><br>* ensure that svg is trimmed to artwork bounds.'),
     '#description' => t('This option allows an SVG of signature to be uploaded, which is then displayed in the unit footer. It will only display for sites with the Portfolio option chosen above.'),
-    '#default_value' => $themeSettingsProvider->getSetting('vpr_portfolio_signature', 'kraken'),
+    '#default_value' => theme_get_setting('vpr_portfolio_signature'),
     '#upload_location' => 'public://unit-signature/',
     '#upload_validators' => [
       'FileExtension' => [
@@ -215,7 +214,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':url_unit_sub_footer' => 'https://clf.ubc.ca/parts-of-the-clf/#unit-sub-footer',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_subunitname', 'kraken'),
+    '#default_value' => theme_get_setting('clf_subunitname'),
     '#size' => 60,
     '#maxlength' => 128,
     '#required' => false,
@@ -224,7 +223,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_streetaddr2'] = [
     '#type' => 'textfield',
     '#title' => t('Street Address'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_streetaddr2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_streetaddr2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -232,7 +231,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_streetaddr2_line2'] = [
     '#type' => 'textfield',
     '#title' => t('Street Address, Line 2'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_streetaddr2_line2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_streetaddr2_line2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -240,7 +239,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_locality2'] = [
     '#type' => 'textfield',
     '#title' => t('City'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_locality2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_locality2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -248,7 +247,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_region2'] = [
     '#type' => 'textfield',
     '#title' => t('Province / Region'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_region2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_region2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -256,7 +255,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_country2'] = [
     '#type' => 'textfield',
     '#title' => t('Country'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_country2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_country2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -264,7 +263,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_postal2'] = [
     '#type' => 'textfield',
     '#title' => t('Postal Code'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_postal2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_postal2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -272,7 +271,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_telephone2'] = [
     '#type' => 'textfield',
     '#title' => t('Telephone Number - format as xxx xxx xxxx (spaces only)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_telephone2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_telephone2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -280,7 +279,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_fax2'] = [
     '#type' => 'textfield',
     '#title' => t('Fax Number - format as xxx xxx xxxx (spaces only)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_fax2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_fax2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -288,7 +287,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['vpr']['clf_email2'] = [
     '#type' => 'textfield',
     '#title' => t('Email'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_email2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_email2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -297,7 +296,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Website'),
     '#description' => t('Do not include the <em>https://</em>'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_website2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_website2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -319,7 +318,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ':url' => 'https://clf.ubc.ca/parts-of-the-clf',
       ]
     ),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_unit_campus', 'kraken'),
+    '#default_value' => theme_get_setting('clf_unit_campus'),
     '#options' => [
       'vancouver' => t('Vancouver'),
       'okanagan' => t('Okanagan'),
@@ -330,13 +329,13 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['unit']['clf_faculty'] = [
     '#type' => 'checkbox',
     '#title' => t('<strong>Is your unit part of a Faculty?</strong>'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_faculty', 'kraken'),
+    '#default_value' => theme_get_setting('clf_faculty'),
   ];
 
   $form['unit']['clf_faculty_name'] = [
     '#type' => 'select',
     '#title' => t('If yes, choose your Faculty'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_faculty_name', 'kraken'),
+    '#default_value' => theme_get_setting('clf_faculty_name'),
     '#options' => [
       'Allard School of Law' => t('Allard School of Law'),
       'Faculty of Applied Science' => t('Faculty of Applied Science'),
@@ -364,7 +363,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     ),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_unitbar_colour', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_unitbar_colour'),
     '#required' => true,
   ];
 
@@ -376,11 +375,11 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     ),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_unit_colour', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_unit_colour'),
     '#required' => true,
     '#disabled' => true,
     '#suffix' => t(
-      '<p>Legacy Theme Primary colour is set to value: <strong>' . $themeSettingsProvider->getSetting('clf_theme_unit_colour', 'kraken') . '</strong>.  The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Primary colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the primary colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-primary);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
+      '<p>Legacy Theme Primary colour is set to value: <strong>' . theme_get_setting('clf_theme_unit_colour') . '</strong>.  The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Primary colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the primary colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-primary);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
       ':url' => '/admin/config/content/ubc-ckeditor-widgets',
       ]
     ),
@@ -396,11 +395,11 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     ),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_secondary_colour', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_secondary_colour'),
     '#required' => true,
     '#disabled' => true,
     '#suffix' => t(
-        '<p>Legacy Theme Secondary colour is set to value: <strong>' . $themeSettingsProvider->getSetting('clf_theme_secondary_colour', 'kraken') . '</strong>.  The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Secondary colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the secondary colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-secondary);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
+        '<p>Legacy Theme Secondary colour is set to value: <strong>' . theme_get_setting('clf_theme_secondary_colour') . '</strong>.  The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Secondary colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the secondary colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-secondary);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
         ':url' => '/admin/config/content/ubc-ckeditor-widgets',
         ]
       ),
@@ -416,11 +415,11 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       ),
       '#size' => 7,
       '#maxlength' => 7,
-      '#default_value' => $themeSettingsProvider->getSetting('clf_theme_tertiary_colour', 'kraken'),
+      '#default_value' => theme_get_setting('clf_theme_tertiary_colour'),
       '#required' => true,
       '#disabled' => true,
       '#suffix' => t(
-          '<p>Legacy Theme Tertiary colour is set to value: <strong>' . $themeSettingsProvider->getSetting('clf_theme_tertiary_colour', 'kraken') . '</strong>. The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Tertiary colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the tertiary colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-tertiary);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
+          '<p>Legacy Theme Tertiary colour is set to value: <strong>' . theme_get_setting('clf_theme_tertiary_colour') . '</strong>. The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Tertiary colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the tertiary colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-tertiary);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
           ':url' => '/admin/config/content/ubc-ckeditor-widgets',
           ]
         ),
@@ -436,11 +435,11 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
         ),
         '#size' => 7,
         '#maxlength' => 7,
-        '#default_value' => $themeSettingsProvider->getSetting('clf_theme_accent_colour', 'kraken'),
+        '#default_value' => theme_get_setting('clf_theme_accent_colour'),
         '#required' => true,
         '#disabled' => true,
         '#suffix' => t(
-            '<p>Legacy Theme Accent colour is set to value: <strong>' . $themeSettingsProvider->getSetting('clf_theme_accent_colour', 'kraken') . '</strong>.  The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Accent colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the accent colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-accent);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
+            '<p>Legacy Theme Accent colour is set to value: <strong>' . theme_get_setting('clf_theme_accent_colour') . '</strong>.  The swatch below shows the value that will now be used in the theme. If you would like to change it, the <em>Unit Accent colour</em> should now be updated in the <a href=":url">UBC CKeditor Widgets module settings</a>. Once changed there, the accent colour setting on this page can be ignored.</p><div style="width:2rem;height:2rem;background-color:var(--color-accent);padding:2rem;border-radius:.5rem;margin: 1rem 0;"></div>', [
             ':url' => '/admin/config/content/ubc-ckeditor-widgets',
             ]
           ),
@@ -457,7 +456,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     ),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_link_colour', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_link_colour'),
     '#required' => true,
   ];
 
@@ -472,7 +471,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     ),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_link_hover_colour', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_link_hover_colour'),
     '#required' => true,
   ];
 
@@ -487,7 +486,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     ),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_link_active_colour', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_link_active_colour'),
     '#required' => true,
   ];
 
@@ -497,7 +496,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#description' => t('This will set a variable that can be used in your css as <code>--leading</code>. '),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_leading', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_leading'),
     '#required' => true,
   ];
 
@@ -507,7 +506,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#description' => t('This will set a variable that can be used in your css as <code>--base-font-size</code>. It should be set in px.'),
     '#size' => 7,
     '#maxlength' => 7,
-    '#default_value' => $themeSettingsProvider->getSetting('clf_theme_base_font_size', 'kraken'),
+    '#default_value' => theme_get_setting('clf_theme_base_font_size'),
     '#required' => true,
   ];
 
@@ -522,7 +521,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Unit Name to show in footer above address'),
     '#prefix' => t('<h2>Address and Location Information</h2>'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_unitname_footer', 'kraken'),
+    '#default_value' => theme_get_setting('clf_unitname_footer'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -530,7 +529,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_streetaddr'] = [
     '#type' => 'textfield',
     '#title' => t('Street Address'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_streetaddr', 'kraken'),
+    '#default_value' => theme_get_setting('clf_streetaddr'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -538,7 +537,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_streetaddr_line2'] = [
     '#type' => 'textfield',
     '#title' => t('Street Address, Line 2'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_streetaddr_line2', 'kraken'),
+    '#default_value' => theme_get_setting('clf_streetaddr_line2'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -546,7 +545,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_locality'] = [
     '#type' => 'textfield',
     '#title' => t('City'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_locality', 'kraken'),
+    '#default_value' => theme_get_setting('clf_locality'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -554,7 +553,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_region'] = [
     '#type' => 'textfield',
     '#title' => t('Province / Region'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_region', 'kraken'),
+    '#default_value' => theme_get_setting('clf_region'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -562,7 +561,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_country'] = [
     '#type' => 'textfield',
     '#title' => t('Country'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_country', 'kraken'),
+    '#default_value' => theme_get_setting('clf_country'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -570,7 +569,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_postal'] = [
     '#type' => 'textfield',
     '#title' => t('Postal Code'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_postal', 'kraken'),
+    '#default_value' => theme_get_setting('clf_postal'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -578,7 +577,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_telephone'] = [
     '#type' => 'textfield',
     '#title' => t('Telephone Number - format as xxx xxx xxxx (spaces only)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_telephone', 'kraken'),
+    '#default_value' => theme_get_setting('clf_telephone'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -586,7 +585,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_fax'] = [
     '#type' => 'textfield',
     '#title' => t('Fax Number - format as xxx xxx xxxx (spaces only)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_fax', 'kraken'),
+    '#default_value' => theme_get_setting('clf_fax'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -594,7 +593,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['location']['clf_email'] = [
     '#type' => 'textfield',
     '#title' => t('Email'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_email', 'kraken'),
+    '#default_value' => theme_get_setting('clf_email'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -603,7 +602,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Website'),
     '#description' => t('Do not include the <em>https://</em>'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_website', 'kraken'),
+    '#default_value' => theme_get_setting('clf_website'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -618,14 +617,14 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['land']['land_acknowledgement'] = [
     '#type' => 'checkbox',
     '#title' => t('<strong>Show the Land Acknowledgement at the bottom of each page?</strong>'),
-    '#default_value' => $themeSettingsProvider->getSetting('land_acknowledgement', 'kraken'),
+    '#default_value' => theme_get_setting('land_acknowledgement'),
   ];
 
   $form['land']['land_acknowledgement_text'] = [
     '#type' => 'textarea',
     '#title' => t('Land Acknowledgement Text (plain text only)'),
     '#description' => t('Enter the Land Acknowledgement text to display.'),
-    '#default_value' => $themeSettingsProvider->getSetting('land_acknowledgement_text', 'kraken'),
+    '#default_value' => theme_get_setting('land_acknowledgement_text'),
   ];
 
   // social.
@@ -639,7 +638,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Facebook Account Link'),
     '#prefix' => t('<h2>Add Social Media icons/links to the unit footer</h2>'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_social_facebook', 'kraken'),
+    '#default_value' => theme_get_setting('clf_social_facebook'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('Format of https://www.xyz.com'),
@@ -648,7 +647,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['social']['clf_social_twitter'] = [
     '#type' => 'textfield',
     '#title' => t('Twitter Account Link'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_social_twitter', 'kraken'),
+    '#default_value' => theme_get_setting('clf_social_twitter'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('Format of https://www.xyz.com'),
@@ -657,7 +656,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['social']['clf_social_bluesky'] = [
     '#type' => 'textfield',
     '#title' => t('Bluesky Account Link'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_social_bluesky', 'kraken'),
+    '#default_value' => theme_get_setting('clf_social_bluesky'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('Format of https://www.xyz.com'),
@@ -666,7 +665,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['social']['clf_social_instagram'] = [
     '#type' => 'textfield',
     '#title' => t('Instagram Account Link'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_social_instagram', 'kraken'),
+    '#default_value' => theme_get_setting('clf_social_instagram'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('Format of https://www.xyz.com'),
@@ -675,7 +674,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['social']['clf_social_linkedin'] = [
     '#type' => 'textfield',
     '#title' => t('Linkedin Account Link'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_social_linkedin', 'kraken'),
+    '#default_value' => theme_get_setting('clf_social_linkedin'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('Format of https://www.xyz.com'),
@@ -684,7 +683,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['social']['clf_social_youtube'] = [
     '#type' => 'textfield',
     '#title' => t('YouTube Account Link'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_social_youtube', 'kraken'),
+    '#default_value' => theme_get_setting('clf_social_youtube'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('Format of https://www.xyz.com'),
@@ -700,7 +699,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['search']['clf_searchdomain'] = [
     '#type' => 'textfield',
     '#title' => t('Search Domain'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_searchdomain', 'kraken'),
+    '#default_value' => theme_get_setting('clf_searchdomain'),
     '#prefix' => t('<h2>Default Search Settings</h2>'),
     '#size' => 60,
     '#maxlength' => 128,
@@ -710,7 +709,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
   $form['search']['clf_searchlabel'] = [
     '#type' => 'textfield',
     '#title' => t('Search Field Placeholder (usually your unit name)'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_searchlabel', 'kraken'),
+    '#default_value' => theme_get_setting('clf_searchlabel'),
     '#size' => 60,
     '#maxlength' => 128,
     '#description' => t('This appears inside the search field as placeholder text. e.g. <strong>Search Pharmacy</strong>'),
@@ -720,7 +719,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Google Site Verification Code'),
     '#description' => t('Adds a meta tag to your site to allow you to verify the property with Google'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_google_verify', 'kraken'),
+    '#default_value' => theme_get_setting('clf_google_verify'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -729,7 +728,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#type' => 'textfield',
     '#title' => t('Bing Site Verification Code'),
     '#description' => t('Adds a meta tag to your site to allow you to verify the property with Bing'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_bing_verify', 'kraken'),
+    '#default_value' => theme_get_setting('clf_bing_verify'),
     '#size' => 60,
     '#maxlength' => 128,
   ];
@@ -753,7 +752,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       </svg> Cart icon.'),
     '#prefix' => t('<h2>Choose additional icons to load</h2>'),
     '#description' => t('Add a cart icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_cart', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_cart'),
   ];
 
   $form['icons']['svg_icon_clock'] = [
@@ -765,7 +764,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M32 10v23l13 7" stroke-linejoin="round"></path>
       </svg> Clock icon.'),
     '#description' => t('Add a clock icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_clock', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_clock'),
   ];
 
   $form['icons']['svg_icon_discussion'] = [
@@ -777,7 +776,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M4 50l15.4-6.3a29.6 29.6 0 0 0 6.6.7c13.3 0 24-8.6 24-19.2S39.3 6 26 6 2 14.6 2 25.2C2 30.6 4.8 35.5 9.3 39z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg> Discussion icon.'),
     '#description' => t('Add a discussion icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_discussion', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_discussion'),
   ];
 
   $form['icons']['svg_icon_facebook'] = [
@@ -788,7 +787,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M39.312 13.437H47V2h-9.094C26.938 2.469 24.688 8.656 24.5 15.125v5.719H17V32h7.5v30h11.25V32h9.281l1.781-11.156H35.75v-3.469a3.714 3.714 0 0 1 3.562-3.938z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Facebook icon.'),
     '#description' => t('Add a Facebook icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_facebook', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_facebook'),
   ];
 
   $form['icons']['svg_icon_home'] = [
@@ -799,7 +798,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M54 26.267l7.555 7.3a.25.25 0 0 1-.174.43H54V62H40V44H24v18H10V34H2.618a.25.25 0 0 1-.174-.43L32 5l13 12.567V12h9z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Home icon.'),
     '#description' => t('Add a Facebook icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_home', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_home'),
   ];
 
   $form['icons']['svg_icon_instagram'] = [
@@ -811,7 +810,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     <path d="M32 16.45a15.484 15.484 0 1 0 15.514 15.484A15.519 15.519 0 0 0 32 16.45zm0 24.95a9.461 9.461 0 1 1 9.482-9.461A9.472 9.472 0 0 1 32 41.4zm19.263-24.834a3.719 3.719 0 1 1-3.719-3.711 3.714 3.714 0 0 1 3.719 3.711zm0 0" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
     </svg> Instagram icon.'),
     '#description' => t('Add a Facebook icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_instagram', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_instagram'),
   ];
 
   $form['icons']['svg_icon_linkedin'] = [
@@ -825,7 +824,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M9.219 4.425C5.188 4.425 2 7.331 2 10.894s3.188 6.469 7.219 6.469 7.219-2.906 7.219-6.469-3.188-6.469-7.219-6.469z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Linkedin icon.'),
     '#description' => t('Add a Linkedin icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_linkedin', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_linkedin'),
   ];
 
   $form['icons']['svg_icon_location'] = [
@@ -837,7 +836,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <circle stroke-miterlimit="10" stroke="currentColor" r="6" cy="20" cx="32" stroke-linejoin="round" stroke-linecap="round"></circle>
       </svg> Location icon.'),
     '#description' => t('Add a Location icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_location', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_location'),
   ];
 
   $form['icons']['svg_icon_mail'] = [
@@ -849,7 +848,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path stroke="currentColor" stroke-miterlimit="10" d="M2 12h60v40H2z" stroke-linejoin="round" stroke-linecap="round"></path>
       </svg> Mail icon.'),
     '#description' => t('Add a Mail icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_mail', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_mail'),
   ];
 
   $form['icons']['svg_icon_pencil'] = [
@@ -861,7 +860,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M17.337 54.667l38.4-38.358-8.025-8.026L9.307 46.642 2.926 61.049l14.411-6.382zm-8.03-8.025l8.03 8.025" stroke-miterlimit="10" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round"></path>
       </svg> Pencil icon.'),
     '#description' => t('Add a Pencil icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_pencil', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_pencil'),
   ];
 
   $form['icons']['svg_icon_phone'] = [
@@ -873,7 +872,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M58.9 47l-10.4-6.8a4.8 4.8 0 0 0-6.5 1.3c-2.4 2.9-5.3 7.7-16.2-3.2S19.6 24.4 22.5 22a4.8 4.8 0 0 0 1.3-6.5L17 5.1c-.9-1.3-2.1-3.4-4.9-3S2 6.6 2 15.6s7.1 20 16.8 29.7S39.5 62 48.4 62s13.2-8 13.5-10-1.7-4.1-3-5z" stroke="currentColor" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"></path>
       </svg> Phone icon.'),
     '#description' => t('Add a Phone icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_phone', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_phone'),
   ];
 
   $form['icons']['svg_icon_play'] = [
@@ -885,7 +884,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"></circle>
       </svg> Play icon.'),
     '#description' => t('Add a Play icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_play', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_play'),
   ];
 
   $form['icons']['svg_icon_settings'] = [
@@ -897,7 +896,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M61 27h-6.551a22.857 22.857 0 0 0-3.041-7.336l4.634-4.634a1 1 0 0 0 0-1.414l-5.657-5.658a1 1 0 0 0-1.414 0l-4.634 4.634A22.857 22.857 0 0 0 37 9.552V3a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v6.552a22.857 22.857 0 0 0-7.336 3.041l-4.635-4.635a1 1 0 0 0-1.414 0l-5.657 5.657a1 1 0 0 0 0 1.414l4.634 4.634A22.857 22.857 0 0 0 9.552 27H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h6.552a22.856 22.856 0 0 0 3.041 7.336l-4.635 4.635a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414 0l4.634-4.634A22.86 22.86 0 0 0 27 54.449V61a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-6.551a22.86 22.86 0 0 0 7.336-3.041l4.634 4.634a1 1 0 0 0 1.414 0l5.657-5.657a1 1 0 0 0 0-1.414l-4.634-4.634A22.856 22.856 0 0 0 54.449 37H61a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Settings icon.'),
     '#description' => t('Add a Settings icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_settings', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_settings'),
   ];
 
   $form['icons']['svg_icon_speech'] = [
@@ -908,7 +907,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M42 8H22a20 20 0 0 0 0 40h2v10l12-10h6a20 20 0 1 0 0-40z" stroke="currentColor" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"></path>
       </svg> Speech icon.'),
     '#description' => t('Add a Speech icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_speech', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_speech'),
   ];
 
   $form['icons']['svg_icon_star'] = [
@@ -919,7 +918,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path stroke="currentColor" stroke-miterlimit="10" d="M32 47.2L13.5 61l7.1-22.2L2 25h23l7-22 7 22h23L43.4 38.8 50.5 61 32 47.2z" stroke-linejoin="round" stroke-linecap="round"></path>
       </svg> Star icon.'),
     '#description' => t('Add a Star icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_star', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_star'),
   ];
 
   $form['icons']['svg_icon_twitter'] = [
@@ -930,7 +929,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M60.448 15.109a24.276 24.276 0 0 1-3.288.968.5.5 0 0 1-.451-.853 15.146 15.146 0 0 0 3.119-4.263.5.5 0 0 0-.677-.662 18.6 18.6 0 0 1-6.527 2.071 12.92 12.92 0 0 0-9-3.75A12.363 12.363 0 0 0 31.25 20.994a12.727 12.727 0 0 0 .281 2.719c-9.048-.274-19.61-4.647-25.781-12.249a.5.5 0 0 0-.83.073 12.475 12.475 0 0 0 2.956 14.79.5.5 0 0 1-.344.887 7.749 7.749 0 0 1-3.1-.8.5.5 0 0 0-.725.477 11.653 11.653 0 0 0 7.979 10.567.5.5 0 0 1-.09.964 12.567 12.567 0 0 1-2.834 0 .506.506 0 0 0-.536.635c.849 3.282 5.092 7.125 9.839 7.652a.5.5 0 0 1 .267.87 20.943 20.943 0 0 1-14 4.577.5.5 0 0 0-.255.942 37.29 37.29 0 0 0 17.33 4.266 34.5 34.5 0 0 0 34.687-36.182v-.469a21.11 21.11 0 0 0 4.934-4.839.5.5 0 0 0-.58-.765z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Twitter icon.'),
     '#description' => t('Add a Twitter icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_twitter', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_twitter'),
   ];
 
   $form['icons']['svg_icon_user'] = [
@@ -941,7 +940,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M46 26c0 6.1-3.4 11.5-7 14.8V44c0 2 1 5.1 11 7a15.5 15.5 0 0 1 12 11H2a13.4 13.4 0 0 1 11-11c10-1.8 12-5 12-7v-3.2c-3.6-3.3-7-8.6-7-14.8v-9.6C18 6 25.4 2 32 2s14 4 14 14.4z" stroke="currentColor" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"></path>
       </svg> User icon.'),
     '#description' => t('Add a User icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_user', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_user'),
   ];
 
   $form['icons']['svg_icon_vimeo'] = [
@@ -952,7 +951,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M52.531 6.744c-7.594 0-13.594 4.969-16.219 14.25 2.813-1.312 7.875-2.063 8.344 2.625.375 4.688-6.656 16.687-9.75 16.687s-5.344-13.594-6.188-19.781C27.969 14.244 26.469 7.4 20.656 7.4 14.75 7.4 7.25 16.588 2 20.713l2.719 3.75s3.937-3.094 5.25-2.812c3.563.938 6.563 15.375 8.156 20.906s3.469 16.688 11.156 16.688C41.563 59.244 62 28.682 62 18.651c0-6.563-1.875-11.907-9.469-11.907z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Vimeo icon.'),
     '#description' => t('Add a Vimeo icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_vimeo', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_vimeo'),
   ];
 
   $form['icons']['svg_icon_youtube'] = [
@@ -964,7 +963,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       <path d="M41.111 33.844L24.7 41.585a.658.658 0 0 1-.938-.585V25.031a.659.659 0 0 1 .956-.581l16.407 8.225a.649.649 0 0 1-.014 1.169z" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round"></path>
       </svg> Youtube icon.'),
     '#description' => t('Add a Youtube icon that can be referenced on each page.'),
-    '#default_value' => $themeSettingsProvider->getSetting('svg_icon_youtube', 'kraken'),
+    '#default_value' => theme_get_setting('svg_icon_youtube'),
   ];
 
   // extras.
@@ -979,7 +978,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#title' => t('<strong>Do <em>not</em> allow the site to be indexed</strong>'),
     '#prefix' => t('<h2>Additional miscellaneous options</h2>'),
     '#description' => t('If this is <strong>not</strong> a production website, this checkbox will add a "nofollow" meta tag to all pages.'),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_noindex', 'kraken'),
+    '#default_value' => theme_get_setting('clf_noindex'),
   ];
 
   $form['extra']['clf_fontawesome'] = [
@@ -990,7 +989,7 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       ':url_fontello' => 'http://fontello.com',
       ':url_icomoon' => 'https://icomoon.io/app',
     ]),
-    '#default_value' => $themeSettingsProvider->getSetting('clf_fontawesome', 'kraken'),
+    '#default_value' => theme_get_setting('clf_fontawesome'),
   ];
 
   if ($file_id = $form_state->getValue(['vpr_portfolio_signature', '0'])) {
