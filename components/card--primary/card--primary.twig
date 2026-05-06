@@ -36,7 +36,7 @@
     'mt-0',
   ]
 %}
-{% if layout is same as 'ubc-card--vert' %}
+{% if layout == 'ubc-card--vert' %}
   {% set layout_classes = [
       'flex',
       'flex-col',
@@ -49,7 +49,7 @@
     ]
   %}
 {% endif %}
-{% if layout is same as 'ubc-card--horiz' %}
+{% if layout == 'ubc-card--horiz' %}
   {% set layout_classes = [
       'sm--flex',
       'sm--flex-row',
@@ -60,7 +60,7 @@
     ]
   %}
 {% endif %}
-{% if layout is same as 'ubc-card--horiz-rev' %}
+{% if layout == 'ubc-card--horiz-rev' %}
   {% set layout_classes = [
       'sm--flex',
       'sm--flex-row-reverse',
@@ -71,7 +71,7 @@
     ]
   %}
 {% endif %}
-{% if layout is same as 'ubc-card--horiz' or layout is same as 'ubc-card--horiz-rev' %}
+{% if layout == 'ubc-card--horiz' or layout == 'ubc-card--horiz-rev' %}
   {% set figure_layout_classes = [
       'sm--max-w-[300px]',
       'sm--shrink-0',

@@ -40,21 +40,21 @@
     'mt-0',
   ]
 %}
-{% if layout is same as 'flex-col' %}
+{% if layout == 'flex-col' %}
   {% set layout_classes = [
       'flex',
       'flex-col',
     ]
   %}
 {% endif %}
-{% if layout is same as 'flex-row' %}
+{% if layout == 'flex-row' %}
   {% set layout_classes = [
       'sm--flex',
       'sm--flex-row',
     ]
   %}
 {% endif %}
-{% if layout is same as 'flex-row-reverse' %}
+{% if layout == 'flex-row-reverse' %}
   {% set layout_classes = [
       'sm--flex',
       'sm--flex-row-reverse',
