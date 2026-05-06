@@ -5,8 +5,6 @@ group: UBC Web Services
 description: Component to render as the homepage masthead
 props:
   type: object
-  required:
-    - subtitle
   properties:
     subtitle:
       type: string

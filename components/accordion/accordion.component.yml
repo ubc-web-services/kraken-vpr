@@ -5,9 +5,6 @@ group: UBC Web Services
 description: Component to render as a collapsible accordion
 props:
   type: object
-  required:
-    - headingLevel
-    - title
   properties:
     headingLevel:
       type: string

@@ -5,8 +5,6 @@ group: UBC Web Services
 description: Component to render as a Text Card
 props:
   type: object
-  required:
-    - title
   properties:
     title:
       type: string
