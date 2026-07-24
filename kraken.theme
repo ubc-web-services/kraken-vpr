@@ -37,12 +37,6 @@ function kraken_page_attachments_alter(array &$page)
     $page['#attached']['library'][] = 'kraken/clf-legacy--widen-more';
   }
 
-  $clf_js = theme_get_setting('clf_js');
-  $page['#attached']['library'][] = 'kraken/clf-' . $clf_js;
-
-  $clf_css = theme_get_setting('clf_css');
-  $page['#attached']['library'][] = 'kraken/' . $clf_css;
-
   $clf_sticky = theme_get_setting('clf_sticky');
   if ($clf_sticky) {
     $page['#attached']['library'][] = 'kraken/sticky-header';

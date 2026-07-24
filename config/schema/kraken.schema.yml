@@ -3,3 +3,314 @@
 kraken.settings:
   type: theme_settings
   label: 'kraken settings'
+  mapping:
+    clf_unitname:
+      type: text
+      label: 'Unit name'
+    clf_version:
+      type: string
+      label: 'Version'
+      constraints:
+        Choice:
+          # @see kraken_form_system_theme_settings_alter()
+          choices:
+            - '8'
+            - 'legacy--bw'
+            - 'legacy--wb'
+            - 'legacy--wg'
+            - 'legacy--gw'
+    clf_layout:
+      type: string
+      label: 'Layout'
+      constraints:
+        Choice:
+          # @see kraken_form_system_theme_settings_alter()
+          choices:
+            - 'full'
+            - 'centered'
+            - 'fluid'
+    clf_widen:
+      type: boolean
+      label: 'Widen'
+    clf_widen_more:
+      type: boolean
+      label: 'Widen more'
+    clf_dark_mode:
+      type: boolean
+      label: 'Dark mode'
+    cwl_site:
+      type: boolean
+      label: 'Show CWL login'
+    clf_fonts:
+      type: string
+      label: 'Font version'
+      constraints:
+        Choice:
+          # @see kraken_form_system_theme_settings_alter()
+          choices:
+            - ''
+            - 'default'
+            - 'legacy-dev'
+            - 'legacy-prod'
+    clf_sticky:
+      type: boolean
+      label: 'Make main navigation Sticky'
+    vpr_acknowledgement_footer:
+      type: string
+      label: 'Sitewide footer'
+      constraints:
+        Choice:
+          # @see kraken_form_system_theme_settings_alter()
+          choices:
+            - ''
+            - 'portfolio'
+            - 'cluster'
+            - 'shared'
+            - 'research'
+    vpr_portfolio_signature:
+      type: sequence
+      label: 'Portfolio signature file'
+      sequence:
+        type: integer
+        label: 'File ID'
+    clf_subunitname:
+      type: string
+      label: 'Second Unit Name'
+    clf_streetaddr2:
+      type: text
+      label: 'Street address'
+    clf_streetaddr2_line2:
+      type: text
+      label: 'Street address, Line 2'
+    clf_locality2:
+      type: text
+      label: 'City'
+    clf_region2:
+      type: text
+      label: 'Region'
+    clf_country2:
+      type: text
+      label: 'Country'
+    clf_postal2:
+      type: text
+      label: 'Postal code'
+    clf_telephone2:
+      type: string
+      label: 'Telephone number'
+    clf_fax2:
+      type: string
+      label: 'Fax number'
+    clf_email2:
+      type: email
+      label: 'Email'
+    clf_website2:
+      type: text
+      label: 'Website'
+    clf_unit_campus:
+      type: string
+      label: 'Unit campus'
+    clf_faculty:
+      type: boolean
+      label: 'Unit is part of faculty'
+    clf_faculty_name:
+      type: text
+      label: 'Faculty name'
+      constraints:
+        Choice:
+          # @see kraken_form_system_theme_settings_alter()
+          choices:
+            - 'Allard School of Law'
+            - 'Faculty of Applied Science'
+            - 'Faculty of Arts'
+            - 'Faculty of Dentistry'
+            - 'Faculty of Education'
+            - 'Faculty of Forestry'
+            - 'Faculty of Land and Food Systems'
+            - 'Faculty of Pharmaceutical Sciences'
+            - 'Faculty of Science'
+            - 'Graduate and Postdoctoral Studies'
+            - 'Sauder School of Business'
+    clf_theme_unitbar_colour:
+      type: color_hex
+      label: 'Unit bar color'
+    clf_theme_unit_colour:
+      type: color_hex
+      label: 'Unit primary color'
+    clf_theme_secondary_colour:
+      type: color_hex
+      label: 'Unit secondary color'
+    clf_theme_tertiary_colour:
+      type: color_hex
+      label: 'Unit tertiary color'
+    clf_theme_accent_colour:
+      type: color_hex
+      label: 'Unit accent color'
+    clf_theme_link_colour:
+      type: color_hex
+      label: 'Unit link color'
+    clf_theme_link_hover_colour:
+      type: color_hex
+      label: 'Unit link:hover color'
+    clf_theme_link_active_colour:
+      type: color_hex
+      label: 'Unit link:active color'
+    clf_theme_leading:
+      type: string
+      label: 'Type leading value'
+    clf_theme_base_font_size:
+      type: string
+      label: 'Base font size'
+    clf_unitname_footer:
+      type: text
+      label: 'Unit Name to show in footer above address'
+    clf_streetaddr:
+      type: text
+      label: 'Street address'
+    clf_streetaddr_line2:
+      type: text
+      label: 'Street Address, Line 2'
+    clf_locality:
+      type: text
+      label: 'City'
+    clf_region:
+      type: text
+      label: 'Region'
+    clf_country:
+      type: text
+      label: 'Country'
+    clf_postal:
+      type: text
+      label: 'Postal code'
+    clf_telephone:
+      type: string
+      label: 'Telephone number'
+    clf_fax:
+      type: string
+      label: 'Fax number'
+    clf_email:
+      type: email
+      label: 'Email'
+    clf_website:
+      type: text
+      label: 'Website'
+    land_acknowledgement:
+      type: boolean
+      label: 'Show the Land Acknowledgement at the bottom of each page?'
+    land_acknowledgement_text:
+      type: text
+      label: 'Land Acknowledgement Text'
+    clf_social_facebook:
+      type: text
+      label: 'Facebook Account Link'
+    clf_social_twitter:
+      type: text
+      label: 'Twitter Account Link'
+    clf_social_bluesky:
+      type: text
+      label: 'Bluesky Account Link'
+    clf_social_instagram:
+      type: text
+      label: 'Instagram Account Link'
+    clf_social_linkedin:
+      type: text
+      label: 'Linkedin Account Link'
+    clf_social_youtube:
+      type: text
+      label: 'Youtube Account Link'
+    clf_searchdomain:
+      type: text
+      label: 'Search domain'
+    clf_searchlabel:
+      type: text
+      label: 'Search Field Placeholder (usually your unit name)'
+    clf_google_verify:
+      type: text
+      label: 'Google Site Verification Code'
+    clf_bing_verify:
+      type: text
+      label: 'YBing Site Verification Code'
+    svg_icon_cart:
+      type: boolean
+      label: 'Cart icon'
+    svg_icon_clock:
+      type: boolean
+      label: 'Clock icon'
+    svg_icon_discussion:
+      type: boolean
+      label: 'Discussion icon'
+    svg_icon_facebook:
+      type: boolean
+      label: 'Facebook icon'
+    svg_icon_home:
+      type: boolean
+      label: 'Home icon'
+    svg_icon_instagram:
+      type: boolean
+      label: 'Instagram icon'
+    svg_icon_linkedin:
+      type: boolean
+      label: 'Linkedin icon'
+    svg_icon_location:
+      type: boolean
+      label: 'Location icon'
+    svg_icon_mail:
+      type: boolean
+      label: 'Mail icon'
+    svg_icon_pencil:
+      type: boolean
+      label: 'Pencil icon'
+    svg_icon_phone:
+      type: boolean
+      label: 'Phone icon'
+    svg_icon_play:
+      type: boolean
+      label: 'Play icon'
+    svg_icon_settings:
+      type: boolean
+      label: 'Settings icon'
+    svg_icon_speech:
+      type: boolean
+      label: 'Speech icon'
+    svg_icon_star:
+      type: boolean
+      label: 'Star icon'
+    svg_icon_twitter:
+      type: boolean
+      label: 'Twitter icon'
+    svg_icon_user:
+      type: boolean
+      label: 'User icon'
+    svg_icon_vimeo:
+      type: boolean
+      label: 'Vimeo icon'
+    svg_icon_youtube:
+      type: boolean
+      label: 'Youtube icon'
+    clf_noindex:
+      type: boolean
+      label: 'Do not allow the site to be indexed'
+    clf_fontawesome:
+      type: boolean
+      label: 'Use Fontawesome 4.7.x'
+    clf_js:
+      type: string
+      label: 'JS version (deprecated)'
+      constraints:
+        Choice:
+          # legacy setting
+          choices:
+            - ''
+            - 'js-bootstrap'
+    clf_css:
+      type: string
+      label: 'CSS version (deprecated)'
+      constraints:
+        Choice:
+          # legacy setting
+          choices:
+            - ''
+            - 'css-dev'
+            - 'css-prod'
+    clf_navoption:
+      type: boolean
+      label: 'Nav option (deprecated)'
