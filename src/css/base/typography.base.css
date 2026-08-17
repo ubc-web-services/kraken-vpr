@@ -102,6 +102,19 @@ h6,
   }
 }
 
+/* heading with stroke */
+.heading-stroke {
+  @apply flex items-center;
+}
+
+.heading-stroke::before {
+  @apply content-[''] flex-1 border-t border-ubc-blue me-4;
+}
+
+.heading-stroke::after {
+  @apply content-[''] flex-1 border-t border-ubc-blue ms-4;
+}
+
 /* text elements */
 p,
 pre,
@@ -201,6 +214,10 @@ hr,
 
 .hr--styled {
   @apply max-w-[7rem] mx-0 my-3 border-t border-ubc-blue;
+}
+
+.hr--blue {
+  @apply max-w-[7rem] mx-0 my-3 border-t-4 border-ubc-blue-cobalt;
 }
 
 /* Text utilities */
