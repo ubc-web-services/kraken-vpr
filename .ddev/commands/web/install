@@ -1,4 +1,5 @@
 #!/bin/bash
+#ddev-silent-no-warn
 
 ## Description: Install Drupal and enable the module
 ## Usage: install
