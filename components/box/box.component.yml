@@ -15,6 +15,13 @@ props:
         - align-left
         - align-right
         - align-full
+      meta:enum:
+        'align-center': Center
+        'align-left': Align left
+        'align-right': Align right
+        'align-full': Full width
+      default: align-center
+      examples: ['align-center']
     background:
       type: string
       title: Background color
@@ -46,6 +53,37 @@ props:
         - bg-grey-600
         - bg-grey-800
         - bg-grey-900
+      meta:enum:
+        'bg-none': No background
+        'bg-white': White background
+        'bg-black': Black background
+        'bg-unit-primary': Unit Primary background
+        'bg-unit-secondary': Unit Secondary background
+        'bg-unit-tertiary': Unit Tertiary background
+        'bg-unit-accent': Unit Accent background
+        'bg-unit-alt-primary': Unit Primary Alt background
+        'bg-unit-alt-secondary': Unit Secondary Alt background
+        'bg-unit-alt-tertiary': Unit Tertiary Alt background
+        'bg-unit-alt-accent': Unit Accent Alt background
+        'bg-ubc-blue': UBC Blue background
+        'bg-ubc-blue-sea': 'UBC Blue: Sea background'
+        'bg-ubc-blue-cobalt': 'UBC Blue: Cobalt background'
+        'bg-ubc-blue-neptune': 'UBC Blue: Neptune background'
+        'bg-ubc-blue-cornflower': 'UBC Blue: Cornflower background'
+        'bg-ubc-blue-polar': 'UBC Blue: Polar background'
+        'bg-ubc-blue-frost': 'UBC Blue: Frost background'
+        'bg-grey-50': 'Grey: 50 background'
+        'bg-grey-100': 'Grey: 100 background'
+        'bg-grey-200': 'Grey: 200 background'
+        'bg-grey-300': 'Grey: 300 background'
+        'bg-grey-400': 'Grey: 400 background'
+        'bg-grey-500': 'Grey: 500 background'
+        'bg-grey-600': 'Grey: 600 background'
+        'bg-grey-700': 'Grey: 700 background'
+        'bg-grey-800': 'Grey: 800 background'
+        'bg-grey-900': 'Grey: 900 background'
+      default: bg-unit-primary
+      examples: ['bg-unit-primary']
     margin:
       type: string
       title: Vertical margin
@@ -56,6 +94,14 @@ props:
         - my-6
         - my-12
         - my-16
+      meta:enum:
+        'my-0': No vertical margin
+        'my-4': Vertical margin extra tight
+        'my-6': Vertical margin tight
+        'my-12': Vertical margin normal
+        'my-16': Vertical margin loose
+      default: my-12
+      examples: ['my-12']
     padding:
       type: string
       title: Padding
@@ -66,6 +112,14 @@ props:
         - p-6
         - p-12
         - p-16
+      meta:enum:
+        'p-0': No padding
+        'p-4': Padding extra tight
+        'p-6': Padding tight
+        'p-12': Padding normal
+        'p-16': Padding loose
+      default: p-12
+      examples: ['p-12']
     dropshadow:
       type: boolean
       title: Dropshadow

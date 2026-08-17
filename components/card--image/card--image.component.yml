@@ -40,7 +40,18 @@ props:
         - 'text-center'
         - 'text-left'
         - 'text-right'
+      meta:enum:
+        'mt-auto text-center': Bottom center
+        'mt-auto text-left': Bottom left
+        'mt-auto text-right': Bottom right
+        'place-content-center text-center': Center
+        'place-content-center text-left': Center, text left
+        'place-content-center text-right': Center, text right
+        'text-center': Top center
+        'text-left': Top left
+        'text-right': Top right
       default: 'mt-auto text-center'
+      examples: ['mt-auto text-center']
     meta:
       type: string
       title: Metadata

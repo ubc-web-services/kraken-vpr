@@ -35,6 +35,15 @@ props:
         - unit-button--transparent
         - unit-button--outline
         - unit-button--simple
+      meta:enum:
+        'unit-button': Default button
+        'unit-button--dark': Dark button
+        'unit-button--light': Light button
+        'unit-button--transparent': Transparent button
+        'unit-button--outline': Outline button
+        'unit-button--simple': Simple button
+      default: unit-button
+      examples: ['unit-button']
     size:
       type: string
       title: Size
@@ -42,10 +51,21 @@ props:
       enum:
         - text-xs
         - text-sm
+        - text-base
         - text-lg
         - text-xl
         - text-2xl
         - text-3xl
+      meta:enum:
+        'text-xs': Extra small text
+        'text-sm': Small text
+        'text-base': Default size text
+        'text-lg': Large text
+        'text-xl': Extra large text
+        'text-2xl': 2XL text
+        'text-3xl': 3XL text
+      default: text-base
+      examples: ['text-base']
     variant:
       type: string
       title: Variant

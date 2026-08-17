@@ -50,6 +50,48 @@ props:
         - icon-user
         - icon-vimeo
         - icon-youtube
+      meta:enum:
+        'logo-ubc': UBC crest
+        'icon-alert': Alert
+        'icon-arrow': Arrow
+        'icon-arrow-circle': Arrow in circle
+        'icon-bookmark': Bookmark
+        'icon-calendar': Calendar
+        'icon-caret': Caret
+        'icon-cart': Cart
+        'icon-clock': Clock
+        'icon-discussion': Discussion
+        'icon-external-link': External link
+        'icon-facebook': Facebook
+        'icon-facemask': Facemask
+        'icon-home': Home
+        'icon-info': Info
+        'icon-instagram': Instagram
+        'icon-linkedin': Linkedin
+        'icon-lock-closed': Lock, closed
+        'icon-lock-open': Lock, open
+        'icon-location': Location
+        'icon-mail': Mail
+        'icon-mask': Mask
+        'icon-menu': Menu
+        'icon-minus': Minus sign
+        'icon-money': Money
+        'icon-pencil': Pencil
+        'icon-phone': Phone
+        'icon-play': Play button
+        'icon-plus': Plus sign
+        'icon-rss': RSS
+        'icon-search': Search
+        'icon-settings': Settings
+        'icon-share': Share
+        'icon-speech': Speech
+        'icon-star': Star
+        'icon-twitter': Twitter
+        'icon-user': User
+        'icon-vimeo': Vimeo
+        'icon-youtube': Youtube
+      examples: ['icon-alert']
+      default: icon-alert
     size:
       type: string
       title: Icon Size
@@ -88,6 +130,37 @@ props:
         - text-grey-600
         - text-grey-800
         - text-grey-900
+      meta:enum:
+        'text-current': Current color text
+        'text-white': White text
+        'text-black': Black text
+        'text-unit-primary': Unit Primary text
+        'text-unit-secondary': Unit Secondary text
+        'text-unit-tertiary': Unit Tertiary text
+        'text-unit-accent': Unit Accent text
+        'text-unit-alt-primary': Unit Primary Alt text
+        'text-unit-alt-secondary': Unit Secondary Alt text
+        'text-unit-alt-tertiary': Unit Tertiary Alt text
+        'text-unit-alt-accent': Unit Accent Alt text
+        'text-ubc-blue': UBC Blue text
+        'text-ubc-blue-sea': 'UBC Blue: Sea text'
+        'text-ubc-blue-cobalt': 'UBC Blue: Cobalt text'
+        'text-ubc-blue-neptune': 'UBC Blue: Neptune text'
+        'text-ubc-blue-cornflower': 'UBC Blue: Cornflower text'
+        'text-ubc-blue-polar': 'UBC Blue: Polar text'
+        'text-ubc-blue-frost': 'UBC Blue: Frost text'
+        'text-grey-50': 'Grey: 50 text'
+        'text-grey-100': 'Grey: 100 text'
+        'text-grey-200': 'Grey: 200 text'
+        'text-grey-300': 'Grey: 300 text'
+        'text-grey-400': 'Grey: 400 text'
+        'text-grey-500': 'Grey: 500 text'
+        'text-grey-600': 'Grey: 600 text'
+        'text-grey-700': 'Grey: 700 text'
+        'text-grey-800': 'Grey: 800 text'
+        'text-grey-900': 'Grey: 900 text'
+      examples: ['text-white']
+      default: text-white
     customClasses:
       title: Custom Classes
       type: string

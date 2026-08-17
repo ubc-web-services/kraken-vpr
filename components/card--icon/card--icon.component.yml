@@ -36,8 +36,12 @@ props:
         - 'bg-transparent bg-light'
         - 'bg-white bg-light'
         - 'bg-unit-primary bg-dark'
+        - 'bg-unit-primary bg-light'
         - 'bg-unit-secondary bg-light'
+        - 'bg-unit-secondary bg-dark'
         - 'bg-unit-tertiary bg-light'
+        - 'bg-unit-tertiary bg-dark'
+        - 'bg-unit-accent bg-light'
         - 'bg-unit-accent bg-dark'
         - 'bg-ubc-blue bg-dark'
         - 'bg-ubc-blue-sea bg-dark'
@@ -47,7 +51,27 @@ props:
         - 'bg-ubc-blue-polar bg-light'
         - 'bg-ubc-blue-frost bg-light'
         - 'bg-grey-100 bg-light'
+      meta:enum:
+        'bg-transparent bg-light': No background
+        'bg-white bg-light': White background
+        'bg-unit-primary bg-dark': Unit Primary background
+        'bg-unit-primary bg-light': Unit Primary (light) background
+        'bg-unit-secondary bg-dark': Unit Secondary background
+        'bg-unit-secondary bg-light': Unit Secondary (light) background
+        'bg-unit-tertiary bg-dark': Unit Tertiary background
+        'bg-unit-tertiary bg-light': Unit Tertiary (light) background
+        'bg-unit-accent bg-dark': Unit Accent background
+        'bg-unit-accent bg-light': Unit Accent (light) background
+        'bg-ubc-blue bg-dark': UBC Blue background
+        'bg-ubc-blue-sea bg-dark': 'UBC Blue: Sea background'
+        'bg-ubc-blue-cobalt bg-dark': 'UBC Blue: Cobalt background'
+        'bg-ubc-blue-neptune bg-dark': 'UBC Blue: Neptune background'
+        'bg-ubc-blue-cornflower bg-light': 'UBC Blue: Cornflower background'
+        'bg-ubc-blue-polar bg-light': 'UBC Blue: Polar background'
+        'bg-ubc-blue-frost bg-light': 'UBC Blue: Frost background'
+        'bg-grey-100 bg-light': 'Grey: 100 background'
       default: 'bg-transparent bg-light'
+      examples: ['bg-transparent bg-light']
     layout:
       type: string
       title: Layout
@@ -56,7 +80,12 @@ props:
         - flex-row
         - flex-row-reverse
         - flex-col
+      meta:enum:
+        'flex-row': Row
+        'flex-row-reverse': Row Reversed
+        'flex-col': Column
       default: flex-row
+      examples: ['flex-row']
     customClasses:
       title: Custom Classes
       type: string
