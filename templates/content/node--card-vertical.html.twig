@@ -74,7 +74,7 @@
   {% endif %}
 {% endif %}
 
-{% set displaymeta = false %}
+{% set displaymeta = '' %}
 {% if display_submitted %}
   {% set displaymeta = node.createdtime|format_date('date_readable') %}
 {% endif %}
