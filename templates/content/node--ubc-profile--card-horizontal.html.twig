@@ -74,13 +74,22 @@
   {% endif %}
 {% endif %}
 
+{% set title_prefix = '' %}
+{% if not (node.field_profile_name_prefix.isEmpty == true) and content.field_profile_name_prefix is defined %}
+  {% set title_prefix = content.field_profile_name_prefix.0 %}
+{% endif %}
+{% set title_suffix = '' %}
+{% if not (node.field_profile_name_suffix.isEmpty == true) and content.field_profile_name_suffix is defined %}
+  {% set title_suffix = content.field_profile_name_suffix.0 %}
+{% endif %}
+
 {% set link_target = false %}
 {% set link_url = url %}
 
 {% embed 'kraken:card--primary' with {
   title: label,
-  titlePrefix: content.field_profile_name_prefix.0,
-  titleSuffix: content.field_profile_name_suffix.0,
+  titlePrefix: title_prefix,
+  titleSuffix: title_suffix,
   link: link_url,
   layout: 'ubc-card--horiz',
   color: 'bg-white bg-light',
