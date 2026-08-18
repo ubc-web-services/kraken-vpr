@@ -40,13 +40,15 @@
 #}
 {% set target = false %}
 {% set link_url = '' %}
+{% set link_text = '' %}
 {% if not (paragraph.field_paragraph_icon_card_link.isEmpty == true) and content.field_paragraph_icon_card_link is defined %}
-  {% if content.field_paragraph_icon_card_link["#items"][0].isExternal() == true %}
-    {% set link_url = content.field_paragraph_icon_card_link.0['#url'].uri %}
-    {% set target = true %}
-  {% else %}
-    {% set link_url = paragraph.field_paragraph_icon_card_link.0.url %}
-  {% endif %}
+	{% set link_text = content.field_paragraph_icon_card_link.0['#title'] %}
+	{% if content.field_paragraph_icon_card_link["#items"][0].isExternal() == true %}
+		{% set link_url = content.field_paragraph_icon_card_link.0['#url'].uri %}
+		{% set target = true %}
+	{% else %}
+		{% set link_url = paragraph.field_paragraph_icon_card_link.0.url %}
+	{% endif %}
 {% endif %}
 
 {% block paragraph %}
@@ -54,7 +56,7 @@
       title: paragraph.field_paragraph_icon_card_title.value,
       link: link_url,
 	  target: target,
-      linkText: content.field_paragraph_icon_card_link.0['#title'],
+      linkText: link_text,
       layout: paragraph.field_paragraph_icon_layout.0.entity.field_class.value,
       color: paragraph.field_paragraph_card_colour.0.entity.field_class.value,
     } %}
@@ -71,11 +73,12 @@
 		{% block actions %}
 			<p>
 				{% embed 'kraken:button' with {
-            link: link_url,
-            text: content.field_paragraph_icon_card_link.0['#title'],
-            style: 'unit-button--simple',
-            size: 'text-sm',
-        } %}{% endembed %}
+					link: link_url,
+					text: link_text,
+					style: 'unit-button--simple',
+					size: 'text-sm',
+				} %}
+				{% endembed %}
 			</p>
 		{% endblock %}
 	{% endembed %}
