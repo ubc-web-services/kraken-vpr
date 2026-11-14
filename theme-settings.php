@@ -6,11 +6,17 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\FileInterface;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
+ *
+ * @param array<string, mixed> $form
+ *   The theme settings form render array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
  */
-function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$form_state)
+function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$form_state): void
 {
   // Move the default theme settings to our custom vertical tabs for core theme
   // settings.
@@ -992,8 +998,9 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#default_value' => theme_get_setting('clf_fontawesome'),
   ];
 
-  if ($file_id = $form_state->getValue(['vpr_portfolio_signature', '0'])) {
-    $file = \Drupal::entityTypeManager()->getStorage('file')->load($file_id);
+  $fid = $form_state->getValue('vpr_portfolio_signature')[0] ?? NULL;
+  $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+  if ($file instanceof FileInterface) {
     $file->setPermanent();
     $file->save();
   }
