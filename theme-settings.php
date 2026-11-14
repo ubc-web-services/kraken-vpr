@@ -1000,7 +1000,9 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
 
   if ($file_id = $form_state->getValue(['vpr_portfolio_signature', '0'])) {
     $file = \Drupal::entityTypeManager()->getStorage('file')->load($file_id);
-    $file->setPermanent();
-    $file->save();
+    if ($file instanceof FileInterface) {
+      $file->setPermanent();
+      $file->save();
+    }
   }
 }
