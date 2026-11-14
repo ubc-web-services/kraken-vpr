@@ -998,9 +998,8 @@ function kraken_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#default_value' => theme_get_setting('clf_fontawesome'),
   ];
 
-  $fid = $form_state->getValue('vpr_portfolio_signature')[0] ?? NULL;
-  $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
-  if ($file instanceof FileInterface) {
+  if ($file_id = $form_state->getValue(['vpr_portfolio_signature', '0'])) {
+    $file = \Drupal::entityTypeManager()->getStorage('file')->load($file_id);
     $file->setPermanent();
     $file->save();
   }
